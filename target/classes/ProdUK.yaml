@@ -1,0 +1,50 @@
+---
+applicationUrl: https://console.unbxd.io
+baseUrl: https://console-uk.unbxd.io
+services:
+  - name: solr
+    url: http://docker-fsd2.unbxd.io:8900
+  - name: brewer
+    url: http://docker-fsd2.unbxd.io:8901
+  - name: groot
+    url: http://docker-fsd2.unbxd.io:8903
+  - name: gimli
+    url: http://docker-fsd2.unbxd.io:8904
+  - name: asterix
+    url: http://docker-fsd2.unbxd.io:6339
+  - name: feed
+    url: http://feed-uk.unbxd.io
+  - name: ether
+    url: http://docker-fsd2.unbxd.io:2205
+  - name: mysql
+    url: docker-fsd.unbxd.io:3306
+  - name: console
+    url: https://console-uk.unbxd.io
+
+
+sites:
+  - siteKey: ss-unbxd-UKds29711638513367
+    apiKey: 61abd6686bbba6bc067355759a2424c4
+    secretKey: 944a4f19c371afb1157a24b761bed2ed
+    statusById: ebaf259a-bcea-4c0d-99b6-1ea4957e006a
+    siteId: 1434
+    region: UK Customer Sites
+    id: 1
+
+  - siteKey: ss-unbxd-hybo9431617710978
+    apiKey: 19c7aa342b5b27b9a8f6e716aa5e0345
+    secretKey: f4f34f4553bed14d80e3b4bfab4f6986
+    statusById: faf3324d-c8f8-4bf0-89a0-c98eabf2b724
+    siteId: 1434
+    region: UK Customer Sites
+    id: 2
+
+users:
+  - id: 1
+    email: manualuk@yopmail.com
+    password: Password@123
+    deleteSiteSsoIdKeyValue: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjpudWxsLCJleHBpcnkiOiIyMDIxLTA0LTEzIDA5OjIxOjE2IFVUQyIsImVtYWlsIjoicHJvZGF6MUB5b3BtYWlsLmNvbSIsInJlZ2lvbnMiOnsidXMiOnsicmVmX3VzZXJfaWQiOjgxODAwfSwiYXUiOnsicmVmX3VzZXJfaWQiOjk0M30sInVrIjp7InJlZl91c2VyX2lkIjo5MjN9LCJzZyI6eyJyZWZfdXNlcl9pZCI6MTE2NH19fQ.nSwcIlR1i9XfKgxCi0yQxbGmipapcTSM4OROoFgyWR8
+
+  - id: 2
+    email: manualuk@yopmail.com
+    password: Password@123

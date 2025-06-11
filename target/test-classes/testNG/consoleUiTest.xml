@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Console Ui Tests " parallel="tests" thread-count="10" verbose="10" preserve-order="true">
+
+
+    <test name="Verifies Synonym add/edit/delete Testcases">
+        <classes>
+            <class name="UnbxdTests.testNG.consoleui.AlgorithmTest.SynonymsTest"/>
+            <class name="UnbxdTests.testNG.consoleui.ExpTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest"/>
+        </classes>
+    </test>
+</suite>

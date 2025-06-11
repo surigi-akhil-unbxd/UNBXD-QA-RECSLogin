@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: UnbxdTests.testNG.consoleui.GBFiltersTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 83.622 s - in UnbxdTests.testNG.consoleui.GBFiltersTest

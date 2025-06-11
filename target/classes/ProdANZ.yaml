@@ -1,0 +1,43 @@
+---
+applicationUrl: https://console.unbxd.io
+baseUrl: https://console-anz.unbxd.io
+services:
+  - name: solr
+    url: http://docker-fsd2.unbxd.io:8900
+  - name: brewer
+    url: http://docker-fsd2.unbxd.io:8901
+  - name: groot
+    url: http://docker-fsd2.unbxd.io:8903
+  - name: gimli
+    url: http://docker-fsd2.unbxd.io:8904
+  - name: asterix
+    url: http://docker-fsd2.unbxd.io:6339
+  - name: feed
+    url: http://feed-anz.unbxd.io
+  - name: ether
+    url: http://docker-fsd2.unbxd.io:2205
+  - name: mysql
+    url: docker-fsd.unbxd.io:3306
+  - name: console
+    url: https://console-anz.unbxd.io
+
+
+sites:
+  - siteKey: ss-unbxd-Anzx9431638512327
+    apiKey: 07a02ce92edf0fa458d7478238f8214d
+    secretKey: 02fb2d806d9b0ddbe4e48eecf4f1215d
+    statusById: 84b5b88e-fc40-454f-baf8-12b710bf711c
+    siteId: 2934
+    region: AZ Customer Sites
+    id: 1
+  
+
+users:
+  - id: 1
+    email: manualANZ@yopmail.com
+    password: Password@123
+    deleteSiteSsoIdKeyValue: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjpudWxsLCJleHBpcnkiOiIyMDIxLTA0LTEzIDA5OjIxOjE2IFVUQyIsImVtYWlsIjoicHJvZGF6MUB5b3BtYWlsLmNvbSIsInJlZ2lvbnMiOnsidXMiOnsicmVmX3VzZXJfaWQiOjgxODAwfSwiYXUiOnsicmVmX3VzZXJfaWQiOjk0M30sInVrIjp7InJlZl91c2VyX2lkIjo5MjN9LCJzZyI6eyJyZWZfdXNlcl9pZCI6MTE2NH19fQ.nSwcIlR1i9XfKgxCi0yQxbGmipapcTSM4OROoFgyWR8
+
+  - id: 2
+    email: manualANZ@yopmail.com
+    password: Password@123

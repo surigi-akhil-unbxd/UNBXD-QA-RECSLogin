@@ -1,0 +1,17 @@
+{
+  "testData": [
+    {
+      "customAlgo": "Top Sellers",
+      "noOfSlots": "10",
+      "editCustomAlgo" : "Most Viewed",
+      "lookbackPeriod": "10"
+    },
+    {
+      "customAlgo": "Category Top Sellers",
+      "noOfSlots": "10",
+      "editCustomAlgo" : "Most Viewed",
+      "lookbackPeriod": "10"
+    }
+
+  ]
+} 

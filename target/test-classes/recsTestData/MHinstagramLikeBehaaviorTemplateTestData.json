@@ -1,0 +1,15 @@
+{
+  "testData": [
+    {
+      "widgetSize": "700",
+      "Layout": "Horizontal",
+      "ProductsInDisplay": "6",
+      "EditWidgetSize": "700",
+      "MaximumProducts": "12",
+      "TemplateType": "Boutique",
+      "ButtonPosition": "Left",
+      "Medium": "Mobile",
+      "BehaviourType": "Instagram like behaviour"
+    }
+  ]
+} 

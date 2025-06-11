@@ -1,0 +1,16 @@
+{
+  "testData": [
+    {
+      "widgetSize": "900",
+      "Medium": "Desktop",
+      "Layout": "Horizontal",
+      "productsInDisplay": "6",
+      "maximumProducts": "12"
+    },
+    {
+      "Medium": "Desktop",
+      "Layout": "Grid",
+      "widgetSize": 4
+    }
+  ]
+} 

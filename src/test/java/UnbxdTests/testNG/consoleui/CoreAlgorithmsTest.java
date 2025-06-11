@@ -1,0 +1,93 @@
+package UnbxdTests.testNG.consoleui;
+
+import UnbxdTests.testNG.ui.BaseTest;
+import core.consoleui.actions.CoreAlgorithmsActions;
+import core.consoleui.pages.CoreAlgorithmsPage;
+import core.ui.actions.LoginActions;
+import core.consoleui.actions.ExpActions;
+import org.fluentlenium.core.annotation.Page;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import org.openqa.selenium.WebDriver;
+import com.google.gson.JsonObject;
+import UnbxdTests.testNG.dataProvider.ResourceLoader;
+import lib.annotation.FileToTest;
+import org.testng.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class CoreAlgorithmsTest extends BaseTest {
+
+    private CoreAlgorithmsActions coreAlgorithmsActions;
+    private ExpActions expActions;
+
+    @Page
+    LoginActions loginActions;
+
+    @BeforeClass
+    public void setUp() {
+        try {
+            super.setUp();
+            this.initFluent(driver);
+            initTest();
+            loginActions.login(1, 1);
+            coreAlgorithmsActions = new CoreAlgorithmsActions(driver);
+            expActions = new ExpActions(driver);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test(dataProvider = "getTestDataFromFile", dataProviderClass = ResourceLoader.class)
+    @FileToTest("recsTestData/coreAlgoTestData.json")
+    public void testNavigateToCoreAlgorithmsPage(JsonObject dataMap) {
+        expActions.handleAllPopups();
+        coreAlgorithmsActions.navigateToCoreAlgorithmsPage();
+        coreAlgorithmsActions.clickCoreAlgorithms();
+        coreAlgorithmsActions.clickMinimizeTitle();
+        coreAlgorithmsActions.clickCTLConfigureButton();
+        // Wait for 2 seconds to ensure the UI is ready after clicking CTL Configure Button
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        coreAlgorithmsActions.clickCreateButton();
+        
+        
+        String productId = dataMap.get("parentID").getAsString(); // or whichever key you want from your test data
+        coreAlgorithmsActions.enterProductId(productId);
+        String childProductId = dataMap.get("childID").getAsString();
+        coreAlgorithmsActions.enterChildProductId(childProductId);
+        coreAlgorithmsActions.clickSaveButton();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        coreAlgorithmsActions.enterProductIdInSearchInput(productId);
+        coreAlgorithmsActions.clickParentIdInListing(productId);
+        coreAlgorithmsActions.clickEditIcon();
+        // Wait for 3 seconds to ensure the UI is ready after clicking Edit Icon
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        coreAlgorithmsActions.clickAddButton();
+        
+         String childProductId1 = dataMap.get("childID1").getAsString();
+        
+         coreAlgorithmsActions.enterChildProductId1(childProductId1);
+        coreAlgorithmsActions.clickSaveButton();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        coreAlgorithmsActions.enterProductIdInSearchInput(productId);
+        coreAlgorithmsActions.clickParentIdInListing(productId);
+        coreAlgorithmsActions.clickDeleteIcon();
+        coreAlgorithmsActions.clickProceedButton();
+    }
+} 

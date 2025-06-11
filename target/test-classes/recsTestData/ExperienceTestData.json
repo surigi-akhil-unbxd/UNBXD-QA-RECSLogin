@@ -1,0 +1,44 @@
+{
+  "testData": [
+    {
+      "pageName": "Home Page",
+      "widgetName": "WIDGET 1",
+      "desktopTemplate": "Untitled-layout-771  (desktop browser)",
+      "mobileTemplate": "U769  (mobile browser)",
+      "customAlgo": "Top Sellers",
+      "EditWidgetType": "WIDGET 2"
+    },
+    {
+      "pageName": "Product Page",
+      "widgetName": "WIDGET 1",
+      "desktopTemplate": "Untitled-layout-771  (desktop browser)",
+      "mobileTemplate": "U769  (mobile browser)",
+      "customAlgo": "Top Sellers",
+      "EditWidgetType": "WIDGET 2"
+    },
+    {
+      "pageName": "Category Page",
+      "widgetName": "WIDGET 1",
+      "desktopTemplate": "Untitled-layout-771  (desktop browser)",
+      "mobileTemplate": "U769  (mobile browser)",
+      "customAlgo": "Top Sellers",
+      "EditWidgetType": "WIDGET 2"
+    },
+    {
+      "pageName": "Brand Page",
+      "widgetName": "WIDGET 1",
+      "desktopTemplate": "Untitled-layout-771  (desktop browser)",
+      "mobileTemplate": "U769  (mobile browser)",
+      "customAlgo": "Top Sellers",
+      "EditWidgetType": "WIDGET 2"
+    },
+    {
+      "pageName": "Cart Page",
+      "widgetName": "WIDGET 1",
+      "desktopTemplate": "Untitled-layout-771  (desktop browser)",
+      "mobileTemplate": "U769  (mobile browser)",
+      "customAlgo": "Top Sellers",
+      "EditWidgetType": "WIDGET 2"
+    }
+  ]
+} 

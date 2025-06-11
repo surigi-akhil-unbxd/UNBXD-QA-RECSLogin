@@ -1,0 +1,14 @@
+{
+  "testData": [
+    {
+      "widgetSize": "200",
+      "Medium": "Desktop",
+      "Layout": "Vertical",
+      "ProductsInDisplay": "6",
+      "EditWidgetSize": "200",
+      "MaximumProducts": "12",
+      "TemplateType": "Boutique",
+      "ButtonPosition": "Left"
+    }
+  ]
+} 

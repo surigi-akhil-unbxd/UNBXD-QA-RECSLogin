@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="UI Regression Suite" parallel="classes" thread-count="10">
+    <!-- Core Algorithms Tests -->
+    <test name="Core Algorithms">
+        <classes>
+            <class name="UnbxdTests.testNG.consoleui.CoreAlgorithmsTest"/>
+            <class name="UnbxdTests.testNG.consoleui.CustomAlgorithmsTest"/>
+            <class name="UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest"/>
+        </classes>
+    </test>
+
+    <!-- Experience Tests -->
+    <test name="Experience">
+        <classes>
+            <class name="UnbxdTests.testNG.consoleui.ExpTest"/>
+            <class name="UnbxdTests.testNG.consoleui.BoutiqueExperienceTest"/>
+            <class name="UnbxdTests.testNG.consoleui.JourneyExperienceTest"/>
+            <class name="UnbxdTests.testNG.consoleui.broadCastPageTest"/>
+        </classes>
+    </test>
+
+    <!-- Template Tests -->
+    <test name="Templates" parallel="classes" thread-count="10">
+        <classes>
+            
+            <class name="UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.DHexitIntentTemplatetest"/>
+            <class name="UnbxdTests.testNG.consoleui.DHstandardWidgettemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.DVexitIntentTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.DVstandardWidgetTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MHboutiqueTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MHinstagramLikeBehaaviorTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MHstandardWidgettemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MHtinderLikeBehaviorTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MVinstagramLikeBehaviorTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest"/>
+        </classes>
+    </test>
+
+    <!-- Filter Tests -->
+    <test name="Filters">
+        <classes>
+            
+        </classes>
+    </test>
+</suite> 

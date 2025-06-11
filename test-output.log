@@ -1,0 +1,73 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< org.example:selfServe-ui-tests >-------------------
+[INFO] Building selfServe-ui-tests 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ selfServe-ui-tests ---
+[INFO] Deleting /Users/unbxd/Downloads/recsAkhil/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ selfServe-ui-tests ---
+[INFO] Copying 8 resources from src/main/resources to target/classes
+[INFO] Copying 5 resources from src/main/resources to target/classes
+[INFO] The encoding used to copy filtered properties files have not been set. This means that the same encoding will be used to copy filtered properties files as when copying other filtered resources. This might not be what you want! Run your build with --debug to see which files might be affected. Read more at https://maven.apache.org/plugins/maven-resources-plugin/examples/filtering-properties-files.html
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ selfServe-ui-tests ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 77 source files with javac [debug target 8] to target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[WARNING] /Users/unbxd/Downloads/recsAkhil/src/main/java/lib/UrlMapper.java:[28,50] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.lang.Object for a varargs call
+  cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+[WARNING] /Users/unbxd/Downloads/recsAkhil/src/main/java/lib/UrlMapper.java:[39,50] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.lang.Object for a varargs call
+  cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+[WARNING] /Users/unbxd/Downloads/recsAkhil/src/main/java/lib/UrlMapper.java:[45,50] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.lang.Object for a varargs call
+  cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+[WARNING] /Users/unbxd/Downloads/recsAkhil/src/main/java/lib/UrlMapper.java:[50,53] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.lang.Object for a varargs call
+  cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+[INFO] /Users/unbxd/Downloads/recsAkhil/src/main/java/core/reporting/ExtentTestNGITestListener.java: /Users/unbxd/Downloads/recsAkhil/src/main/java/core/reporting/ExtentTestNGITestListener.java uses unchecked or unsafe operations.
+[INFO] /Users/unbxd/Downloads/recsAkhil/src/main/java/core/reporting/ExtentTestNGITestListener.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ selfServe-ui-tests ---
+[INFO] Copying 44 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ selfServe-ui-tests ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 7 source files with javac [debug target 8] to target/test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ selfServe-ui-tests ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite
+...
+... TestNG 6.14.3 by Cédric Beust (cedric@beust.com)
+...
+
+Starting setUp in BaseTest...
+Creating BrowserInitializer...
+Initializing browser...
+Getting driver from initializer...
+Driver status after initialization: Driver exists
+Initializing FluentLenium adapter...
+FluentLenium initialization completed
+Initializing test...
+Test initialization completed
+Setting the Context UserId:1 , siteId : 1
+Removing the Context userId: 1 , SiteId: 1Starting setUp in BaseTest...
+Creating BrowserInitializer...
+Initializing browser...
+Getting driver from initializer...
+Driver status after initialization: Driver exists
+Initializing FluentLenium adapter...
+FluentLenium initialization completed
+Initializing test...
+Test initialization completed
+Setting the Context UserId:1 , siteId : 1
+Removing the Context userId: 1 , SiteId: 1

@@ -1,0 +1,45 @@
+
+---
+applicationUrl: https://console.unbxd.io
+baseUrl: https://console-g-nam.unbxd.io
+services:
+  - name: solr
+    url: http://docker-fsd2.unbxd.io:8900
+  - name: brewer
+    url: http://docker-fsd2.unbxd.io:8901
+  - name: groot
+    url: http://docker-fsd2.unbxd.io:8903
+  - name: gimli
+    url: http://docker-fsd2.unbxd.io:8904
+  - name: asterix
+    url: http://docker-fsd2.unbxd.io:6339
+  - name: feed
+    url: http://feed-g-nam.unbxd.io
+  - name: ether
+    url: http://docker-fsd2.unbxd.io:2205
+  - name: mysql
+    url: docker-fsd.unbxd.io:3306
+  - name: console
+    url: https://console-g-nam.unbxd.io
+
+
+sites:
+  - siteKey: ss-unbxd-gcp-CGP31638528614
+    apiKey: 621d145a8525815e0eec25711ee9115a
+    secretKey: 3f2ea405137ac179f7aedb00e8bb3f80
+    statusById: 0fb9260e-a4f8-432a-9495-86b7a996f7eb
+    siteId: 1332
+    region: AZ Customer Sites
+    id: 1
+ 
+
+
+users:
+  - id: 1
+    email: consolegcpqa@yopmail.com
+    password: Password@123
+    deleteSiteSsoIdKeyValue: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjpudWxsLCJleHBpcnkiOiIyMDIxLTA0LTEzIDA5OjIxOjE2IFVUQyIsImVtYWlsIjoicHJvZGF6MUB5b3BtYWlsLmNvbSIsInJlZ2lvbnMiOnsidXMiOnsicmVmX3VzZXJfaWQiOjgxODAwfSwiYXUiOnsicmVmX3VzZXJfaWQiOjk0M30sInVrIjp7InJlZl91c2VyX2lkIjo5MjN9LCJzZyI6eyJyZWZfdXNlcl9pZCI6MTE2NH19fQ.nSwcIlR1i9XfKgxCi0yQxbGmipapcTSM4OROoFgyWR8
+
+  - id: 2
+    email: consolegcpqa@yopmail.com
+    password: Password@123

@@ -1,0 +1,8 @@
+{
+  "testData": [
+    { "filterOption": "Page Type" },
+    { "filterOption": "Widget" },
+    { "filterOption": "Segment" },
+    { "filterOption": "Status" }
+  ]
+} 

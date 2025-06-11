@@ -1,0 +1,13 @@
+{
+  "testData": [
+    {
+      "pageName": "Journey Page",
+      "widgetName": "WIDGET 1",
+      "desktopTemplate": "Untitled-layout-771  (desktop browser)",
+      "mobileTemplate": "U769  (mobile browser)",
+      "customAlgo": "Top Sellers",
+      "EditWidgetType": "WIDGET 2"
+    }
+   
+  ]
+} 

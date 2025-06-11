@@ -1,0 +1,36 @@
+{
+  "testData": [
+    {
+      "customAlgo": "Recommended For You",
+      "noOfSlots": "10",
+      "editCustomAlgo" : "Most Viewed"
+    },
+    {
+        "customAlgo": "Most Viewed",
+        "noOfSlots": "10",
+        "editCustomAlgo" : "Recommended For You"
+      },
+      {
+        "customAlgo": "Recently Viewed",
+        "noOfSlots": "10",
+        "editCustomAlgo" : "Recommended For You"
+      },
+      {
+        "customAlgo": "More Like These",
+        "noOfSlots": "10",
+        "editCustomAlgo" : "Recommended For You"
+
+      },
+      {
+        "customAlgo": "Viewed also viewed",
+        "noOfSlots": "10",
+        "editCustomAlgo" : "Recommended For You"
+
+      },
+      {
+        "customAlgo": "Cross sell",
+        "noOfSlots": "10",
+        "editCustomAlgo" : "Recommended For You"
+      }
+  ]
+} 
