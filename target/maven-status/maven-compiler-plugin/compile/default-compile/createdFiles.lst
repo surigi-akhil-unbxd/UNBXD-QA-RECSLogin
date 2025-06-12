@@ -74,6 +74,7 @@ lib/Helper.class
 core/ui/actions/CreateSiteActions$ErrorDto.class
 lib/config/UserConfiguration.class
 core/ui/actions/ShopifyFeedUploadActions.class
+core/consoleui/actions/GBFiltersActions.class
 lib/config/User.class
 lib/Helper$1.class
 core/ui/page/CreateSitePage.class

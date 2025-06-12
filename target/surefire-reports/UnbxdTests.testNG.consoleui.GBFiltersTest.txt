@@ -1,4 +1,13 @@
 -------------------------------------------------------------------------------
 Test set: UnbxdTests.testNG.consoleui.GBFiltersTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 83.622 s - in UnbxdTests.testNG.consoleui.GBFiltersTest
+Tests run: 5, Failures: 2, Errors: 0, Skipped: 3, Time elapsed: 88.186 s <<< FAILURE! - in UnbxdTests.testNG.consoleui.GBFiltersTest
+setUp(UnbxdTests.testNG.consoleui.GBFiltersTest)  Time elapsed: 74.624 s  <<< FAILURE!
+org.fluentlenium.core.exception.ConstructionException: No constructor found on class core.consoleui.actions.GBFiltersActions
+	at UnbxdTests.testNG.consoleui.GBFiltersTest.setUp(GBFiltersTest.java:35)
+Caused by: java.lang.NoSuchMethodException: core.consoleui.actions.GBFiltersActions.<init>()
+	at UnbxdTests.testNG.consoleui.GBFiltersTest.setUp(GBFiltersTest.java:35)
+
+removeContextForTest(UnbxdTests.testNG.consoleui.GBFiltersTest)  Time elapsed: 0.034 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "lib.config.Context.getUserId()" because the return value of "java.lang.ThreadLocal.get()" is null
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="UnbxdTests.testNG.consoleui.GBFiltersTest" time="83.622" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="UnbxdTests.testNG.consoleui.GBFiltersTest" time="88.186" tests="5" errors="0" skipped="3" failures="2">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="/Users/unbxd/Library/Application Support/fire-flink-client/JDK/jdk-11.1/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/unbxd/Downloads/recsAkhil/target/surefire/surefirebooter3704019968619328391.jar /Users/unbxd/Downloads/recsAkhil/target/surefire 2025-06-11T12-01-46_303-jvmRun1 surefire14593866480310259992tmp surefire_011561605710522929033tmp"/>
+    <property name="sun.java.command" value="/Users/unbxd/Downloads/recsAkhil/target/surefire/surefirebooter11164060583871655747.jar /Users/unbxd/Downloads/recsAkhil/target/surefire 2025-06-12T13-06-29_246-jvmRun1 surefire13896974469107509393tmp surefire_09846647580863573411tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="UnbxdTests.testNG.consoleui.GBFiltersTest"/>
@@ -29,7 +29,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/unbxd/Downloads/recsAkhil/target/surefire/surefirebooter3704019968619328391.jar"/>
+    <property name="surefire.real.class.path" value="/Users/unbxd/Downloads/recsAkhil/target/surefire/surefirebooter11164060583871655747.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="17.0.11+9-adhoc.admin.jdk17u"/>
@@ -45,7 +45,6 @@
     <property name="java.io.tmpdir" value="/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/"/>
     <property name="java.version" value="17.0.11"/>
     <property name="user.dir" value="/Users/unbxd/Downloads/recsAkhil"/>
-    <property name="environment.profile" value="ProdUS"/>
     <property name="os.arch" value="x86_64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="native.encoding" value="UTF-8"/>
@@ -57,6 +56,93 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="createGBFilterTest" classname="UnbxdTests.testNG.consoleui.GBFiltersTest" time="73.996"/>
-  <testcase name="sanityTest" classname="UnbxdTests.testNG.consoleui.GBFiltersTest" time="0.001"/>
+  <testcase name="setUp" classname="UnbxdTests.testNG.consoleui.GBFiltersTest" time="74.624">
+    <failure message="No constructor found on class core.consoleui.actions.GBFiltersActions" type="org.fluentlenium.core.exception.ConstructionException"><![CDATA[org.fluentlenium.core.exception.ConstructionException: No constructor found on class core.consoleui.actions.GBFiltersActions
+	at UnbxdTests.testNG.consoleui.GBFiltersTest.setUp(GBFiltersTest.java:35)
+Caused by: java.lang.NoSuchMethodException: core.consoleui.actions.GBFiltersActions.<init>()
+	at UnbxdTests.testNG.consoleui.GBFiltersTest.setUp(GBFiltersTest.java:35)
+]]></failure>
+    <system-out><![CDATA[Starting setUp in BaseTest...
+Creating BrowserInitializer...
+Trying to load: ProdUS.yaml, InputStream is null? false
+Initializing browser...
+[DEBUG] Browser from config: chrome
+[DEBUG] initDriver called for browser: CHROME
+[DEBUG] Using ChromeDriver path: src/main/resources/driver/chromedriver
+[DEBUG] WebDriver successfully created: org.openqa.selenium.chrome.ChromeDriver
+Getting driver from initializer...
+Driver status after initialization: Driver exists
+Initializing FluentLenium adapter...
+FluentLenium initialization completed
+Initializing test...
+Browser Initialization is failed with Exception No constructor found on class core.consoleui.actions.GBFiltersActions
+]]></system-out>
+    <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+log4j:WARN No appenders could be found for logger (org.apache.commons.configuration.PropertiesConfiguration).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Starting ChromeDriver 136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}) on port 47982
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully on port 47982.
+[1749713858.895][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
+org.fluentlenium.core.exception.ConstructionException: No constructor found on class core.consoleui.actions.GBFiltersActions
+	at org.fluentlenium.core.FluentAdapter.initClass(FluentAdapter.java:100)
+	at org.fluentlenium.core.FluentAdapter.injectPageIntoContainer(FluentAdapter.java:61)
+	at org.fluentlenium.core.FluentAdapter.initTest(FluentAdapter.java:42)
+	at UnbxdTests.testNG.ui.BaseTest.setUp(BaseTest.java:41)
+	at UnbxdTests.testNG.consoleui.GBFiltersTest.setUp(GBFiltersTest.java:33)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:361)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:296)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:180)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:135)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:146)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: java.lang.NoSuchMethodException: core.consoleui.actions.GBFiltersActions.<init>()
+	at java.base/java.lang.Class.getConstructor0(Class.java:3585)
+	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2754)
+	at org.fluentlenium.core.FluentAdapter.initClass(FluentAdapter.java:84)
+	... 35 more
+]]></system-err>
+  </testcase>
+  <testcase name="sanityTest" classname="UnbxdTests.testNG.consoleui.GBFiltersTest" time="0">
+    <skipped message="No constructor found on class core.consoleui.actions.GBFiltersActions"/>
+  </testcase>
+  <testcase name="testGBFiltersWorkflow" classname="UnbxdTests.testNG.consoleui.GBFiltersTest" time="0">
+    <skipped message="No constructor found on class core.consoleui.actions.GBFiltersActions"/>
+  </testcase>
+  <testcase name="tearDown" classname="UnbxdTests.testNG.consoleui.GBFiltersTest" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="removeContextForTest" classname="UnbxdTests.testNG.consoleui.GBFiltersTest" time="0.034">
+    <failure message="Cannot invoke &quot;lib.config.Context.getUserId()&quot; because the return value of &quot;java.lang.ThreadLocal.get()&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "lib.config.Context.getUserId()" because the return value of "java.lang.ThreadLocal.get()" is null
+</failure>
+  </testcase>
 </testsuite>
