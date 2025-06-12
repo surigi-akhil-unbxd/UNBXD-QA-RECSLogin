@@ -3,7 +3,8 @@
     {
       "attribute": "uniqueId",
       "value": "AAM15MB01",
-      "operator": "Include"
+      "operator": "Include",
+      "editValue": "AAM15MB04"
     }
   ]
 } 
