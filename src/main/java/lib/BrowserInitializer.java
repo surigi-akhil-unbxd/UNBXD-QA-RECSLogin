@@ -9,9 +9,11 @@ import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.awt.*;
 import java.io.File;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -80,21 +82,30 @@ public class BrowserInitializer {
     }
 
     private WebDriver initDriver(Browser browser, DesiredCapabilities capabilities) {
-        WebDriver driver=null;
+        WebDriver driver = null;
         System.out.println("[DEBUG] initDriver called for browser: " + browser);
-        if(browser== Browser.CHROME) {
-            String chromePath = getChromeDriverPath();
-            System.out.println("[DEBUG] Using ChromeDriver path: " + chromePath);
-            driver=new ChromeDriver(capabilities);
-        }
-        else if(browser== Browser.FIREFOX){
-            System.setProperty("webdriver.gecko.driver", geckoDriverPath);
-            capabilities.setCapability("marionette", true);
-            System.out.println("[DEBUG] Using GeckoDriver path: " + geckoDriverPath);
-            driver=new FirefoxDriver(capabilities);
-        }
-        else {
-            System.out.println("[DEBUG] No matching browser found, returning null driver.");
+
+        String hubUrl = System.getProperty("hubUrl");
+        boolean useGrid = hubUrl != null && !hubUrl.isEmpty();
+
+        try {
+            if (useGrid) {
+                System.out.println("[DEBUG] Using Selenium Grid at: " + hubUrl);
+                driver = new RemoteWebDriver(new URL(hubUrl), capabilities);
+            } else if (browser == Browser.CHROME) {
+                String chromePath = getChromeDriverPath();
+                System.out.println("[DEBUG] Using ChromeDriver path: " + chromePath);
+                driver = new ChromeDriver(capabilities);
+            } else if (browser == Browser.FIREFOX) {
+                System.setProperty("webdriver.gecko.driver", geckoDriverPath);
+                capabilities.setCapability("marionette", true);
+                System.out.println("[DEBUG] Using GeckoDriver path: " + geckoDriverPath);
+                driver = new FirefoxDriver(capabilities);
+            } else {
+                System.out.println("[DEBUG] No matching browser found, returning null driver.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return driver;
     }
@@ -137,15 +148,25 @@ public class BrowserInitializer {
     }
 
     private String getChromeDriverPath() {
-        String path="src"+File.separator+"main"+File.separator+"resources"+File.separator+"driver"+File.separator;
-        String os=System.getProperty("os.name");
+        String path = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "driver" + File.separator;
+        String os = System.getProperty("os.name").toLowerCase();
 
-        if(os.toLowerCase().contains("windows"))
-            path=path+"chromedriver.exe";
-        else if(os.toLowerCase().contains("mac"))
-            path=path+"chromedriver";
-        else
-            path=null;
+        if (os.contains("windows")) {
+            path = path + "chromedriver.exe";
+        } else if (os.contains("mac")) {
+            path = path + "chromedriver";
+        } else if (os.contains("linux")) {
+            path = path + "chromedriver";
+        } else {
+            System.err.println("[ERROR] Unrecognized OS: " + os + ". Cannot determine ChromeDriver path.");
+            return null;
+        }
+
+        // Optionally, check if the file exists and log a warning if not
+        File driverFile = new File(path);
+        if (!driverFile.exists()) {
+            System.err.println("[WARNING] ChromeDriver not found at: " + path);
+        }
 
         return path;
     }
