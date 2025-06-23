@@ -4,7 +4,7 @@ pipeline {
     parameters {
         choice(
             name: 'ENV',
-            choices: ['Dev', 'ProdANZ', 'ProdAPAC', 'ProdGCP', 'ProdUK', 'ProdUS'],
+            choices: ['Dev', 'ProdANZ', 'prodAPAC', 'ProdGCP', 'ProdUK', 'ProdUS'],
             description: 'Select the environment to run tests against'
         )
     }

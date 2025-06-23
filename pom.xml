@@ -240,10 +240,10 @@
         </profile>
 
         <profile>
-            <id>ProdAPAC</id>
+            <id>prodAPAC</id>
             <properties>
                 <env.execType>local</env.execType>
-                <env.profile>ProdAPAC</env.profile>
+                <env.profile>prodAPAC</env.profile>
                 <browser.dimension.x>1280</browser.dimension.x>
                 <browser.dimension.y>800</browser.dimension.y>
                 <driver.browser>chrome</driver.browser>
