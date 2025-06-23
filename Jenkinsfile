@@ -30,14 +30,14 @@ pipeline {
                 echo "Running tests on ENV: ${params.ENV}"
                 echo "Using Selenium Grid URL: ${SELENIUM_GRID_URL}"
                 // Pass both env and grid URL to the test
-                sh 'mvn test -Denv=${params.ENV} -DhubUrl=$SELENIUM_GRID_URL'
+                sh "mvn test -Denv=${params.ENV} -DhubUrl=$SELENIUM_GRID_URL"
             }
         }
     }
 
     post {
         always {
-            junit '**/target/surefire-reports/*.xml'
+            archiveArtifacts artifacts: 'target/extent-report/ExtentReport.html', onlyIfSuccessful: false
         }
     }
 } 
