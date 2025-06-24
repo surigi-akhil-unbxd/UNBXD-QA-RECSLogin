@@ -93,17 +93,17 @@ public class BrowserInitializer {
                 System.out.println("[DEBUG] Using Selenium Grid at: " + hubUrl);
                 driver = new RemoteWebDriver(new URL(hubUrl), capabilities);
             } else if (browser == Browser.CHROME) {
-                String chromePath = getChromeDriverPath();
-                System.out.println("[DEBUG] Using ChromeDriver path: " + chromePath);
+            String chromePath = getChromeDriverPath();
+            System.out.println("[DEBUG] Using ChromeDriver path: " + chromePath);
                 driver = new ChromeDriver(capabilities);
             } else if (browser == Browser.FIREFOX) {
-                System.setProperty("webdriver.gecko.driver", geckoDriverPath);
-                capabilities.setCapability("marionette", true);
-                System.out.println("[DEBUG] Using GeckoDriver path: " + geckoDriverPath);
+            System.setProperty("webdriver.gecko.driver", geckoDriverPath);
+            capabilities.setCapability("marionette", true);
+            System.out.println("[DEBUG] Using GeckoDriver path: " + geckoDriverPath);
                 driver = new FirefoxDriver(capabilities);
             } else {
                 System.out.println("[DEBUG] No matching browser found, returning null driver.");
-            }
+        }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -126,6 +126,13 @@ public class BrowserInitializer {
         LoggingPreferences preferences=new LoggingPreferences();
         preferences.enable(LogType.BROWSER, Level.ALL);
         capabilities.setCapability(CapabilityType.LOGGING_PREFS,preferences);
+
+        // Selenoid-specific capabilities
+        capabilities.setCapability("name", "RECS-Testcases");
+        Map<String, Object> selenoidOptions = new java.util.HashMap<>();
+        selenoidOptions.put("enableVNC", true);
+        selenoidOptions.put("enableVideo", false);
+        capabilities.setCapability("selenoid:options", selenoidOptions);
     }
 
     private Browser setDesiredCapabilities(DesiredCapabilities capabilities) {
