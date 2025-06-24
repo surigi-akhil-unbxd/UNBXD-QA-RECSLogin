@@ -26,18 +26,10 @@ pipeline {
 
         stage('Test') {
             steps {
-                script {
-                    def configFile = "${params.ENV}.yaml"
-                    echo "Running tests on ENV: ${params.ENV}"
-                    echo "Using config file: ${configFile}"
-                    echo "Using Selenium Grid URL: ${SELENIUM_GRID_URL}"
-
-                    // Optional: validate if config file exists
-                    sh "ls ${configFile}"
-
-                    // Run test with config and Selenium Grid
-                    sh "mvn test -Denv=${params.ENV} -DconfigFile=${configFile} -DhubUrl=$SELENIUM_GRID_URL"
-                }
+                echo "Running tests on ENV: ${params.ENV}"
+                echo "Using Selenium Grid URL: ${SELENIUM_GRID_URL}"
+                // Pass both env and grid URL to the test
+                sh "mvn test -Denv=${params.ENV} -DhubUrl=$SELENIUM_GRID_URL"
             }
         }
     }
