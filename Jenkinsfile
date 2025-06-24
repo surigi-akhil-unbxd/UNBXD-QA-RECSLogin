@@ -56,6 +56,7 @@ pipeline {
             )
         }
         always {
+            junit '**/target/surefire-reports/*.xml'
             archiveArtifacts artifacts: 'target/extent-report/ExtentReport.html', onlyIfSuccessful: false
         }
     }
