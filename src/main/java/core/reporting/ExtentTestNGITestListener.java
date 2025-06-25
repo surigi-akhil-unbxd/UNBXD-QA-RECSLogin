@@ -9,44 +9,34 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.io.File;
 import java.io.IOException;
 
 public class ExtentTestNGITestListener implements ITestListener {
 
     private static ExtentReports extent = ExtentManager.createInstance("extent.html");
-    private static ThreadLocal<ExtentTest> parentTest = new ThreadLocal();
-    private static ThreadLocal<ExtentTest> test = new ThreadLocal();
-
-    ExtentTest parent, subChild;
-    ITestContext context;
-
+    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
     @Override
     public synchronized void onTestStart(ITestResult iTestResult) {
-
-
+        ExtentTest extentTest = extent.createTest(
+            iTestResult.getMethod().getMethodName(),
+            iTestResult.getMethod().getDescription()
+        );
+        test.set(extentTest);
     }
 
     @Override
     public synchronized void onTestSuccess(ITestResult iTestResult) {
-
-        ExtentTest child = parentTest.get().createNode(" Test " + iTestResult.getMethod().getMethodName(), iTestResult.getMethod().getDescription());
-        test.set(child);
         try {
             appendTestInfoInReport(Status.PASS, iTestResult);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
     public synchronized void onTestFailure(ITestResult iTestResult) {
-        ExtentTest child = parentTest.get().createNode("Test :" + iTestResult.getMethod().getMethodName(), iTestResult.getMethod().getDescription());
-        test.set(child);
         try {
-            // Take screenshot and attach to report
             String screenshotPath = Helper.getScreenShot(iTestResult.getMethod().getMethodName());
             if (screenshotPath != null) {
                 test.get().fail("Screenshot on Failure",
@@ -56,53 +46,36 @@ public class ExtentTestNGITestListener implements ITestListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
     public synchronized void onTestSkipped(ITestResult iTestResult) {
-
-        ExtentTest child = parentTest.get().createNode("Test :" + iTestResult.getMethod().getMethodName(), iTestResult.getMethod().getDescription());
-        test.set(child);
         try {
             appendTestInfoInReport(Status.SKIP, iTestResult);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
-    public   synchronized void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-
+    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+        // Not implemented
     }
 
     @Override
-    public  synchronized void onStart(ITestContext iTestContext) {
-        this.context = iTestContext;
-        parent = extent.createTest(context.getName());
-        parentTest.set(parent);
+    public void onStart(ITestContext iTestContext) {
+        // No need to set parentTest here
     }
 
     @Override
-    public synchronized void onFinish(ITestContext iTestContext) {
+    public void onFinish(ITestContext iTestContext) {
         extent.flush();
-
     }
 
-
-    private synchronized void appendTestInfoInReport(Status testStatus, ITestResult iTestResult) throws IOException
-    {
-        //String destinationPath = Helper.getScreenShot(iTestResult.getMethod().getMethodName());
-
-       // if (destinationPath != null) {
-        //    test.get().addScreenCaptureFromPath(new File(destinationPath).getPath());
-        //}
+    private synchronized void appendTestInfoInReport(Status testStatus, ITestResult iTestResult) throws IOException {
         if (testStatus.equals(Status.FAIL))
             test.get().log(testStatus, "Failure Reason : " + iTestResult.getThrowable().getMessage());
         if (testStatus.equals(Status.SKIP))
             test.get().log(testStatus, "Skipped Reason: " + iTestResult.getThrowable().getMessage());
-        }
-
+    }
 }
