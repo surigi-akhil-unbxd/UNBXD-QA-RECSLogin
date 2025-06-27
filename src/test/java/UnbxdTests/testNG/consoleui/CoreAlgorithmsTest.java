@@ -52,6 +52,27 @@ public class CoreAlgorithmsTest extends BaseTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        // --- Custom logic: Search and delete if present ---
+        String preCheckProductId = "AAM15MB01";
+        coreAlgorithmsActions.enterProductIdInSearchInput(preCheckProductId);
+        try {
+            Thread.sleep(1000); // Wait for search results to update
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (coreAlgorithmsActions.isProductRulePresentInListing(preCheckProductId)) {
+            coreAlgorithmsActions.clickParentIdInListing(preCheckProductId);
+            coreAlgorithmsActions.clickDeleteIcon();
+            coreAlgorithmsActions.clickProceedButton();
+            try {
+                Thread.sleep(2000); // Wait for deletion to complete
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        // --- End custom logic ---
+
         coreAlgorithmsActions.clickCreateButton();
         
         

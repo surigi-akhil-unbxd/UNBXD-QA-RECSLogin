@@ -9,51 +9,10 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Surefire suite</th></tr>
-<tr><td><a href="#t0">Surefire test</a></td><td class="num">0</td><td class="num attn">2</td><td class="num">0</td><td class="num">0</td><td class="num">72,551</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Surefire test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">73,366</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="2">UnbxdTests.testNG.consoleui.GBFiltersTest</td><td><a href="#m0">removeContextForTest</a></td><td rowspan="1">1749713865190</td><td rowspan="1">2</td></tr><tr class="failedeven"><td><a href="#m1">setUp</a></td><td rowspan="1">1749713792766</td><td rowspan="1">72011</td></tr><tr><th colspan="4">Surefire test &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">UnbxdTests.testNG.consoleui.GBFiltersTest</td><td><a href="#m2">tearDown</a></td><td rowspan="1">1749713865175</td><td rowspan="1">0</td></tr><tr><th colspan="4">Surefire test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="2">UnbxdTests.testNG.consoleui.GBFiltersTest</td><td><a href="#m3">sanityTest</a></td><td rowspan="1">1749713865012</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m4">testGBFiltersWorkflow</a></td><td rowspan="1">1749713865160</td><td rowspan="1">0</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">UnbxdTests.testNG.consoleui.BoutiqueExperienceTest</td><td><a href="#m0">createBoutiqueExperience</a></td><td rowspan="1">1751019289189</td><td rowspan="1">61109</td></tr></tbody>
 </table>
-<h2>Surefire test</h2><h3 id="m0">UnbxdTests.testNG.consoleui.GBFiltersTest#removeContextForTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;lib.config.Context.getUserId()&quot; because the return value of &quot;java.lang.ThreadLocal.get()&quot; is null
-	at lib.EnvironmentConfig.unSetContext(EnvironmentConfig.java:139)
-	at UnbxdTests.testNG.ui.BaseTest.removeContextForTest(BaseTest.java:76)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">UnbxdTests.testNG.consoleui.GBFiltersTest#setUp</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.fluentlenium.core.exception.ConstructionException: No constructor found on class core.consoleui.actions.GBFiltersActions
-	at org.fluentlenium.core.FluentAdapter.initClass(FluentAdapter.java:100)
-	at org.fluentlenium.core.FluentAdapter.injectPageIntoContainer(FluentAdapter.java:61)
-	at org.fluentlenium.core.FluentAdapter.initTest(FluentAdapter.java:42)
-	at UnbxdTests.testNG.consoleui.GBFiltersTest.setUp(GBFiltersTest.java:35)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-Caused by: java.lang.NoSuchMethodException: core.consoleui.actions.GBFiltersActions.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3585)
-	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2754)
-	at org.fluentlenium.core.FluentAdapter.initClass(FluentAdapter.java:84)
-	... 34 more
-... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">UnbxdTests.testNG.consoleui.GBFiltersTest#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">UnbxdTests.testNG.consoleui.GBFiltersTest#sanityTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.fluentlenium.core.exception.ConstructionException: No constructor found on class core.consoleui.actions.GBFiltersActions
-	at org.fluentlenium.core.FluentAdapter.initClass(FluentAdapter.java:100)
-	at org.fluentlenium.core.FluentAdapter.injectPageIntoContainer(FluentAdapter.java:61)
-	at org.fluentlenium.core.FluentAdapter.initTest(FluentAdapter.java:42)
-	at UnbxdTests.testNG.consoleui.GBFiltersTest.setUp(GBFiltersTest.java:35)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-Caused by: java.lang.NoSuchMethodException: core.consoleui.actions.GBFiltersActions.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3585)
-	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2754)
-	at org.fluentlenium.core.FluentAdapter.initClass(FluentAdapter.java:84)
-	... 34 more
-... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">UnbxdTests.testNG.consoleui.GBFiltersTest#testGBFiltersWorkflow</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{&quot;attribute&quot;:&quot;uniqueId&quot;,&quot;value&quot;:&quot;AAM15MB01&quot;,&quot;operator&quot;:&quot;Include&quot;}</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.fluentlenium.core.exception.ConstructionException: No constructor found on class core.consoleui.actions.GBFiltersActions
-	at org.fluentlenium.core.FluentAdapter.initClass(FluentAdapter.java:100)
-	at org.fluentlenium.core.FluentAdapter.injectPageIntoContainer(FluentAdapter.java:61)
-	at org.fluentlenium.core.FluentAdapter.initTest(FluentAdapter.java:42)
-	at UnbxdTests.testNG.consoleui.GBFiltersTest.setUp(GBFiltersTest.java:35)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-Caused by: java.lang.NoSuchMethodException: core.consoleui.actions.GBFiltersActions.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3585)
-	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2754)
-	at org.fluentlenium.core.FluentAdapter.initClass(FluentAdapter.java:84)
-	... 34 more
-... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Surefire test</h2><h3 id="m0">UnbxdTests.testNG.consoleui.BoutiqueExperienceTest#createBoutiqueExperience</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{&quot;pageName&quot;:&quot;Boutique Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 1&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop browser)&quot;,&quot;mobileTemplate&quot;:&quot;U769  (mobile browser)&quot;,&quot;customAlgo&quot;:&quot;boutiique&quot;,&quot;EditWidgetType&quot;:&quot;WIDGET 2&quot;}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -54,6 +54,9 @@ public class CoreAlgorithmsPage {
    @FindBy(css = "button[class='btn btn-primary']")
     public WebElement ProceedButton;
 
+    @FindBy(css = "button[class='btn btn-primary']")
+    public WebElement yesBtn;
+
     // Add more elements as needed
 
     public CoreAlgorithmsPage(WebDriver driver) {

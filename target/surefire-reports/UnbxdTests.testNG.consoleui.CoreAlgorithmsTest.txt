@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: UnbxdTests.testNG.consoleui.CoreAlgorithmsTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 97.433 s - in UnbxdTests.testNG.consoleui.CoreAlgorithmsTest

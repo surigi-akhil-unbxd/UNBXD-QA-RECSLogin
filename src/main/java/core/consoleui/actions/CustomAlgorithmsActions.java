@@ -65,11 +65,19 @@ public class CustomAlgorithmsActions {
         return false;
     }
 
-    public String enterRandomCursorAlgoName() {
+    /**
+     * Robustly clears the name field using Ctrl+A + Delete (cross-platform).
+     */
+    public void robustClearNameField() {
         page.enterNameField.click();
-        // Use Command+A (Mac) and Delete to clear
-        page.enterNameField.sendKeys(org.openqa.selenium.Keys.chord(org.openqa.selenium.Keys.COMMAND, "a"));
+        page.enterNameField.sendKeys(org.openqa.selenium.Keys.chord(org.openqa.selenium.Keys.CONTROL, "a"));
         page.enterNameField.sendKeys(org.openqa.selenium.Keys.DELETE);
+        // Optionally fallback to .clear() as well
+        page.enterNameField.clear();
+    }
+
+    public String enterRandomCursorAlgoName() {
+        robustClearNameField();
         CustomAlgoName = "cursorAlgo" + System.currentTimeMillis();
         page.enterNameField.sendKeys(CustomAlgoName);
         return CustomAlgoName;

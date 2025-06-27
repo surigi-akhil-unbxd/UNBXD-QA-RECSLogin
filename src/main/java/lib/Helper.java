@@ -74,19 +74,17 @@ public class Helper extends FluentPage {
 
     public static String getScreenShot(String testName) throws IOException {
         String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-       TakesScreenshot screenshot= (TakesScreenshot)localDriver.get();
-       File source= screenshot.getScreenshotAs(OutputType.FILE);
-       String destination="./target/screenshots/"+testName+"_"+dateName+".png";
-       File dest=new File(destination);
-       try {
-           FileUtils.copyFile(source, dest);
-       }
-       catch(IOException e)
-        {
-            System.out.println("Getting IO-Exception while copying Files"+e.getMessage());
+        TakesScreenshot screenshot = (TakesScreenshot) localDriver.get();
+        File source = screenshot.getScreenshotAs(OutputType.FILE);
+        String destination = "./target/screenshots/" + testName + "_" + dateName + ".png";
+        File dest = new File(destination);
+        try {
+            FileUtils.copyFile(source, dest);
+        } catch(IOException e) {
+            System.out.println("Getting IO-Exception while copying Files" + e.getMessage());
         }
+        System.out.println("Screenshot saved at: " + destination + " | Exists: " + dest.exists());
         return destination;
-
     }
 
 

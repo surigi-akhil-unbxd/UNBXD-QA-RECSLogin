@@ -1,195 +1,62 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 42, Failures: 30, Errors: 0, Skipped: 0, Time elapsed: 557.169 s <<< FAILURE! - in TestSuite
-testNavigateToCoreAlgorithmsPage(UnbxdTests.testNG.consoleui.CoreAlgorithmsTest)  Time elapsed: 58.666 s  <<< FAILURE!
+Tests run: 31, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 1,241.5 s <<< FAILURE! - in TestSuite
+createExperienceTest(UnbxdTests.testNG.consoleui.ExpTest)  Time elapsed: 39.767 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder='Search for Product Rule']"}
-  (Session info: chrome=137.0.7151.69)
+no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder='Search for Experience']"}
+  (Session info: chrome=137.0.7151.120)
   (Driver info: chromedriver=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 20.06 seconds
+Command duration or timeout: 20.04 seconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
 System info: host: 'akhilsurigi.local', ip: '127.0.0.1', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.7.6', java.version: '17.0.11'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:65452}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.DFrt9Y}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.69, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
-Session ID: d640cb43abc5219f64c31b913d6a4e7d
-*** Element info: {Using=css selector, value=input[placeholder='Search for Product Rule']}
-	at UnbxdTests.testNG.consoleui.CoreAlgorithmsTest.testNavigateToCoreAlgorithmsPage(CoreAlgorithmsTest.java:68)
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50321}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.dq3ugc}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.120, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 83b50cae69655a6f51558dfc51ebf9d4
+*** Element info: {Using=css selector, value=input[placeholder='Search for Experience']}
+	at UnbxdTests.testNG.consoleui.ExpTest.createExperienceTest(ExpTest.java:61)
 
-testNavigateToCoreAlgorithmsPage(UnbxdTests.testNG.consoleui.CoreAlgorithmsTest)  Time elapsed: 58.668 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testCustomAlgorithm(UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest)  Time elapsed: 69.55 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testCustomAlgorithm(UnbxdTests.testNG.consoleui.CustomAlgorithmsTest)  Time elapsed: 74.225 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-createBroadCastExperience(UnbxdTests.testNG.consoleui.broadCastPageTest)  Time elapsed: 34.628 s  <<< FAILURE!
+createExperienceTest(UnbxdTests.testNG.consoleui.ExpTest)  Time elapsed: 71.364 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"xpath","selector":"//span[normalize-space()='Broadcast Page']"}
-  (Session info: chrome=137.0.7151.69)
-  (Driver info: chromedriver=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 20.03 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
-System info: host: 'akhilsurigi.local', ip: '127.0.0.1', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.7.6', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:49772}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.g4NbZs}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.69, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
-Session ID: c841c06cbd12c2835651ca322db5c4a1
-*** Element info: {Using=xpath, value=//span[normalize-space()='Broadcast Page']}
-	at UnbxdTests.testNG.consoleui.broadCastPageTest.createBroadCastExperience(broadCastPageTest.java:52)
-
-createBroadCastExperience(UnbxdTests.testNG.consoleui.broadCastPageTest)  Time elapsed: 34.628 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-createJourneyExperience(UnbxdTests.testNG.consoleui.JourneyExperienceTest)  Time elapsed: 34.956 s  <<< FAILURE!
-org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"xpath","selector":"//span[normalize-space()='Journey Page']"}
-  (Session info: chrome=137.0.7151.69)
+no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder='Search for Experience']"}
+  (Session info: chrome=137.0.7151.120)
   (Driver info: chromedriver=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 20.05 seconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
 System info: host: 'akhilsurigi.local', ip: '127.0.0.1', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.7.6', java.version: '17.0.11'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:49771}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.inGf7j}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.69, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
-Session ID: e8122f34d987c3133d1e966652cee844
-*** Element info: {Using=xpath, value=//span[normalize-space()='Journey Page']}
-	at UnbxdTests.testNG.consoleui.JourneyExperienceTest.createJourneyExperience(JourneyExperienceTest.java:52)
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50321}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.dq3ugc}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.120, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 83b50cae69655a6f51558dfc51ebf9d4
+*** Element info: {Using=css selector, value=input[placeholder='Search for Experience']}
+	at UnbxdTests.testNG.consoleui.ExpTest.createExperienceTest(ExpTest.java:61)
 
-createJourneyExperience(UnbxdTests.testNG.consoleui.JourneyExperienceTest)  Time elapsed: 34.956 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
+createExperienceTest(UnbxdTests.testNG.consoleui.ExpTest)  Time elapsed: 47.614 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+element click intercepted: Element <span class="primary-label">...</span> is not clickable at point (316, 567). Other element would receive the click: <a href="#" class="dropdown-item" role="button">...</a>
+  (Session info: chrome=137.0.7151.120)
+  (Driver info: chromedriver=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 1.06 seconds
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'akhilsurigi.local', ip: '127.0.0.1', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.7.6', java.version: '17.0.11'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50321}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.dq3ugc}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.120, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 83b50cae69655a6f51558dfc51ebf9d4
+	at UnbxdTests.testNG.consoleui.ExpTest.createExperienceTest(ExpTest.java:54)
 
-createExperienceTest(UnbxdTests.testNG.consoleui.ExpTest)  Time elapsed: 43.715 s  <<< FAILURE!
+createExperienceTest(UnbxdTests.testNG.consoleui.ExpTest)  Time elapsed: 71.382 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder='Search for Experience']"}
-  (Session info: chrome=137.0.7151.69)
+  (Session info: chrome=137.0.7151.120)
   (Driver info: chromedriver=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 20.01 seconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
 System info: host: 'akhilsurigi.local', ip: '127.0.0.1', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.7.6', java.version: '17.0.11'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:49770}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.3Ua7OK}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.69, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
-Session ID: 8e6422a2e3a0f6bda59a89b598fdf2e7
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50321}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.dq3ugc}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.120, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 83b50cae69655a6f51558dfc51ebf9d4
 *** Element info: {Using=css selector, value=input[placeholder='Search for Experience']}
 	at UnbxdTests.testNG.consoleui.ExpTest.createExperienceTest(ExpTest.java:61)
-
-createExperienceTest(UnbxdTests.testNG.consoleui.ExpTest)  Time elapsed: 43.715 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-createBoutiqueExperience(UnbxdTests.testNG.consoleui.BoutiqueExperienceTest)  Time elapsed: 61.546 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest)  Time elapsed: 30.108 s  <<< FAILURE!
-org.openqa.selenium.StaleElementReferenceException: 
-stale element reference: stale element not found in the current frame
-  (Session info: chrome=137.0.7151.69)
-  (Driver info: chromedriver=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 15 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
-System info: host: 'akhilsurigi.local', ip: '127.0.0.1', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.7.6', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50475}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.bEx03F}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.69, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
-Session ID: 649acf1a47b11d5a8a922d9c797481d1
-	at UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest.testTemplatesPageElementsInteraction(DVBoutiqueTemplateTest.java:45)
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest)  Time elapsed: 30.11 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest)  Time elapsed: 56.119 s  <<< FAILURE!
-org.openqa.selenium.ElementNotVisibleException: 
-element not interactable
-  (Session info: chrome=137.0.7151.69)
-  (Driver info: chromedriver=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 20.07 seconds
-Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
-System info: host: 'akhilsurigi.local', ip: '127.0.0.1', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.7.6', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:51217}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.dN5ml3}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.69, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
-Session ID: 3dcf0ceb2da2f2ade1e4ee3a2268330c
-	at UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest.testTemplatesPageElementsInteraction(MVboutiqueTemplateTest.java:45)
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest)  Time elapsed: 56.119 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MHinstagramLikeBehaaviorTemplateTest)  Time elapsed: 36.096 s  <<< FAILURE!
-org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"css selector","selector":"button.app-common-button.btn.btn-primary.ml-2.mr-3"}
-  (Session info: chrome=137.0.7151.69)
-  (Driver info: chromedriver=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 20.06 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
-System info: host: 'akhilsurigi.local', ip: '127.0.0.1', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.7.6', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50476}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.VpE4uj}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.69, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
-Session ID: 76add2a0463e43f78c99654f1309387c
-*** Element info: {Using=css selector, value=button.app-common-button.btn.btn-primary.ml-2.mr-3}
-	at UnbxdTests.testNG.consoleui.MHinstagramLikeBehaaviorTemplateTest.testTemplatesPageElementsInteraction(MHinstagramLikeBehaaviorTemplateTest.java:66)
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MHinstagramLikeBehaaviorTemplateTest)  Time elapsed: 36.096 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.DHstandardWidgettemplateTest)  Time elapsed: 47.582 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MHstandardWidgettemplateTest)  Time elapsed: 49.567 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.DHexitIntentTemplatetest)  Time elapsed: 52.486 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MHboutiqueTemplateTest)  Time elapsed: 53.778 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.DVstandardWidgetTemplateTest)  Time elapsed: 6.505 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MHtinderLikeBehaviorTemplateTest)  Time elapsed: 7.563 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.DVexitIntentTemplateTest)  Time elapsed: 8.036 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest)  Time elapsed: 3.232 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest)  Time elapsed: 44.42 s  <<< FAILURE!
-org.openqa.selenium.ElementNotVisibleException: 
-element not interactable
-  (Session info: chrome=137.0.7151.69)
-  (Driver info: chromedriver=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 20.04 seconds
-Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
-System info: host: 'akhilsurigi.local', ip: '127.0.0.1', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.7.6', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:51993}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.wBoS92}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.69, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
-Session ID: 39e3aa1ef3f05ebd493c9189628ef5ad
-	at UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest.testTemplatesPageElementsInteraction(MVstandardWidgetTemplateTest.java:45)
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest)  Time elapsed: 44.42 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest)  Time elapsed: 55.429 s  <<< FAILURE!
-org.openqa.selenium.ElementNotVisibleException: 
-element not interactable
-  (Session info: chrome=137.0.7151.69)
-  (Driver info: chromedriver=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 20.02 seconds
-Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
-System info: host: 'akhilsurigi.local', ip: '127.0.0.1', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.7.6', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52064}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=136.0.7103.92 (cb81a4cc5087a8303a6c8827ee2b80b71d26e334-refs/branch-heads/7103@{#1840}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.TEcesQ}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=137.0.7151.69, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
-Session ID: 6518ec1265c474bfeafcc2d0ce26428d
-	at UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest.testTemplatesPageElementsInteraction(MVtinderLikeBehaviorTemplateTest.java:45)
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest)  Time elapsed: 55.429 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
-
-testTemplatesPageElementsInteraction(UnbxdTests.testNG.consoleui.MVinstagramLikeBehaviorTemplateTest)  Time elapsed: 149.622 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String, String)" because the return value of "java.lang.ThreadLocal.get()" is null
 

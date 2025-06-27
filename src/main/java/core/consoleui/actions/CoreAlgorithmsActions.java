@@ -106,13 +106,20 @@ public class CoreAlgorithmsActions {
         coreAlgorithmsPage.deleteIcon.click();
     }
 
-    public void clickProceedButton() {
-        // Wait for modal overlay to disappear before clicking Proceed
+    public void clickYesButton() {
         org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, 10);
+        wait.until(org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable(coreAlgorithmsPage.yesBtn));
+        coreAlgorithmsPage.yesBtn.click();
+    }
+
+    public void clickProceedButton() {
+        // Wait for modal overlay to disappear before clicking YES
+        org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, 10);
+        wait.until(org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable(coreAlgorithmsPage.yesBtn));
+        clickYesButton();
         wait.until(org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfElementLocated(
             org.openqa.selenium.By.cssSelector(".modal.show")
         ));
-        coreAlgorithmsPage.ProceedButton.click();
     }
 
     public void clickAddButton() {
@@ -124,6 +131,17 @@ public class CoreAlgorithmsActions {
         input.click();
         input.clear();
         input.sendKeys(productId);
+    }
+
+    public boolean isProductRulePresentInListing(String productId) {
+        // This method checks if a row with the given productId exists in the table listing
+        try {
+            String xpath = "//table//td[contains(text(),'" + productId + "')]";
+            org.openqa.selenium.WebElement el = driver.findElement(org.openqa.selenium.By.xpath(xpath));
+            return el.isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
     }
 
     // Add more methods as needed

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: UnbxdTests.testNG.consoleui.BoutiqueExperienceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 74.252 s - in UnbxdTests.testNG.consoleui.BoutiqueExperienceTest

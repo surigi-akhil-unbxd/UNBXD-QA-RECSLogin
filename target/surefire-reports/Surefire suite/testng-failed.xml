@@ -3,15 +3,14 @@
 <suite thread-count="1" name="Failed suite [Surefire suite]" verbose="0">
   <test thread-count="1" name="Surefire test(failed)" verbose="0">
     <classes>
-      <class name="UnbxdTests.testNG.consoleui.GBFiltersTest">
+      <class name="UnbxdTests.testNG.consoleui.CoreAlgorithmsTest">
         <methods>
+          <include name="testNavigateToCoreAlgorithmsPage" invocation-numbers="0"/>
           <include name="setUp"/>
-          <include name="testGBFiltersWorkflow"/>
-          <include name="sanityTest"/>
           <include name="tearDown"/>
           <include name="removeContextForTest"/>
         </methods>
-      </class> <!-- UnbxdTests.testNG.consoleui.GBFiltersTest -->
+      </class> <!-- UnbxdTests.testNG.consoleui.CoreAlgorithmsTest -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->
