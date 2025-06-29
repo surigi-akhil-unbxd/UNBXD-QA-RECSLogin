@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import lib.EnvironmentConfig;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class CustomAlgorithmsActions {
     private WebDriver driver;
@@ -50,10 +51,17 @@ public class CustomAlgorithmsActions {
         page.saveButton.click();
     }
 
-    public void searchCustomAlgorithmByName(String name) {
+    public void searchCustomAlgorithmByName(String algoName) {
+        org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, 20);
+        wait.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf(page.searchCustomAlgorithmInput));
         page.searchCustomAlgorithmInput.click();
-        page.searchCustomAlgorithmInput.clear();
-        page.searchCustomAlgorithmInput.sendKeys(name);
+        // Use JS to set value and trigger input event
+        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript(
+            "arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('input', { bubbles: true }));",
+            page.searchCustomAlgorithmInput, algoName
+        );
+        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        page.searchCustomAlgorithmInput.sendKeys(org.openqa.selenium.Keys.ENTER);
     }
 
     public boolean isAlgorithmPresentInListing(String algoName) {
@@ -66,24 +74,54 @@ public class CustomAlgorithmsActions {
     }
 
     /**
-     * Robustly clears the name field using Ctrl+A + Delete (cross-platform).
+     * Robustly clears the name field using JS, Ctrl+A+Delete, and .clear(), then enters the new name.
      */
-    public void robustClearNameField() {
+    public void robustClearAndEnterName(String newName) {
+        org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, 20);
+        wait.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf(page.enterNameField));
         page.enterNameField.click();
-        page.enterNameField.sendKeys(org.openqa.selenium.Keys.chord(org.openqa.selenium.Keys.CONTROL, "a"));
-        page.enterNameField.sendKeys(org.openqa.selenium.Keys.DELETE);
-        // Optionally fallback to .clear() as well
-        page.enterNameField.clear();
+
+        // Try up to 3 times to clear and set the value
+        for (int attempt = 0; attempt < 3; attempt++) {
+            // Clear using JS
+            ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].value = '';", page.enterNameField);
+            // Ctrl+A (select all) as a string chord, then Delete
+            page.enterNameField.sendKeys(org.openqa.selenium.Keys.chord(org.openqa.selenium.Keys.CONTROL, "a"));
+            page.enterNameField.sendKeys(org.openqa.selenium.Keys.DELETE);
+            // Fallback to .clear()
+            page.enterNameField.clear();
+            // Enter the new name
+            page.enterNameField.sendKeys(newName);
+            // Trigger input event
+            ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", page.enterNameField);
+
+            // Wait a bit for UI to react
+            try { Thread.sleep(300); } catch (InterruptedException ignored) {}
+
+            // Check if the value is set correctly
+            String currentValue = page.enterNameField.getAttribute("value");
+            if (newName.equals(currentValue)) {
+                break;
+            }
+            // Optionally, log a warning if not set
+            if (attempt == 2) {
+                System.out.println("Warning: Name field value after 3 attempts is: " + currentValue);
+            }
+        }
     }
 
     public String enterRandomCursorAlgoName() {
-        robustClearNameField();
         CustomAlgoName = "cursorAlgo" + System.currentTimeMillis();
-        page.enterNameField.sendKeys(CustomAlgoName);
+        robustClearAndEnterName(CustomAlgoName);
         return CustomAlgoName;
     }
 
     public void clickEditButton() {
+        // Wait for the edit button to be present and clickable
+        org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, 20);
+        wait.until(org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable(page.editButton));
+        // Take debug screenshot before clicking edit
+        takeDebugScreenshot("before_edit_click");
         page.editButton.click();
     }
 
@@ -118,5 +156,17 @@ public class CustomAlgorithmsActions {
         page.searchCustomAlgorithmInput.clear();
         page.searchCustomAlgorithmInput.sendKeys(org.openqa.selenium.Keys.chord(org.openqa.selenium.Keys.CONTROL, "a"));
         page.searchCustomAlgorithmInput.sendKeys(org.openqa.selenium.Keys.DELETE);
+    }
+
+    private void takeDebugScreenshot(String step) {
+        try {
+            String fileName = "./target/screenshots/debug_" + step + "_" + System.currentTimeMillis() + ".png";
+            org.openqa.selenium.OutputType<java.io.File> outputType = org.openqa.selenium.OutputType.FILE;
+            java.io.File srcFile = ((org.openqa.selenium.TakesScreenshot) driver).getScreenshotAs(outputType);
+            java.nio.file.Files.copy(srcFile.toPath(), java.nio.file.Paths.get(fileName), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Debug screenshot saved at: " + fileName);
+        } catch (Exception e) {
+            System.out.println("Failed to take debug screenshot: " + e.getMessage());
+        }
     }
 }

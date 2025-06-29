@@ -66,20 +66,56 @@ public class ExpActions {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(page.experienceNameInput));
         page.experienceNameInput.click();
-        // Move cursor to end (cross-platform)
-        page.experienceNameInput.sendKeys(Keys.END);
-        page.experienceNameInput.sendKeys(Keys.chord(Keys.COMMAND, Keys.ARROW_RIGHT));
-        // Now send many BACKSPACEs
-        for (int i = 0; i < 30; i++) {
-            page.experienceNameInput.sendKeys(Keys.BACK_SPACE);
+        for (int attempt = 0; attempt < 3; attempt++) {
+            ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].removeAttribute('readonly'); arguments[0].removeAttribute('disabled');",
+                page.experienceNameInput
+            );
+            ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].value = ''; arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
+                page.experienceNameInput
+            );
+            page.experienceNameInput.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+            page.experienceNameInput.sendKeys(Keys.DELETE);
+            page.experienceNameInput.clear();
+            try { Thread.sleep(200); } catch (InterruptedException ignored) {}
+            String currentValue = page.experienceNameInput.getAttribute("value");
+            String readonly = page.experienceNameInput.getAttribute("readonly");
+            String disabled = page.experienceNameInput.getAttribute("disabled");
+            System.out.println("[DEBUG] Attempt " + (attempt+1) + ": value='" + currentValue + "', readonly=" + readonly + ", disabled=" + disabled);
+            if (currentValue == null || currentValue.isEmpty()) {
+                break;
+            }
+            if (attempt == 2) {
+                System.out.println("Warning: Experience name field not cleared after 3 attempts. Value: '" + currentValue + "'");
+            }
+        }
+        // Post-clear wait and retry if still not empty
+        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        String valueAfterWait = page.experienceNameInput.getAttribute("value");
+        if (valueAfterWait != null && !valueAfterWait.isEmpty()) {
+            System.out.println("[DEBUG] Post-clear wait: value still present, retrying clear once more");
+            ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].value = ''; arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
+                page.experienceNameInput
+            );
         }
     }
 
     public String enterRandomExperienceName() {
+        // Wait for UI to possibly set its default value
+        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
         String randomStr = java.util.UUID.randomUUID().toString().substring(0, 6);
         String experienceName = "EXP" + randomStr;
         clearExperienceNameField();
+        // Wait again in case UI resets the field
+        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
         page.experienceNameInput.sendKeys(experienceName);
+        // Dispatch input/change events after setting
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
+            page.experienceNameInput
+        );
         return experienceName;
     }
 
@@ -95,6 +131,7 @@ public class ExpActions {
         wait.until(ExpectedConditions.elementToBeClickable(page.widgetDropdown));
         page.widgetDropdown.click();
         try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dropdown-backdrop, .modal-backdrop, .loading-overlay, .spinner-overlay")));
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("a.dropdown-item")));
         List<WebElement> dropdownItems = driver.findElements(By.cssSelector("a.dropdown-item"));
         System.out.println("Available widget options:");
@@ -102,8 +139,14 @@ public class ExpActions {
             System.out.println("'" + item.getText() + "'");
             if (item.getText().trim().equals(widgetName.trim())) {
                 try {
+                    // Take screenshot before click for debug
+                    takeDebugScreenshot("before_widget_click");
+                    // Save HTML for debug
+                    saveDebugHtml("before_widget_click.html");
+                    ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", item);
                     item.click();
                 } catch (Exception e) {
+                    System.out.println("[WARN] Normal click failed, trying JS click for widget: '" + widgetName + "'");
                     ((JavascriptExecutor)driver).executeScript("arguments[0].click();", item);
                 }
                 return;
@@ -274,5 +317,28 @@ public class ExpActions {
 
     public void clickAdvancedFilterLink() {
         page.advancedFilterLink.click();
+    }
+
+    // Utility methods for debug
+    private void takeDebugScreenshot(String name) {
+        try {
+            org.openqa.selenium.TakesScreenshot ts = (org.openqa.selenium.TakesScreenshot) driver;
+            java.io.File src = ts.getScreenshotAs(org.openqa.selenium.OutputType.FILE);
+            java.io.File dest = new java.io.File("./target/screenshots/" + name + "_" + System.currentTimeMillis() + ".png");
+            dest.getParentFile().mkdirs();
+            java.nio.file.Files.copy(src.toPath(), dest.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Screenshot saved at: " + dest.getPath() + " | Exists: " + dest.exists());
+        } catch (Exception e) {
+            System.out.println("[ERROR] Failed to take screenshot: " + e.getMessage());
+        }
+    }
+    private void saveDebugHtml(String filename) {
+        try {
+            String html = driver.getPageSource();
+            java.nio.file.Files.write(java.nio.file.Paths.get("./target/screenshots/" + filename), html.getBytes());
+            System.out.println("HTML saved at: ./target/screenshots/" + filename);
+        } catch (Exception e) {
+            System.out.println("[ERROR] Failed to save HTML: " + e.getMessage());
+        }
     }
 } 
