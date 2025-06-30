@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="UnbxdTests.testNG.consoleui.BoutiqueExperienceTest" time="74.252" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="UnbxdTests.testNG.consoleui.BoutiqueExperienceTest" time="68.298" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="/Users/unbxd/Library/Application Support/fire-flink-client/JDK/jdk-11.1/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/unbxd/Downloads/UNBXD-QA-RECS/target/surefire/surefirebooter17660761176092384039.jar /Users/unbxd/Downloads/UNBXD-QA-RECS/target/surefire 2025-06-27T15-44-36_225-jvmRun1 surefire5383694767476287531tmp surefire_016235446428313782214tmp"/>
+    <property name="sun.java.command" value="/Users/unbxd/Downloads/UNBXD-QA-RECS/target/surefire/surefirebooter8765913396625711326.jar /Users/unbxd/Downloads/UNBXD-QA-RECS/target/surefire 2025-06-30T09-58-54_900-jvmRun1 surefire6352620029506022267tmp surefire_05441146005838222637tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="UnbxdTests.testNG.consoleui.BoutiqueExperienceTest"/>
@@ -29,7 +29,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/unbxd/Downloads/UNBXD-QA-RECS/target/surefire/surefirebooter17660761176092384039.jar"/>
+    <property name="surefire.real.class.path" value="/Users/unbxd/Downloads/UNBXD-QA-RECS/target/surefire/surefirebooter8765913396625711326.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="17.0.11+9-adhoc.admin.jdk17u"/>
@@ -56,5 +56,5 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="createBoutiqueExperience" classname="UnbxdTests.testNG.consoleui.BoutiqueExperienceTest" time="61.109"/>
+  <testcase name="createBoutiqueExperience" classname="UnbxdTests.testNG.consoleui.BoutiqueExperienceTest" time="55.625"/>
 </testsuite>

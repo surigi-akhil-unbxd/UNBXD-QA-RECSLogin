@@ -5,7 +5,7 @@
       "widgetName": "WIDGET 1",
       "desktopTemplate": "Untitled-layout-771  (desktop browser)",
       "mobileTemplate": "U769  (mobile browser)",
-      "customAlgo": "Top Sellers",
+      "customAlgo": "algoCursor",
       "EditWidgetType": "WIDGET 2"
     },
     {
@@ -13,7 +13,7 @@
       "widgetName": "WIDGET 1",
       "desktopTemplate": "Untitled-layout-771  (desktop browser)",
       "mobileTemplate": "U769  (mobile browser)",
-      "customAlgo": "Top Sellers",
+      "customAlgo": "algoCursor",
       "EditWidgetType": "WIDGET 2"
     },
     {
@@ -21,7 +21,7 @@
       "widgetName": "WIDGET 1",
       "desktopTemplate": "Untitled-layout-771  (desktop browser)",
       "mobileTemplate": "U769  (mobile browser)",
-      "customAlgo": "Top Sellers",
+      "customAlgo": "algoCursor",
       "EditWidgetType": "WIDGET 2"
     },
     {
@@ -29,7 +29,7 @@
       "widgetName": "WIDGET 1",
       "desktopTemplate": "Untitled-layout-771  (desktop browser)",
       "mobileTemplate": "U769  (mobile browser)",
-      "customAlgo": "Top Sellers",
+      "customAlgo": "algoCursor",
       "EditWidgetType": "WIDGET 2"
     },
     {
@@ -37,8 +37,9 @@
       "widgetName": "WIDGET 1",
       "desktopTemplate": "Untitled-layout-771  (desktop browser)",
       "mobileTemplate": "U769  (mobile browser)",
-      "customAlgo": "Top Sellers",
+      "customAlgo": "algoCursor",
       "EditWidgetType": "WIDGET 2"
     }
+
   ]
 } 

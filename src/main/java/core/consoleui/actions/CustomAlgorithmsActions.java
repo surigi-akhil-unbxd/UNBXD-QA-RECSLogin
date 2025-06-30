@@ -161,12 +161,16 @@ public class CustomAlgorithmsActions {
     private void takeDebugScreenshot(String step) {
         try {
             String fileName = "./target/screenshots/debug_" + step + "_" + System.currentTimeMillis() + ".png";
-            org.openqa.selenium.OutputType<java.io.File> outputType = org.openqa.selenium.OutputType.FILE;
-            java.io.File srcFile = ((org.openqa.selenium.TakesScreenshot) driver).getScreenshotAs(outputType);
-            java.nio.file.Files.copy(srcFile.toPath(), java.nio.file.Paths.get(fileName), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            byte[] screenshotBytes = ((org.openqa.selenium.TakesScreenshot) driver).getScreenshotAs(org.openqa.selenium.OutputType.BYTES);
+            java.io.File dest = new java.io.File(fileName);
+            dest.getParentFile().mkdirs();
+            try (java.io.FileOutputStream fos = new java.io.FileOutputStream(dest)) {
+                fos.write(screenshotBytes);
+            }
             System.out.println("Debug screenshot saved at: " + fileName);
         } catch (Exception e) {
-            System.out.println("Failed to take debug screenshot: " + e.getMessage());
+            System.out.println("[ERROR] Failed to take debug screenshot: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

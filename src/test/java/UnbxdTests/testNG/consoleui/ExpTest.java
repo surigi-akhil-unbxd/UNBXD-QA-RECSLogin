@@ -40,6 +40,13 @@ public class ExpTest extends BaseTest {
         expActions.navigateToExperiencePage();
         expActions.handleAllPopups();
         expActions.clickCreateExperienceBtn();
+        // Wait for the field to be non-empty (UI has set default)
+        new org.openqa.selenium.support.ui.WebDriverWait(driver, 5)
+            .until(org.openqa.selenium.support.ui.ExpectedConditions.not(
+                org.openqa.selenium.support.ui.ExpectedConditions.attributeToBe(
+                    expActions.getExperienceNameInput(), "value", ""
+                )
+            ));
         expActions.clearExperienceNameField();
         String experienceName = expActions.enterRandomExperienceName();
 

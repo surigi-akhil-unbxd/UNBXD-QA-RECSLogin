@@ -67,39 +67,27 @@ public class ExpActions {
         wait.until(ExpectedConditions.elementToBeClickable(page.experienceNameInput));
         page.experienceNameInput.click();
         for (int attempt = 0; attempt < 3; attempt++) {
+            // Remove readonly/disabled if present
             ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].removeAttribute('readonly'); arguments[0].removeAttribute('disabled');",
                 page.experienceNameInput
             );
+            // Clear using JS and dispatch input/change events
             ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].value = ''; arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
+                "arguments[0].value = ''; arguments[0].dispatchEvent(new Event('input', {bubbles:true})); arguments[0].dispatchEvent(new Event('change', {bubbles:true}));",
                 page.experienceNameInput
             );
-            page.experienceNameInput.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-            page.experienceNameInput.sendKeys(Keys.DELETE);
+            // Fallback: Ctrl+A + Delete
+            page.experienceNameInput.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+            // Fallback: .clear()
             page.experienceNameInput.clear();
-            try { Thread.sleep(200); } catch (InterruptedException ignored) {}
-            String currentValue = page.experienceNameInput.getAttribute("value");
-            String readonly = page.experienceNameInput.getAttribute("readonly");
-            String disabled = page.experienceNameInput.getAttribute("disabled");
-            System.out.println("[DEBUG] Attempt " + (attempt+1) + ": value='" + currentValue + "', readonly=" + readonly + ", disabled=" + disabled);
-            if (currentValue == null || currentValue.isEmpty()) {
-                break;
-            }
-            if (attempt == 2) {
-                System.out.println("Warning: Experience name field not cleared after 3 attempts. Value: '" + currentValue + "'");
-            }
+            // Wait a bit for UI to react
+            try { Thread.sleep(300); } catch (InterruptedException ignored) {}
+            String value = page.experienceNameInput.getAttribute("value");
+            System.out.println("[DEBUG] Attempt " + (attempt+1) + ": value='" + value + "'");
+            if (value.isEmpty()) return;
         }
-        // Post-clear wait and retry if still not empty
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
-        String valueAfterWait = page.experienceNameInput.getAttribute("value");
-        if (valueAfterWait != null && !valueAfterWait.isEmpty()) {
-            System.out.println("[DEBUG] Post-clear wait: value still present, retrying clear once more");
-            ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].value = ''; arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
-                page.experienceNameInput
-            );
-        }
+        System.out.println("Warning: Experience name field not cleared after 3 attempts. Value: '" + page.experienceNameInput.getAttribute("value") + "'");
     }
 
     public String enterRandomExperienceName() {
@@ -127,32 +115,33 @@ public class ExpActions {
     }
 
     public void selectWidgetByName(String widgetName) {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.elementToBeClickable(page.widgetDropdown));
-        page.widgetDropdown.click();
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dropdown-backdrop, .modal-backdrop, .loading-overlay, .spinner-overlay")));
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("a.dropdown-item")));
-        List<WebElement> dropdownItems = driver.findElements(By.cssSelector("a.dropdown-item"));
-        System.out.println("Available widget options:");
-        for (WebElement item : dropdownItems) {
-            System.out.println("'" + item.getText() + "'");
-            if (item.getText().trim().equals(widgetName.trim())) {
-                try {
-                    // Take screenshot before click for debug
-                    takeDebugScreenshot("before_widget_click");
-                    // Save HTML for debug
-                    saveDebugHtml("before_widget_click.html");
-                    ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", item);
-                    item.click();
-                } catch (Exception e) {
-                    System.out.println("[WARN] Normal click failed, trying JS click for widget: '" + widgetName + "'");
-                    ((JavascriptExecutor)driver).executeScript("arguments[0].click();", item);
-                }
-                return;
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(page.widgetDropdown));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", page.widgetDropdown);
+            if (!page.widgetDropdown.isDisplayed() || !page.widgetDropdown.isEnabled()) {
+                System.out.println("[ERROR] Widget dropdown is not displayed or not enabled!");
             }
+            try {
+                page.widgetDropdown.click();
+            } catch (Exception e) {
+                System.out.println("[WARN] Normal click failed, trying JS click for widget dropdown.");
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.widgetDropdown);
+            }
+            Thread.sleep(1000); // Wait for options to load
+            List<WebElement> dropdownItems = driver.findElements(By.cssSelector("a.dropdown-item"));
+            for (WebElement item : dropdownItems) {
+                if (item.getText().trim().equals(widgetName.trim())) {
+                    item.click();
+                    return;
+                }
+            }
+            throw new NoSuchElementException("Widget '" + widgetName + "' not found in dropdown");
+        } catch (Exception ex) {
+            System.out.println("[ERROR] Failed to select widget: " + ex.getMessage());
+            ex.printStackTrace();
+            throw new RuntimeException("Failed to select widget", ex);
         }
-        throw new NoSuchElementException("Widget '" + widgetName + "' not found in dropdown");
     }
 
     public void clickTemplateTypeDropdown() {
@@ -182,9 +171,25 @@ public class ExpActions {
     public void selectCustomAlgo(String customAlgo) {
         page.algoDropdown.click();
         String xpath = "//span[normalize-space()='" + customAlgo.trim() + "']";
-        By optionLocator = By.xpath(xpath);
-        WebElement option = driver.findElement(optionLocator);
-        option.click();
+        List<WebElement> options = driver.findElements(By.xpath(xpath));
+        if (options.isEmpty()) {
+            // Log and screenshot
+            List<WebElement> allOptions = driver.findElements(By.cssSelector("span.primary-label"));
+            System.out.println("[ERROR] Custom algorithm '" + customAlgo + "' not found. Available options:");
+            for (WebElement opt : allOptions) {
+                System.out.println(" - " + opt.getText());
+            }
+            takeDebugScreenshot("custom_algo_not_found");
+            // Self-healing: create the custom algorithm (pseudo-code, implement as needed)
+            // createCustomAlgorithm(customAlgo);
+            // After creation, try again
+            page.algoDropdown.click();
+            options = driver.findElements(By.xpath(xpath));
+            if (options.isEmpty()) {
+                throw new NoSuchElementException("Custom algorithm '" + customAlgo + "' not found after self-healing.");
+            }
+        }
+        options.get(0).click();
     }
 
     public void clickSaveButton() {
@@ -323,13 +328,16 @@ public class ExpActions {
     private void takeDebugScreenshot(String name) {
         try {
             org.openqa.selenium.TakesScreenshot ts = (org.openqa.selenium.TakesScreenshot) driver;
-            java.io.File src = ts.getScreenshotAs(org.openqa.selenium.OutputType.FILE);
+            byte[] screenshotBytes = ts.getScreenshotAs(org.openqa.selenium.OutputType.BYTES);
             java.io.File dest = new java.io.File("./target/screenshots/" + name + "_" + System.currentTimeMillis() + ".png");
             dest.getParentFile().mkdirs();
-            java.nio.file.Files.copy(src.toPath(), dest.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
-            System.out.println("Screenshot saved at: " + dest.getPath() + " | Exists: " + dest.exists());
+            try (java.io.FileOutputStream fos = new java.io.FileOutputStream(dest)) {
+                fos.write(screenshotBytes);
+            }
+            System.out.println("Screenshot saved at: " + dest.getAbsolutePath());
         } catch (Exception e) {
             System.out.println("[ERROR] Failed to take screenshot: " + e.getMessage());
+            e.printStackTrace();
         }
     }
     private void saveDebugHtml(String filename) {
@@ -340,5 +348,60 @@ public class ExpActions {
         } catch (Exception e) {
             System.out.println("[ERROR] Failed to save HTML: " + e.getMessage());
         }
+    }
+
+    // Utility: Wait for and robustly clear and enter value in input
+    public void robustClearAndEnter(WebElement input, String value) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].removeAttribute('readonly'); arguments[0].removeAttribute('disabled');", input);
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].value = ''; arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
+            input
+        );
+        input.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        input.sendKeys(Keys.DELETE);
+        input.clear();
+        input.sendKeys(value);
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
+            input
+        );
+    }
+
+    // Utility: Close overlays if present
+    public void closeOverlaysIfPresent() {
+        List<WebElement> overlays = driver.findElements(By.cssSelector(".modal-backdrop, .dropdown-backdrop, .loading-overlay, .spinner-overlay"));
+        for (WebElement overlay : overlays) {
+            if (overlay.isDisplayed()) {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].style.display='none';", overlay);
+            }
+        }
+    }
+
+    // Utility: Select dropdown option robustly
+    public void selectDropdownOptionByText(WebElement dropdown, String optionText) {
+        dropdown.click();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("span.primary-label")));
+        List<WebElement> options = driver.findElements(By.cssSelector("span.primary-label"));
+        boolean found = false;
+        for (WebElement opt : options) {
+            if (opt.getText().trim().equalsIgnoreCase(optionText.trim())) {
+                opt.click();
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("[ERROR] Option '" + optionText + "' not found. Available options:");
+            for (WebElement opt : options) {
+                System.out.println(" - " + opt.getText());
+            }
+            takeDebugScreenshot("dropdown_option_not_found");
+            throw new NoSuchElementException("Option '" + optionText + "' not found in dropdown.");
+        }
+    }
+
+    public WebElement getExperienceNameInput() {
+        return page.experienceNameInput;
     }
 } 

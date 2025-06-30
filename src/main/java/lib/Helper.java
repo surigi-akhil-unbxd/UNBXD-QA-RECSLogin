@@ -12,6 +12,7 @@ import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.ParseException;
@@ -75,13 +76,12 @@ public class Helper extends FluentPage {
     public static String getScreenShot(String testName) throws IOException {
         String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
         TakesScreenshot screenshot = (TakesScreenshot) localDriver.get();
-        File source = screenshot.getScreenshotAs(OutputType.FILE);
+        byte[] screenshotBytes = screenshot.getScreenshotAs(OutputType.BYTES);
         String destination = "./target/screenshots/" + testName + "_" + dateName + ".png";
         File dest = new File(destination);
-        try {
-            FileUtils.copyFile(source, dest);
-        } catch(IOException e) {
-            System.out.println("Getting IO-Exception while copying Files" + e.getMessage());
+        dest.getParentFile().mkdirs();
+        try (FileOutputStream fos = new FileOutputStream(dest)) {
+            fos.write(screenshotBytes);
         }
         System.out.println("Screenshot saved at: " + destination + " | Exists: " + dest.exists());
         return destination;

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: UnbxdTests.testNG.consoleui.ExpTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 547.907 s - in UnbxdTests.testNG.consoleui.ExpTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 761.642 s - in UnbxdTests.testNG.consoleui.ExpTest

@@ -2,31 +2,31 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-27T15:44:37 IST" name="Surefire suite" finished-at="2025-06-27T15:45:50 IST" duration-ms="73366">
+  <suite started-at="2025-06-30T09:58:55 IST" name="Surefire suite" finished-at="2025-06-30T10:00:03 IST" duration-ms="67600">
     <groups>
     </groups>
-    <test started-at="2025-06-27T15:44:37 IST" name="Surefire test" finished-at="2025-06-27T15:45:50 IST" duration-ms="73366">
+    <test started-at="2025-06-30T09:58:55 IST" name="Surefire test" finished-at="2025-06-30T10:00:03 IST" duration-ms="67600">
       <class name="UnbxdTests.testNG.consoleui.BoutiqueExperienceTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:UnbxdTests.testNG.consoleui.BoutiqueExperienceTest@28f3b248]" started-at="2025-06-27T15:44:37 IST" name="setUp" finished-at="2025-06-27T15:44:49 IST" duration-ms="11917" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:UnbxdTests.testNG.consoleui.BoutiqueExperienceTest@28f3b248]" started-at="2025-06-30T09:58:55 IST" name="setUp" finished-at="2025-06-30T09:59:07 IST" duration-ms="11655" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="createBoutiqueExperience(com.google.gson.JsonObject)[pri:0, instance:UnbxdTests.testNG.consoleui.BoutiqueExperienceTest@28f3b248]" started-at="2025-06-27T15:44:49 IST" name="createBoutiqueExperience" data-provider="getTestDataFromFile" finished-at="2025-06-27T15:45:50 IST" duration-ms="61109" status="PASS">
+        <test-method signature="createBoutiqueExperience(com.google.gson.JsonObject)[pri:0, instance:UnbxdTests.testNG.consoleui.BoutiqueExperienceTest@28f3b248]" started-at="2025-06-30T09:59:07 IST" name="createBoutiqueExperience" data-provider="getTestDataFromFile" finished-at="2025-06-30T10:00:02 IST" duration-ms="55626" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{"pageName":"Boutique Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop browser)","mobileTemplate":"U769  (mobile browser)","customAlgo":"boutiique","EditWidgetType":"WIDGET 2"}]]>
+                <![CDATA[{"pageName":"Boutique Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop browser)","mobileTemplate":"U769  (mobile browser)","customAlgo":"boutiqueExperience","EditWidgetType":"WIDGET 2"}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createBoutiqueExperience -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:UnbxdTests.testNG.consoleui.BoutiqueExperienceTest@28f3b248]" started-at="2025-06-27T15:45:50 IST" name="tearDown" finished-at="2025-06-27T15:45:50 IST" duration-ms="302" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:UnbxdTests.testNG.consoleui.BoutiqueExperienceTest@28f3b248]" started-at="2025-06-30T10:00:02 IST" name="tearDown" finished-at="2025-06-30T10:00:03 IST" duration-ms="288" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="removeContextForTest()[pri:0, instance:UnbxdTests.testNG.consoleui.BoutiqueExperienceTest@28f3b248]" started-at="2025-06-27T15:45:50 IST" name="removeContextForTest" finished-at="2025-06-27T15:45:50 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="removeContextForTest()[pri:0, instance:UnbxdTests.testNG.consoleui.BoutiqueExperienceTest@28f3b248]" started-at="2025-06-30T10:00:03 IST" name="removeContextForTest" finished-at="2025-06-30T10:00:03 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- removeContextForTest -->
