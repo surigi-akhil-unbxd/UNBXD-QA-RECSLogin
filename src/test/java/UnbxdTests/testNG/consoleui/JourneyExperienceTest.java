@@ -41,7 +41,6 @@ public class JourneyExperienceTest extends UnbxdTests.testNG.ui.BaseTest {
         expActions.navigateToExperiencePage();
         expActions.handleAllPopups();
         expActions.clickCreateExperienceBtn();
-        expActions.clearExperienceNameField();
         String experienceName = expActions.enterRandomExperienceName();
 
         String pageName = dataMap.get("pageName").getAsString();

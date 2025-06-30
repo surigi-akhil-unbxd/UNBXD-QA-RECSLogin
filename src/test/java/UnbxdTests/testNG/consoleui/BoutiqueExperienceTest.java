@@ -48,22 +48,22 @@ public class BoutiqueExperienceTest extends BaseTest {
         expActions.selectTemplateByName(dataMap.get("mobileTemplate").getAsString());
         expActions.selectCustomAlgo(dataMap.get("customAlgo").getAsString());
         expActions.clickSaveButton();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
         // Optionally, edit experience if EditWidgetType is present
         String editWidgetType = dataMap.get("EditWidgetType").getAsString();
         if (editWidgetType != null && !editWidgetType.trim().isEmpty()) {
             expActions.waitForAndClickExperienceInList(experienceName);
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             expActions.clickEditExpButton();
             expActions.selectWidgetByName(editWidgetType);
             expActions.clickSaveButton();
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         }
 
         // Delete experience
         expActions.waitForAndClickExperienceInList(experienceName);
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         expActions.clickDeleteExperienceButton();
         expActions.clickConfirmDeleteButton();
     }

@@ -47,7 +47,6 @@ public class ExpTest extends BaseTest {
                     expActions.getExperienceNameInput(), "value", ""
                 )
             ));
-        expActions.clearExperienceNameField();
         String experienceName = expActions.enterRandomExperienceName();
 
         String pageName = dataMap.get("pageName").getAsString();

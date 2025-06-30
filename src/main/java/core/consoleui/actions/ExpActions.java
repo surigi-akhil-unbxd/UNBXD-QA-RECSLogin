@@ -62,48 +62,58 @@ public class ExpActions {
         page.createExperienceBtn.click();
     }
 
-    public void clearExperienceNameField() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(page.experienceNameInput));
-        page.experienceNameInput.click();
-        for (int attempt = 0; attempt < 3; attempt++) {
-            // Remove readonly/disabled if present
-            ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].removeAttribute('readonly'); arguments[0].removeAttribute('disabled');",
-                page.experienceNameInput
-            );
-            // Clear using JS and dispatch input/change events
-            ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].value = ''; arguments[0].dispatchEvent(new Event('input', {bubbles:true})); arguments[0].dispatchEvent(new Event('change', {bubbles:true}));",
-                page.experienceNameInput
-            );
-            // Fallback: Ctrl+A + Delete
-            page.experienceNameInput.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
-            // Fallback: .clear()
-            page.experienceNameInput.clear();
-            // Wait a bit for UI to react
-            try { Thread.sleep(300); } catch (InterruptedException ignored) {}
-            String value = page.experienceNameInput.getAttribute("value");
-            System.out.println("[DEBUG] Attempt " + (attempt+1) + ": value='" + value + "'");
-            if (value.isEmpty()) return;
+    /**
+     * Robustly clears and enters a value into an input field, always re-finding the element by selector.
+     */
+    public void robustClearAndEnter(By inputLocator, String value) {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        // Wait for the field to be present and visible
+        wait.until(ExpectedConditions.visibilityOfElementLocated(inputLocator));
+        WebElement input = driver.findElement(inputLocator);
+
+        // Wait for the field to have a non-empty value (UI has set default)
+        for (int i = 0; i < 10; i++) {
+            if (!input.getAttribute("value").isEmpty()) break;
+            try { Thread.sleep(200); } catch (InterruptedException ignored) {}
         }
-        System.out.println("Warning: Experience name field not cleared after 3 attempts. Value: '" + page.experienceNameInput.getAttribute("value") + "'");
+
+        boolean cleared = false;
+        for (int attempt = 0; attempt < 5; attempt++) {
+            input.click();
+            ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].removeAttribute('readonly'); arguments[0].removeAttribute('disabled');", input);
+            ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].value = ''; arguments[0].dispatchEvent(new Event('input', {bubbles:true})); arguments[0].dispatchEvent(new Event('change', {bubbles:true}));", input);
+            input.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+            input.clear();
+            try { Thread.sleep(300); } catch (InterruptedException ignored) {}
+            String currentValue = input.getAttribute("value");
+            System.out.println("[DEBUG] Attempt " + (attempt+1) + ": value='" + currentValue + "'");
+            if (currentValue.isEmpty()) {
+                cleared = true;
+                break;
+            }
+            if (attempt == 4) {
+                System.out.println("[ERROR] Field not cleared after 5 attempts! Value: '" + currentValue + "'");
+                // Optionally, take a screenshot or dump HTML here
+            }
+        }
+        if (cleared && value != null && !value.isEmpty()) {
+            input.sendKeys(value);
+            ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", input);
+        }
     }
 
     public String enterRandomExperienceName() {
-        // Wait for UI to possibly set its default value
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        By inputLocator = By.cssSelector("div.modifier.align-self-center > input[type='text']");
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(inputLocator));
+        wait.until(ExpectedConditions.elementToBeClickable(inputLocator));
+        try { Thread.sleep(300); } catch (InterruptedException ignored) {}
         String randomStr = java.util.UUID.randomUUID().toString().substring(0, 6);
         String experienceName = "EXP" + randomStr;
-        clearExperienceNameField();
-        // Wait again in case UI resets the field
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
-        page.experienceNameInput.sendKeys(experienceName);
-        // Dispatch input/change events after setting
-        ((JavascriptExecutor) driver).executeScript(
-            "arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
-            page.experienceNameInput
-        );
+        robustClearAndEnter(inputLocator, experienceName);
         return experienceName;
     }
 
@@ -117,6 +127,7 @@ public class ExpActions {
     public void selectWidgetByName(String widgetName) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
+            wait.until(ExpectedConditions.visibilityOf(page.widgetDropdown));
             wait.until(ExpectedConditions.elementToBeClickable(page.widgetDropdown));
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", page.widgetDropdown);
             if (!page.widgetDropdown.isDisplayed() || !page.widgetDropdown.isEnabled()) {
@@ -348,23 +359,6 @@ public class ExpActions {
         } catch (Exception e) {
             System.out.println("[ERROR] Failed to save HTML: " + e.getMessage());
         }
-    }
-
-    // Utility: Wait for and robustly clear and enter value in input
-    public void robustClearAndEnter(WebElement input, String value) {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].removeAttribute('readonly'); arguments[0].removeAttribute('disabled');", input);
-        ((JavascriptExecutor) driver).executeScript(
-            "arguments[0].value = ''; arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
-            input
-        );
-        input.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-        input.sendKeys(Keys.DELETE);
-        input.clear();
-        input.sendKeys(value);
-        ((JavascriptExecutor) driver).executeScript(
-            "arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
-            input
-        );
     }
 
     // Utility: Close overlays if present
