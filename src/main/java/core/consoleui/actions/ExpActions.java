@@ -62,59 +62,55 @@ public class ExpActions {
         page.createExperienceBtn.click();
     }
 
-    /**
-     * Robustly clears and enters a value into an input field, always re-finding the element by selector.
-     */
-    public void robustClearAndEnter(By inputLocator, String value) {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        // Wait for the field to be present and visible
-        wait.until(ExpectedConditions.visibilityOfElementLocated(inputLocator));
-        WebElement input = driver.findElement(inputLocator);
-
-        // Wait for the field to have a non-empty value (UI has set default)
-        for (int i = 0; i < 10; i++) {
-            if (!input.getAttribute("value").isEmpty()) break;
-            try { Thread.sleep(200); } catch (InterruptedException ignored) {}
-        }
-
-        boolean cleared = false;
-        for (int attempt = 0; attempt < 5; attempt++) {
-            input.click();
-            ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].removeAttribute('readonly'); arguments[0].removeAttribute('disabled');", input);
-            ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].value = ''; arguments[0].dispatchEvent(new Event('input', {bubbles:true})); arguments[0].dispatchEvent(new Event('change', {bubbles:true}));", input);
-            input.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
-            input.clear();
-            try { Thread.sleep(300); } catch (InterruptedException ignored) {}
-            String currentValue = input.getAttribute("value");
-            System.out.println("[DEBUG] Attempt " + (attempt+1) + ": value='" + currentValue + "'");
-            if (currentValue.isEmpty()) {
-                cleared = true;
-                break;
-            }
-            if (attempt == 4) {
-                System.out.println("[ERROR] Field not cleared after 5 attempts! Value: '" + currentValue + "'");
-                // Optionally, take a screenshot or dump HTML here
-            }
-        }
-        if (cleared && value != null && !value.isEmpty()) {
-            input.sendKeys(value);
-            ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", input);
-        }
-    }
-
     public String enterRandomExperienceName() {
-        By inputLocator = By.cssSelector("div.modifier.align-self-center > input[type='text']");
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(inputLocator));
-        wait.until(ExpectedConditions.elementToBeClickable(inputLocator));
-        try { Thread.sleep(300); } catch (InterruptedException ignored) {}
         String randomStr = java.util.UUID.randomUUID().toString().substring(0, 6);
         String experienceName = "EXP" + randomStr;
-        robustClearAndEnter(inputLocator, experienceName);
+        robustSetExperienceName(experienceName);
         return experienceName;
+    }
+
+    public void robustSetExperienceName(String experienceName) {
+        By inputLocator = By.cssSelector("div.modifier.align-self-center > input[type='text']");
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebElement input = wait.until(ExpectedConditions.elementToBeClickable(inputLocator));
+        for (int attempt = 0; attempt < 5; attempt++) {
+            try {
+                input.click();
+                ((JavascriptExecutor) driver).executeScript(
+                    "arguments[0].removeAttribute('readonly'); arguments[0].removeAttribute('disabled');", input);
+                // Debug: log and screenshot before clearing
+                System.out.println("[DEBUG] Attempt " + (attempt+1) + ": Before clearing, value='" + input.getAttribute("value") + "'");
+                takeDebugScreenshot("before_clearing_attempt_" + attempt);
+                // Try JS clear
+                ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", input);
+                // Try Ctrl+A + Delete
+                input.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+                // Try .clear()
+                input.clear();
+                Thread.sleep(200);
+                // Wait for field to be empty
+                for (int w = 0; w < 5; w++) {
+                    if (input.getAttribute("value").isEmpty()) break;
+                    Thread.sleep(100);
+                }
+                // Debug: log and screenshot after clearing
+                System.out.println("[DEBUG] Attempt " + (attempt+1) + ": After clearing, value='" + input.getAttribute("value") + "'");
+                takeDebugScreenshot("after_clearing_attempt_" + attempt);
+                if (input.getAttribute("value").isEmpty()) {
+                    input.sendKeys(experienceName);
+                    wait.until(ExpectedConditions.attributeToBe(input, "value", experienceName));
+                    System.out.println("[DEBUG] Experience name set to: " + experienceName);
+                    takeDebugScreenshot("after_setting_name");
+                    return;
+                }
+            } catch (Exception e) {
+                System.out.println("[ERROR] Exception during clearing attempt: " + e.getMessage());
+            }
+        }
+        // Take a screenshot for debugging
+        takeDebugScreenshot("experience_name_not_cleared");
+        System.out.println("[ERROR] Final value in experience name field: '" + input.getAttribute("value") + "'");
+        throw new RuntimeException("Failed to set experience name after retries");
     }
 
     public void selectPageByName(String pageName) {
@@ -125,34 +121,44 @@ public class ExpActions {
     }
 
     public void selectWidgetByName(String widgetName) {
+        robustSelectWidgetByName(widgetName);
+    }
+
+    public void robustSelectWidgetByName(String widgetName) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        try {
-            wait.until(ExpectedConditions.visibilityOf(page.widgetDropdown));
-            wait.until(ExpectedConditions.elementToBeClickable(page.widgetDropdown));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", page.widgetDropdown);
-            if (!page.widgetDropdown.isDisplayed() || !page.widgetDropdown.isEnabled()) {
-                System.out.println("[ERROR] Widget dropdown is not displayed or not enabled!");
-            }
+        By dropdownLocator = By.xpath("//div[@class='rex-form unbxd-form']//div[1]//div[2]//div[2]//div[1]//button[1]");
+        By optionLocator = By.cssSelector("a.dropdown-item");
+        for (int attempt = 0; attempt < 4; attempt++) {
             try {
-                page.widgetDropdown.click();
-            } catch (Exception e) {
-                System.out.println("[WARN] Normal click failed, trying JS click for widget dropdown.");
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.widgetDropdown);
-            }
-            Thread.sleep(1000); // Wait for options to load
-            List<WebElement> dropdownItems = driver.findElements(By.cssSelector("a.dropdown-item"));
-            for (WebElement item : dropdownItems) {
-                if (item.getText().trim().equals(widgetName.trim())) {
-                    item.click();
-                    return;
+                System.out.println("[DEBUG] Attempt " + (attempt+1) + ": Selecting widget '" + widgetName + "'");
+                takeDebugScreenshot("before_select_widget_attempt_" + attempt);
+                // Ensure dropdown is open
+                WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(dropdownLocator));
+                dropdown.click();
+                // Wait for dropdown options to be present and visible
+                wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(optionLocator));
+                List<WebElement> dropdownItems = driver.findElements(optionLocator);
+                boolean found = false;
+                for (WebElement item : dropdownItems) {
+                    if (item.getText().trim().equals(widgetName.trim())) {
+                        wait.until(ExpectedConditions.elementToBeClickable(item)).click();
+                        found = true;
+                        break;
+                    }
                 }
+                if (found) {
+                    takeDebugScreenshot("after_select_widget_success_" + attempt);
+                    return;
+                } else {
+                    System.out.println("[WARN] Widget '" + widgetName + "' not found in dropdown on attempt " + (attempt+1));
+                }
+            } catch (Exception e) {
+                System.out.println("[ERROR] Exception during widget selection attempt " + (attempt+1) + ": " + e.getMessage());
             }
-            throw new NoSuchElementException("Widget '" + widgetName + "' not found in dropdown");
-        } catch (Exception ex) {
-            System.out.println("[ERROR] Failed to select widget: " + ex.getMessage());
-            ex.printStackTrace();
-            throw new RuntimeException("Failed to select widget", ex);
+            takeDebugScreenshot("after_select_widget_fail_" + attempt);
+            try { Thread.sleep(500); } catch (InterruptedException ignored) {}
         }
+        throw new NoSuchElementException("Widget '" + widgetName + "' not found in dropdown after retries");
     }
 
     public void clickTemplateTypeDropdown() {
@@ -184,16 +190,14 @@ public class ExpActions {
         String xpath = "//span[normalize-space()='" + customAlgo.trim() + "']";
         List<WebElement> options = driver.findElements(By.xpath(xpath));
         if (options.isEmpty()) {
-            // Log and screenshot
+            
             List<WebElement> allOptions = driver.findElements(By.cssSelector("span.primary-label"));
             System.out.println("[ERROR] Custom algorithm '" + customAlgo + "' not found. Available options:");
             for (WebElement opt : allOptions) {
                 System.out.println(" - " + opt.getText());
             }
             takeDebugScreenshot("custom_algo_not_found");
-            // Self-healing: create the custom algorithm (pseudo-code, implement as needed)
-            // createCustomAlgorithm(customAlgo);
-            // After creation, try again
+
             page.algoDropdown.click();
             options = driver.findElements(By.xpath(xpath));
             if (options.isEmpty()) {
