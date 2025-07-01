@@ -121,44 +121,11 @@ public class ExpActions {
     }
 
     public void selectWidgetByName(String widgetName) {
-        robustSelectWidgetByName(widgetName);
-    }
-
-    public void robustSelectWidgetByName(String widgetName) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        By dropdownLocator = By.xpath("//div[@class='rex-form unbxd-form']//div[1]//div[2]//div[2]//div[1]//button[1]");
-        By optionLocator = By.cssSelector("a.dropdown-item");
-        for (int attempt = 0; attempt < 4; attempt++) {
-            try {
-                System.out.println("[DEBUG] Attempt " + (attempt+1) + ": Selecting widget '" + widgetName + "'");
-                takeDebugScreenshot("before_select_widget_attempt_" + attempt);
-                // Ensure dropdown is open
-                WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(dropdownLocator));
-                dropdown.click();
-                // Wait for dropdown options to be present and visible
-                wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(optionLocator));
-                List<WebElement> dropdownItems = driver.findElements(optionLocator);
-                boolean found = false;
-                for (WebElement item : dropdownItems) {
-                    if (item.getText().trim().equals(widgetName.trim())) {
-                        wait.until(ExpectedConditions.elementToBeClickable(item)).click();
-                        found = true;
-                        break;
-                    }
-                }
-                if (found) {
-                    takeDebugScreenshot("after_select_widget_success_" + attempt);
-                    return;
-                } else {
-                    System.out.println("[WARN] Widget '" + widgetName + "' not found in dropdown on attempt " + (attempt+1));
-                }
-            } catch (Exception e) {
-                System.out.println("[ERROR] Exception during widget selection attempt " + (attempt+1) + ": " + e.getMessage());
-            }
-            takeDebugScreenshot("after_select_widget_fail_" + attempt);
-            try { Thread.sleep(500); } catch (InterruptedException ignored) {}
-        }
-        throw new NoSuchElementException("Widget '" + widgetName + "' not found in dropdown after retries");
+        page.widgetDropdown.click();
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+        By optionLocator = By.xpath("//span[normalize-space()='" + widgetName + "']");
+        WebElement option = driver.findElement(optionLocator);
+        option.click();
     }
 
     public void clickTemplateTypeDropdown() {
