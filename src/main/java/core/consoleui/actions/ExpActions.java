@@ -121,6 +121,9 @@ public class ExpActions {
     }
 
     public void selectWidgetByName(String widgetName) {
+        closeOverlaysIfPresent();
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.elementToBeClickable(page.widgetDropdown));
         page.widgetDropdown.click();
         try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
         By optionLocator = By.xpath("//span[normalize-space()='" + widgetName + "']");
