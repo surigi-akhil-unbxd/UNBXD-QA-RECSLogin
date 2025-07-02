@@ -1,0 +1,13 @@
+{
+  "testData": [
+    {
+       "TemplateType": "Standard Widget",
+      "widgetSize": "700",
+      "Medium": "Mobile",
+      "Layout": "Horizontal",
+      "ProductsInDisplay": "6",
+      "EditWidgetSize": "700",
+      "MaximumProducts": "12"
+    }
+  ]
+} 
