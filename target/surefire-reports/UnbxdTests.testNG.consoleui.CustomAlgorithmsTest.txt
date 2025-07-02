@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: UnbxdTests.testNG.consoleui.CustomAlgorithmsTest
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 471.247 s - in UnbxdTests.testNG.consoleui.CustomAlgorithmsTest

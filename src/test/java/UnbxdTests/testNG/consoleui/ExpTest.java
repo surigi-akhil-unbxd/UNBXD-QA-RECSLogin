@@ -58,6 +58,7 @@ public class ExpTest extends BaseTest {
 
         // Create experience
         expActions.selectPageByName(pageName);
+        Thread.sleep(2000);
         expActions.selectWidgetByName(widgetName);
         expActions.selectTemplateByName(desktopTemplate);
         expActions.selectTemplateByName(mobileTemplate);

@@ -10,19 +10,19 @@
     },
     {
       "pageName": "Product Page",
-      "widgetName": "WIDGET 1",
+      "widgetName": "WIDGET 3",
       "desktopTemplate": "Untitled-layout-771  (desktop browser)",
       "mobileTemplate": "U769  (mobile browser)",
       "customAlgo": "algoCursor",
-      "EditWidgetType": "WIDGET 2"
+      "EditWidgetType": "WIDGET 1"
     },
     {
       "pageName": "Category Page",
-      "widgetName": "WIDGET 1",
+      "widgetName": "WIDGET 2",
       "desktopTemplate": "Untitled-layout-771  (desktop browser)",
       "mobileTemplate": "U769  (mobile browser)",
       "customAlgo": "algoCursor",
-      "EditWidgetType": "WIDGET 2"
+      "EditWidgetType": "WIDGET 3"
     },
     {
       "pageName": "Brand Page",
@@ -34,7 +34,7 @@
     },
     {
       "pageName": "Cart Page",
-      "widgetName": "WIDGET 1",
+      "widgetName": "WIDGET 3",
       "desktopTemplate": "Untitled-layout-771  (desktop browser)",
       "mobileTemplate": "U769  (mobile browser)",
       "customAlgo": "algoCursor",

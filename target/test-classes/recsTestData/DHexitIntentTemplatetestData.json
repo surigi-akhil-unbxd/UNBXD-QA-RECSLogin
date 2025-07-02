@@ -1,0 +1,17 @@
+{
+  "testData": [
+    {
+      "widgetSize": "700",
+      "Medium": "Desktop",
+      "Layout": "Horizontal",
+      "ProductsInDisplay": "6",
+      "EditWidgetSize": "700",
+      "MaximumProducts": "12",
+      "TemplateType": "Exit Intent Pop Up",
+      "TemplateTypes": ["Standard Widget", "Exit intent Popup", "Boutique"]
+    }
+    
+  
+   
+  ]
+} 

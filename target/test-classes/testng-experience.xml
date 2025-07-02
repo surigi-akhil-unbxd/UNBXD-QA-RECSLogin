@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Experience Suite" parallel="classes" thread-count="4">
+    <test name="Experience">
+        <classes>
+            <class name="UnbxdTests.testNG.consoleui.ExpTest"/>
+            <class name="UnbxdTests.testNG.consoleui.BoutiqueExperienceTest"/>
+            <class name="UnbxdTests.testNG.consoleui.JourneyExperienceTest"/>
+            <class name="UnbxdTests.testNG.consoleui.broadCastPageTest"/>
+        </classes>
+    </test>
+</suite> 
