@@ -125,9 +125,8 @@ public class ExpActions {
         WebDriverWait wait = new WebDriverWait(driver, 1);
         wait.until(ExpectedConditions.elementToBeClickable(page.widgetDropdown));
         page.widgetDropdown.click();
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
         By optionLocator = By.xpath("//span[normalize-space()='" + widgetName + "']");
-        WebElement option = driver.findElement(optionLocator);
+        WebElement option = new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(optionLocator));
         option.click();
     }
 
