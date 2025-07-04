@@ -38,7 +38,7 @@ public class MHstandardWidgettemplateTest extends BaseTest {
     }
 
     @Test(dataProvider = "getTestDataFromFile", dataProviderClass = ResourceLoader.class)
-    @FileToTest("recsTestData/MHstandardWidgetTestdata.json")
+    @FileToTest("recsTestData/MHstandardWidgettemplateTestData.json")
     public void testTemplatesPageElementsInteraction(JsonObject dataMap) {
         expActions.handleAllPopups();
         templatesActions.navigateToTemplatesPage();

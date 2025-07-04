@@ -38,7 +38,7 @@ public class DVstandardWidgetTemplateTest extends BaseTest {
     }
 
     @Test(dataProvider = "getTestDataFromFile", dataProviderClass = ResourceLoader.class)
-    @FileToTest("recsTestData/DVstandardWidgetTestdata.json")
+    @FileToTest("recsTestData/DVstandardWidgetTemplateTestData.json")
     public void testTemplatesPageElementsInteraction(JsonObject dataMap) {
         expActions.handleAllPopups();
         templatesActions.navigateToTemplatesPage();
