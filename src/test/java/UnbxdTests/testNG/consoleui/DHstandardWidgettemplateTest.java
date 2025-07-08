@@ -38,7 +38,7 @@ public class DHstandardWidgettemplateTest extends BaseTest {
     }
 
     @Test(dataProvider = "getTestDataFromFile", dataProviderClass = ResourceLoader.class)
-    @FileToTest("recsTestData/DHstandardWidgettemplateTestdata.json")
+    @FileToTest("recsTestData/DHstandardWidgettemplateTestData.json")
     public void testTemplatesPageElementsInteraction(JsonObject dataMap) {
         expActions.handleAllPopups();
         templatesActions.navigateToTemplatesPage();
