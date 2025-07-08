@@ -38,8 +38,5 @@
             <class name="UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest"/>
             <class name="UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest"/>
         </classes>
-        <classes>
-            
-        </classes>
     </test>
 </suite> 
