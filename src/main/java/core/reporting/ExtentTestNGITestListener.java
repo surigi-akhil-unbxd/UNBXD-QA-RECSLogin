@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class ExtentTestNGITestListener implements ITestListener {
 
-    private static ExtentReports extent = ExtentManager.createInstance("extent.html");
+    private static ExtentReports extent = ExtentManager.createInstance("test-output/SparkReport.html");
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
     @Override

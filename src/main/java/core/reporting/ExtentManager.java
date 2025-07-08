@@ -17,6 +17,8 @@ public class ExtentManager {
         ExtentSparkReporter sparkReporter = new ExtentSparkReporter(fileName);
         extent = new ExtentReports();
         extent.attachReporter(sparkReporter);
+        extent.setSystemInfo("OS", System.getProperty("os.name"));
+        extent.setSystemInfo("Java Version", System.getProperty("java.version"));
         return extent;
     }
 }
