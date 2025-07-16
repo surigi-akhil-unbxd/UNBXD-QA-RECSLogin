@@ -86,24 +86,28 @@ public class BrowserInitializer {
         System.out.println("[DEBUG] initDriver called for browser: " + browser);
 
         String hubUrl = System.getProperty("hubUrl");
+        System.out.println("[DEBUG] hubUrl system property: " + hubUrl);
         boolean useGrid = hubUrl != null && !hubUrl.isEmpty();
 
         try {
             if (useGrid) {
                 System.out.println("[DEBUG] Using Selenium Grid at: " + hubUrl);
                 driver = new RemoteWebDriver(new URL(hubUrl), capabilities);
-            } else if (browser == Browser.CHROME) {
-                String chromePath = getChromeDriverPath();
-                System.out.println("[DEBUG] Using ChromeDriver path: " + chromePath);
-                System.setProperty(CHROME_DRIVER_EXE_PROPERTY, chromePath);
-                driver = new ChromeDriver(capabilities);
-            } else if (browser == Browser.FIREFOX) {
-                System.setProperty("webdriver.gecko.driver", geckoDriverPath);
-                capabilities.setCapability("marionette", true);
-                System.out.println("[DEBUG] Using GeckoDriver path: " + geckoDriverPath);
-                driver = new FirefoxDriver(capabilities);
             } else {
-                System.out.println("[DEBUG] No matching browser found, returning null driver.");
+                System.err.println("[WARNING] hubUrl is not set! Will use local driver. This may fail on CI.");
+                if (browser == Browser.CHROME) {
+                    String chromePath = getChromeDriverPath();
+                    System.out.println("[DEBUG] Using ChromeDriver path: " + chromePath);
+                    System.setProperty(CHROME_DRIVER_EXE_PROPERTY, chromePath);
+                    driver = new ChromeDriver(capabilities);
+                } else if (browser == Browser.FIREFOX) {
+                    System.setProperty("webdriver.gecko.driver", geckoDriverPath);
+                    capabilities.setCapability("marionette", true);
+                    System.out.println("[DEBUG] Using GeckoDriver path: " + geckoDriverPath);
+                    driver = new FirefoxDriver(capabilities);
+                } else {
+                    System.out.println("[DEBUG] No matching browser found, returning null driver.");
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
