@@ -53,7 +53,8 @@ pipeline {
             }
             steps {
                 echo "Rerunning only failed tests from previous run..."
-                sh 'mvn test -Dsurefire.suiteXmlFiles=target/surefire-reports/testng-failed.xml -Denv=ProdAPAC'
+                // Ensure hubUrl is always passed for reruns as well
+                sh 'mvn test -Dsurefire.suiteXmlFiles=target/surefire-reports/testng-failed.xml -Denv=ProdAPAC -DhubUrl=$SELENIUM_GRID_URL'
             }
         }
     }
