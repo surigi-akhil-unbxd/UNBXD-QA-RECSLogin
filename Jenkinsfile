@@ -28,7 +28,12 @@ pipeline {
             steps {
                 echo "Running tests on ENV: ProdAPAC"
                 echo "Using Selenium Grid URL: ${SELENIUM_GRID_URL}"
-                sh "mvn test -Denv=ProdAPAC -DhubUrl=$SELENIUM_GRID_URL"
+                script {
+                    def testStatus = sh(script: "mvn test -Denv=ProdAPAC -DhubUrl=$SELENIUM_GRID_URL", returnStatus: true)
+                    if (testStatus != 0) {
+                        echo "Test failures detected, proceeding to rerun failed tests."
+                    }
+                }
             }
         }
         stage('Login for Rerun') {
