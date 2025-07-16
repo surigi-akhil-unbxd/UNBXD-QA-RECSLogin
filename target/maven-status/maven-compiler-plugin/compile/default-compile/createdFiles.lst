@@ -7,6 +7,7 @@ core/ui/page/UnbxdCommonPage.class
 core/ui/actions/PreviewTemplateActions$1.class
 core/ui/page/ShopifyFeedUploadPage.class
 core/ui/actions/RelevancyPageActions.class
+lib/Helper$2.class
 core/ui/actions/CreateSiteActions.class
 core/AnnotationTransformer.class
 core/ui/page/SearchableFieldsPage.class

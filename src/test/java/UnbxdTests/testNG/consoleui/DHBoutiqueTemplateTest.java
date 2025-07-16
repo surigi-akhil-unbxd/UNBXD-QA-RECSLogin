@@ -27,11 +27,16 @@ public class DHBoutiqueTemplateTest extends BaseTest {
     public void setUp() {
         try {
             super.setUp();
+            lib.EnvironmentConfig.setContext(1, 1);
             this.initFluent(driver);
             initTest();
-            loginActions.login(1, 1);
-            templatesActions = new TemplatesActions1(driver);
-            expActions = new ExpActions(driver);
+            expActions = new core.consoleui.actions.ExpActions(driver);
+            templatesActions = new core.consoleui.actions.TemplatesActions1(driver);
+            boolean cookiesRestored = lib.Helper.restoreCookiesFromFile(driver, "cookies.json", lib.EnvironmentConfig.getLoginUrl());
+            if (!cookiesRestored) {
+                throw new IllegalStateException("Cookies not found. Please run LoginTest first.");
+            }
+            driver.navigate().refresh();
         } catch (Exception e) {
             e.printStackTrace();
         }

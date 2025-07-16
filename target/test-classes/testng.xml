@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="UI Regression Suite" parallel="methods" thread-count="20">
-    <!-- Core Algorithms Tests -->
-    <test name="Core Algorithms">
+<suite name="UI Regression Suite">
+    <!-- Login Test: runs first, sequentially -->
+    <test name="LoginTest" parallel="false">
+        <classes>
+            <class name="UnbxdTests.testNG.login.LoginTest"/>
+        </classes>
+    </test>
+
+    <!-- All other tests: run in parallel by class -->
+    <test name="ParallelTests" parallel="classes" thread-count="10">
         <classes>
             <class name="UnbxdTests.testNG.consoleui.CoreAlgorithmsTest"/>
             <class name="UnbxdTests.testNG.consoleui.CustomAlgorithmsTest"/>
             <class name="UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest"/>
-        </classes>
-    </test>
-
-    <!-- Experience Tests -->
-    <test name="Experience">
-        <classes>
             <class name="UnbxdTests.testNG.consoleui.ExpTest"/>
             <class name="UnbxdTests.testNG.consoleui.BoutiqueExperienceTest"/>
             <class name="UnbxdTests.testNG.consoleui.JourneyExperienceTest"/>
             <class name="UnbxdTests.testNG.consoleui.broadCastPageTest"/>
-        </classes>
-    </test>
-
-    <!-- Template Tests -->
-    <test name="Templates">
-        <classes>
             <class name="UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest"/>
             <class name="UnbxdTests.testNG.consoleui.DHexitIntentTemplatetest"/>
             <class name="UnbxdTests.testNG.consoleui.DHstandardWidgettemplateTest"/>
@@ -37,9 +32,6 @@
             <class name="UnbxdTests.testNG.consoleui.MVinstagramLikeBehaviorTemplateTest"/>
             <class name="UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest"/>
             <class name="UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest"/>
-        </classes>
-        <classes>
-            
         </classes>
     </test>
 </suite> 

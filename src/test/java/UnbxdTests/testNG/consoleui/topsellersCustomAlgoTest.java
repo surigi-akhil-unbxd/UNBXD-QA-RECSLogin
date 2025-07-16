@@ -14,6 +14,10 @@ import com.google.gson.JsonObject;
 import UnbxdTests.testNG.dataProvider.ResourceLoader;
 import lib.annotation.FileToTest;
 import org.testng.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.By;
 
 public class topsellersCustomAlgoTest extends BaseTest {
 
@@ -27,11 +31,16 @@ public class topsellersCustomAlgoTest extends BaseTest {
     public void setUp() {
         try {
             super.setUp();
+            lib.EnvironmentConfig.setContext(1, 1);
             this.initFluent(driver);
             initTest();
-            loginActions.login(1, 1);
-            customAlgorithmsActions = new CustomAlgorithmsActions(driver);
-            expActions = new ExpActions(driver);
+            customAlgorithmsActions = new core.consoleui.actions.CustomAlgorithmsActions(driver);
+            expActions = new core.consoleui.actions.ExpActions(driver);
+            boolean cookiesRestored = lib.Helper.restoreCookiesFromFile(driver, "cookies.json", lib.EnvironmentConfig.getLoginUrl());
+            if (!cookiesRestored) {
+                throw new IllegalStateException("Cookies not found. Please run LoginTest first.");
+            }
+            driver.navigate().refresh();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,46 +60,38 @@ public class topsellersCustomAlgoTest extends BaseTest {
         customAlgorithmsActions.setLookBackPeriod(lookbackPeriod);
         customAlgorithmsActions.clickSaveButton();
         
+        // Wait for the search input to be visible before searching
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[placeholder='Search for Custom Algorithm']")));
+        customAlgorithmsActions.searchCustomAlgorithmByName(algoName);
+        customAlgorithmsActions.hoverAndClickOnCreatedAlgorithm();
         try {
-            Thread.sleep(5000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        customAlgorithmsActions.searchCustomAlgorithmByName(algoName);
-        customAlgorithmsActions.hoverAndClickOnCreatedAlgorithm();
         customAlgorithmsActions.clickEditButton();
         customAlgorithmsActions.selectAlgorithmByName(dataMap.get("editCustomAlgo").getAsString());
         customAlgorithmsActions.clickSaveButton();
         customAlgorithmsActions.searchCustomAlgorithmByName(algoName);
         try {
-            Thread.sleep(5000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+        // Print all algorithm names in the list for debugging before delete
+        for (WebElement el : driver.findElements(By.cssSelector(".item-name"))) {
+            System.out.println("[DEBUG] Found algo in list: '" + el.getText() + "'");
         }
         customAlgorithmsActions.hoverAndClickOnCreatedAlgorithm();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         customAlgorithmsActions.clickDeleteButton();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".modal-footer button.btn-primary")));
         customAlgorithmsActions.clickProceedButton();
         customAlgorithmsActions.searchCustomAlgorithmByName(algoName);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        
-        
-    
-        
-        
-        
-        // customAlgorithmsActions.selectNoOfSlots(dataMap.get("noOfSlots").getAsString());
-
-        // Add further steps as needed, e.g., save, verify, edit, delete, etc.
-        // Add waits or sleeps if UI needs time to update
+        // Wait for the algorithm to be removed from the list
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[contains(@class,'list-crud-items')]//*[contains(text(),'" + algoName + "')]")));
+        // Add debug log for completion
+        System.out.println("[DEBUG] testCustomAlgorithm completed for algoName: " + algoName);
     }
 
     // Add more test methods as needed

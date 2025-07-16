@@ -26,11 +26,20 @@ public class ExpTest extends BaseTest {
     
     @BeforeClass
     public void setUp() {
-        super.setUp();
-        this.initFluent(driver);
-        initTest();
-        loginActions.login(1,1);
-        expActions = new ExpActions(driver);
+        try {
+            super.setUp();
+            lib.EnvironmentConfig.setContext(1, 1);
+            this.initFluent(driver);
+            initTest();
+            expActions = new core.consoleui.actions.ExpActions(driver);
+            boolean cookiesRestored = lib.Helper.restoreCookiesFromFile(driver, "cookies.json", lib.EnvironmentConfig.getLoginUrl());
+            if (!cookiesRestored) {
+                throw new IllegalStateException("Cookies not found. Please run LoginTest first.");
+            }
+            driver.navigate().refresh();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
 
@@ -58,31 +67,32 @@ public class ExpTest extends BaseTest {
 
         // Create experience
         expActions.selectPageByName(pageName);
-        Thread.sleep(2000);
         expActions.selectWidgetByName(widgetName);
         expActions.selectTemplateByName(desktopTemplate);
         expActions.selectTemplateByName(mobileTemplate);
         expActions.selectCustomAlgo(customAlgo);
         expActions.clickSaveButton();
-        Thread.sleep(3000);
+
+        // Wait for the search input before searching for the experience
+        new org.openqa.selenium.support.ui.WebDriverWait(driver, 20)
+            .until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(
+                org.openqa.selenium.By.cssSelector("input[placeholder='Search for Experience']")));
         expActions.searchExperienceByName(experienceName);
 
-        
-        Thread.sleep(5000);
+        // Wait for the experience to appear in the list (robust wait, no sleep)
+        expActions.waitForAndClickExperienceInList(experienceName);
 
         // Edit experience
-        expActions.waitForAndClickExperienceInList(experienceName);
-        Thread.sleep(5000);
+        expActions.handleAllPopups();
         expActions.clickEditExpButton();
         if (editWidgetType != null && !editWidgetType.trim().isEmpty()) {
             expActions.selectWidgetByName(editWidgetType);
         }
         expActions.clickSaveButton();
-        Thread.sleep(5000);
+        expActions.waitForAndClickExperienceInList(experienceName);
 
         // Delete experience
-        expActions.waitForAndClickExperienceInList(experienceName);
-        Thread.sleep(5000);
+        expActions.handleAllPopups();
         expActions.clickDeleteExperienceButton();
         expActions.clickConfirmDeleteButton();
         expActions.searchExperienceByName(experienceName);

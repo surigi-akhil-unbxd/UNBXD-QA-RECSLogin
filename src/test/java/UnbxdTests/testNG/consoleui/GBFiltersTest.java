@@ -30,11 +30,20 @@ public class GBFiltersTest extends BaseTest {
 
     @BeforeClass
     public void setUp() {
-        super.setUp();
-        this.initFluent(driver);
-        initTest();
-        loginActions.login(1, 1);
-        expActions = new core.consoleui.actions.ExpActions(driver);
+        try {
+            super.setUp();
+            lib.EnvironmentConfig.setContext(1, 1);
+            this.initFluent(driver);
+            initTest();
+            expActions = new core.consoleui.actions.ExpActions(driver);
+            boolean cookiesRestored = lib.Helper.restoreCookiesFromFile(driver, "cookies.json", lib.EnvironmentConfig.getLoginUrl());
+            if (!cookiesRestored) {
+                throw new IllegalStateException("Cookies not found. Please run LoginTest first.");
+            }
+            driver.navigate().refresh();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test(dataProvider = "getTestDataFromFile", dataProviderClass = ResourceLoader.class)

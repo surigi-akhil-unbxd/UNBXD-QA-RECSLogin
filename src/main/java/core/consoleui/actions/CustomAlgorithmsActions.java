@@ -55,6 +55,10 @@ public class CustomAlgorithmsActions {
         org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, 20);
         wait.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf(page.searchCustomAlgorithmInput));
         page.searchCustomAlgorithmInput.click();
+        // Clear the input robustly before searching
+        page.searchCustomAlgorithmInput.clear();
+        page.searchCustomAlgorithmInput.sendKeys(org.openqa.selenium.Keys.chord(org.openqa.selenium.Keys.CONTROL, "a"));
+        page.searchCustomAlgorithmInput.sendKeys(org.openqa.selenium.Keys.DELETE);
         // Use JS to set value and trigger input event
         ((org.openqa.selenium.JavascriptExecutor) driver).executeScript(
             "arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('input', { bubbles: true }));",
@@ -130,14 +134,13 @@ public class CustomAlgorithmsActions {
     }
 
     public void hoverAndClickOnCreatedAlgorithm() {
-        java.util.List<org.openqa.selenium.WebElement> algoElements = driver.findElements(org.openqa.selenium.By.cssSelector(".item-name"));
-        for (org.openqa.selenium.WebElement el : algoElements) {
-            if (el.getText().trim().equalsIgnoreCase(CustomAlgoName.trim())) {
-                org.openqa.selenium.interactions.Actions actions = new org.openqa.selenium.interactions.Actions(driver);
-                actions.moveToElement(el).click().perform();
-                break;
-            }
-        }
+        // Wait for the element to be present and clickable
+        org.openqa.selenium.By algoLocator = org.openqa.selenium.By.xpath("//div[contains(@class,'item-name') and text()='" + CustomAlgoName + "']");
+        org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, 20);
+        org.openqa.selenium.WebElement el = wait.until(org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable(algoLocator));
+        takeDebugScreenshot("before_click_created_algo");
+        org.openqa.selenium.interactions.Actions actions = new org.openqa.selenium.interactions.Actions(driver);
+        actions.moveToElement(el).click().perform();
     }
 
     public void clickProceedButton() {

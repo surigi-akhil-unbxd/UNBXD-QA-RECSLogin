@@ -10,6 +10,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
+import com.google.gson.Gson;
+import org.openqa.selenium.Cookie;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -196,6 +200,48 @@ public class Helper extends FluentPage {
             cookies.put(cookie.getName(),cookie.getValue());
         }
         return cookies;
+    }
+
+    /**
+     * Save all cookies from the current WebDriver session to a JSON file.
+     */
+    public static void saveCookiesToFile(WebDriver driver, String filePath) {
+        Set<Cookie> cookies = driver.manage().getCookies();
+        try {
+            String json = new Gson().toJson(cookies);
+            Files.write(Paths.get(filePath), json.getBytes());
+            System.out.println("[Helper] Cookies saved to: " + filePath);
+        } catch (Exception e) {
+            System.err.println("[Helper] Failed to save cookies: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Restore cookies from a JSON file to the current WebDriver session.
+     * Returns true if successful, false otherwise.
+     */
+    public static boolean restoreCookiesFromFile(WebDriver driver, String filePath, String domainUrl) {
+        try {
+            if (!Files.exists(Paths.get(filePath))) {
+                System.err.println("[Helper] Cookies file not found: " + filePath);
+                return false;
+            }
+            String json = new String(Files.readAllBytes(Paths.get(filePath)));
+            Set<Cookie> cookies = new Gson().fromJson(json, new com.google.gson.reflect.TypeToken<Set<Cookie>>(){}.getType());
+            driver.get(domainUrl); // Must be on the domain before adding cookies
+            for (Cookie cookie : cookies) {
+                try {
+                    driver.manage().addCookie(cookie);
+                } catch (Exception e) {
+                    System.err.println("[Helper] Failed to add cookie: " + cookie.getName() + ", " + e.getMessage());
+                }
+            }
+            System.out.println("[Helper] Cookies restored from: " + filePath);
+            return true;
+        } catch (Exception e) {
+            System.err.println("[Helper] Failed to restore cookies: " + e.getMessage());
+            return false;
+        }
     }
 
 

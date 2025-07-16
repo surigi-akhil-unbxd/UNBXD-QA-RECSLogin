@@ -26,10 +26,15 @@ public class BoutiqueExperienceTest extends BaseTest {
     public void setUp() {
         try {
             super.setUp();
+            lib.EnvironmentConfig.setContext(1, 1);
             this.initFluent(driver);
             initTest();
-            loginActions.login(1, 2);
-            expActions = new ExpActions(driver);
+            expActions = new core.consoleui.actions.ExpActions(driver);
+            boolean cookiesRestored = lib.Helper.restoreCookiesFromFile(driver, "cookies.json", lib.EnvironmentConfig.getLoginUrl());
+            if (!cookiesRestored) {
+                throw new IllegalStateException("Cookies not found. Please run LoginTest first.");
+            }
+            driver.navigate().refresh();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,24 +53,27 @@ public class BoutiqueExperienceTest extends BaseTest {
         expActions.selectTemplateByName(dataMap.get("mobileTemplate").getAsString());
         expActions.selectCustomAlgo(dataMap.get("customAlgo").getAsString());
         expActions.clickSaveButton();
-        Thread.sleep(3000);
+
+        // Wait for the experience to appear in the list (robust wait, no sleep)
+        expActions.waitForAndClickExperienceInList(experienceName);
 
         // Optionally, edit experience if EditWidgetType is present
         String editWidgetType = dataMap.get("EditWidgetType").getAsString();
         if (editWidgetType != null && !editWidgetType.trim().isEmpty()) {
-            expActions.waitForAndClickExperienceInList(experienceName);
-            Thread.sleep(3000);
+            expActions.handleAllPopups();
             expActions.clickEditExpButton();
             expActions.selectWidgetByName(editWidgetType);
             expActions.clickSaveButton();
-            Thread.sleep(3000);
+            // Wait for the experience to reappear in the list after edit
+            expActions.waitForAndClickExperienceInList(experienceName);
         }
 
-        // Delete experience
-        expActions.waitForAndClickExperienceInList(experienceName);
-        Thread.sleep(3000);
+        // Delete experience (robust, no sleep)
+        expActions.handleAllPopups();
         expActions.clickDeleteExperienceButton();
         expActions.clickConfirmDeleteButton();
+        // Optionally, wait for the experience to disappear from the list
+        // (could add expActions.isExperienceNotPresentInList(experienceName) if implemented)
     }
 
     @AfterClass

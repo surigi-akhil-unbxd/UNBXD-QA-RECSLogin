@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite, 15 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-UI_Regression_Suite" class="navigator-link">
+              <span class="suite-name border-failed">UI Regression Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-UI_Regression_Suite" class="navigator-link ">
+                    <span>testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-UI_Regression_Suite" class="navigator-link ">
+                    <span class="test-stats">2 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-UI_Regression_Suite" class="navigator-link ">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-UI_Regression_Suite" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-UI_Regression_Suite" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-UI_Regression_Suite" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-UI_Regression_Suite" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">32 methods, 15 failed,   17 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-UI_Regression_Suite" class="hide-methods failed suite-UI_Regression_Suite"> (hide)</a> <!-- hide-methods failed suite-UI_Regression_Suite -->
+                      <a href="#" panel-name="suite-UI_Regression_Suite" class="show-methods failed suite-UI_Regression_Suite"> (show)</a> <!-- show-methods failed suite-UI_Regression_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-UI_Regression_Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.BoutiqueExperienceTest" class="method navigator-link" hash-for-method="createBoutiqueExperience({&quot;pageName&quot;:&quot;Boutique Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 1&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop...)">createBoutiqueExperience({"pageName":"Boutique Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.broadCastPageTest" class="method navigator-link" hash-for-method="createBroadCastExperience({&quot;pageName&quot;:&quot;Broadcast Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 1&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (deskto...)">createBroadCastExperience({"pageName":"Broadcast Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (deskto...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.ExpTest" class="method navigator-link" hash-for-method="createExperienceTest({&quot;pageName&quot;:&quot;Home Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 1&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop bro...)">createExperienceTest({"pageName":"Home Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop bro...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.JourneyExperienceTest" class="method navigator-link" hash-for-method="createJourneyExperience({&quot;pageName&quot;:&quot;Journey Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 1&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop ...)">createJourneyExperience({"pageName":"Journey Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop ...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.CustomAlgorithmsTest" class="method navigator-link" hash-for-method="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Viewed also viewed&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Recommended For You&quot;})">testCustomAlgorithm({"customAlgo":"Viewed also viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.CustomAlgorithmsTest" class="method navigator-link" hash-for-method="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Most Viewed&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Recommended For You&quot;})">testCustomAlgorithm({"customAlgo":"Most Viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest" class="method navigator-link" hash-for-method="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Category Top Sellers&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Most Viewed&quot;,&quot;lookbackPeriod...)">testCustomAlgorithm({"customAlgo":"Category Top Sellers","noOfSlots":"10","editCustomAlgo":"Most Viewed","lookbackPeriod...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest" class="method navigator-link" hash-for-method="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Top Sellers&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Most Viewed&quot;,&quot;lookbackPeriod&quot;:&quot;10&quot;})">testCustomAlgorithm({"customAlgo":"Top Sellers","noOfSlots":"10","editCustomAlgo":"Most Viewed","lookbackPeriod":"10"})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.CustomAlgorithmsTest" class="method navigator-link" hash-for-method="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Recommended For You&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Most Viewed&quot;})">testCustomAlgorithm({"customAlgo":"Recommended For You","noOfSlots":"10","editCustomAlgo":"Most Viewed"})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.CoreAlgorithmsTest" class="method navigator-link" hash-for-method="testNavigateToCoreAlgorithmsPage({&quot;parentID&quot;:&quot;AAM15MB01&quot;,&quot;childID&quot;:&quot;AAM15MB04&quot;,&quot;childID1&quot;:&quot;AAM15MBBE&quot;})">testNavigateToCoreAlgorithmsPage({"parentID":"AAM15MB01","childID":"AAM15MB04","childID1":"AAM15MBBE"})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumProdu...)">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize...)">testTemplatesPageElementsInteraction({"widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;TemplateType&quot;:&quot;Standard Widget&quot;,&quot;widgetSize&quot;:&quot;200&quot;,&quot;Medium&quot;:&quot;Mobile&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;Products...)">testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"200","Medium":"Mobile","Layout":"Vertical","Products...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.MHboutiqueTemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumPro...)">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumPro...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.DVstandardWidgetTemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;TemplateType&quot;:&quot;Standard Widget&quot;,&quot;widgetSize&quot;:&quot;200&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;Product...)">testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"200","Medium":"Desktop","Layout":"Vertical","Product...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-UI_Regression_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-UI_Regression_Suite" class="hide-methods passed suite-UI_Regression_Suite"> (hide)</a> <!-- hide-methods passed suite-UI_Regression_Suite -->
+                      <a href="#" panel-name="suite-UI_Regression_Suite" class="show-methods passed suite-UI_Regression_Suite"> (show)</a> <!-- show-methods passed suite-UI_Regression_Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-UI_Regression_Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.ExpTest" class="method navigator-link" hash-for-method="createExperienceTest({&quot;pageName&quot;:&quot;Product Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 3&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop ...)">createExperienceTest({"pageName":"Product Page","widgetName":"WIDGET 3","desktopTemplate":"Untitled-layout-771  (desktop ...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.ExpTest" class="method navigator-link" hash-for-method="createExperienceTest({&quot;pageName&quot;:&quot;Category Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 2&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop...)">createExperienceTest({"pageName":"Category Page","widgetName":"WIDGET 2","desktopTemplate":"Untitled-layout-771  (desktop...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.ExpTest" class="method navigator-link" hash-for-method="createExperienceTest({&quot;pageName&quot;:&quot;Brand Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 1&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop br...)">createExperienceTest({"pageName":"Brand Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop br...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.ExpTest" class="method navigator-link" hash-for-method="createExperienceTest({&quot;pageName&quot;:&quot;Cart Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 3&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop bro...)">createExperienceTest({"pageName":"Cart Page","widgetName":"WIDGET 3","desktopTemplate":"Untitled-layout-771  (desktop bro...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.login.LoginTest" class="method navigator-link" hash-for-method="loginAndSaveCookies">loginAndSaveCookies</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.CustomAlgorithmsTest" class="method navigator-link" hash-for-method="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Cross sell&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Recommended For You&quot;})">testCustomAlgorithm({"customAlgo":"Cross sell","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.CustomAlgorithmsTest" class="method navigator-link" hash-for-method="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Recently Viewed&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Recommended For You&quot;})">testCustomAlgorithm({"customAlgo":"Recently Viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.CustomAlgorithmsTest" class="method navigator-link" hash-for-method="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;More Like These&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Recommended For You&quot;})">testCustomAlgorithm({"customAlgo":"More Like These","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.MHinstagramLikeBehaaviorTemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumPro...)">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumPro...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.MHtinderLikeBehaviorTemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumProdu...)">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.MVinstagramLikeBehaviorTemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumProdu...)">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.DHstandardWidgettemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;TemplateType&quot;:&quot;Standard Widget&quot;,&quot;widgetSize&quot;:&quot;700&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;Produ...)">testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","Produ...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.DHexitIntentTemplatetest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize...)">testTemplatesPageElementsInteraction({"widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumProdu...)">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.MHstandardWidgettemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;TemplateType&quot;:&quot;Standard Widget&quot;,&quot;widgetSize&quot;:&quot;700&quot;,&quot;Medium&quot;:&quot;Mobile&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;Produc...)">testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"700","Medium":"Mobile","Layout":"Horizontal","Produc...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.DVexitIntentTemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:...)">testTemplatesPageElementsInteraction({"widgetSize":"700","Medium":"Desktop","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UI_Regression_Suite" title="UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest" class="method navigator-link" hash-for-method="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;200&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:...)">testTemplatesPageElementsInteraction({"widgetSize":"200","Medium":"Desktop","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-UI_Regression_Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-UI_Regression_Suite" class="panel UI_Regression_Suite">
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProducts":"12","TemplateType":"Boutique","ButtonPosition":"Left","TemplateName":"autoTemplate1752642616096"})</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.search-input-container input[type=&apos;text&apos;][placeholder=&apos;Search by template name&apos;]&quot;}
+  (Session info: chrome=138.0.7204.101)
+  (Driver info: chromedriver=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20.02 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52176}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.P9Bmd5}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: bf84166dea5e39e6272856fd4ab2425e
+*** Element info: {Using=css selector, value=.search-input-container input[type=&apos;text&apos;][placeholder=&apos;Search by template name&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy11.clear(Unknown Source)
+	at core.consoleui.actions.TemplatesActions1.searchTemplateByName(TemplatesActions1.java:273)
+	at UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest.testTemplatesPageElementsInteraction(DHBoutiqueTemplateTest.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+... Removed 16 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.DVstandardWidgetTemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;TemplateType&quot;:&quot;Standard Widget&quot;,&quot;widgetSize&quot;:&quot;200&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;Product...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"200","Medium":"Desktop","Layout":"Vertical","Product...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"TemplateType":"Standard Widget","widgetSize":"200","Medium":"Desktop","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"200","MaximumProducts":"12"})</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Timed out after 10 seconds waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .name-modifier-container .modifier input[type=&apos;text&apos;]&apos;
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52839}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.4r88py}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 54914c8666f54615cf5d9a01129eab1f
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at core.consoleui.actions.TemplatesActions1.enterTemplateName(TemplatesActions1.java:90)
+	at core.consoleui.actions.TemplatesActions1.fillTemplateForm(TemplatesActions1.java:372)
+	at UnbxdTests.testNG.consoleui.DVstandardWidgetTemplateTest.testTemplatesPageElementsInteraction(DVstandardWidgetTemplateTest.java:52)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.name-modifier-container .modifier input[type=&apos;text&apos;]&quot;}
+  (Session info: chrome=138.0.7204.101)
+  (Driver info: chromedriver=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20.06 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52839}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.4r88py}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 54914c8666f54615cf5d9a01129eab1f
+*** Element info: {Using=css selector, value=.name-modifier-container .modifier input[type=&apos;text&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy11.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 18 more
+... Removed 16 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Category Top Sellers&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Most Viewed&quot;,&quot;lookbackPeriod...)">
+                  </a> <!-- testCustomAlgorithm({"customAlgo":"Category Top Sellers","noOfSlots":"10","editCustomAlgo":"Most Viewed","lookbackPeriod...) -->
+                  <span class="method-name">testCustomAlgorithm</span>
+                  <span class="parameters">({"customAlgo":"Category Top Sellers","noOfSlots":"10","editCustomAlgo":"Most Viewed","lookbackPeriod":"10"})</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Timed out after 20 seconds waiting for visibility of element located by By.cssSelector: input[placeholder=&apos;Search for Custom Algorithm&apos;]
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52186}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.sgBCzy}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 1cf9b4e8dc8208fd5d55844a2d7ec1f5
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest.testCustomAlgorithm(topsellersCustomAlgoTest.java:65)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input[placeholder=&apos;Search for Custom Algorithm&apos;]&quot;}
+  (Session info: chrome=138.0.7204.101)
+  (Driver info: chromedriver=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20.03 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52186}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.sgBCzy}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 1cf9b4e8dc8208fd5d55844a2d7ec1f5
+*** Element info: {Using=css selector, value=input[placeholder=&apos;Search for Custom Algorithm&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 16 more
+... Removed 16 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Top Sellers&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Most Viewed&quot;,&quot;lookbackPeriod&quot;:&quot;10&quot;})">
+                  </a> <!-- testCustomAlgorithm({"customAlgo":"Top Sellers","noOfSlots":"10","editCustomAlgo":"Most Viewed","lookbackPeriod":"10"}) -->
+                  <span class="method-name">testCustomAlgorithm</span>
+                  <span class="parameters">({"customAlgo":"Top Sellers","noOfSlots":"10","editCustomAlgo":"Most Viewed","lookbackPeriod":"10"})</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Timed out after 20 seconds waiting for visibility of element located by By.cssSelector: input[placeholder=&apos;Search for Custom Algorithm&apos;]
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52186}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.sgBCzy}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 1cf9b4e8dc8208fd5d55844a2d7ec1f5
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest.testCustomAlgorithm(topsellersCustomAlgoTest.java:65)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input[placeholder=&apos;Search for Custom Algorithm&apos;]&quot;}
+  (Session info: chrome=138.0.7204.101)
+  (Driver info: chromedriver=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20.04 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52186}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.sgBCzy}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 1cf9b4e8dc8208fd5d55844a2d7ec1f5
+*** Element info: {Using=css selector, value=input[placeholder=&apos;Search for Custom Algorithm&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 16 more
+... Removed 17 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumProdu...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProducts":"12","TemplateType":"Boutique","ButtonPosition":"Left","Medium":"Mobile","BehaviourType":"Tinder like behaviour"})</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.unbxd-side-drawer-footer button[type=&apos;button&apos;]&quot;}
+  (Session info: chrome=138.0.7204.101)
+  (Driver info: chromedriver=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:54932}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.gMfw4C}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: f4286174cdeecf152fcc6171ab1dc897
+*** Element info: {Using=css selector, value=.unbxd-side-drawer-footer button[type=&apos;button&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy11.click(Unknown Source)
+	at core.consoleui.actions.TemplatesActions1.clickCreateButton(TemplatesActions1.java:80)
+	at core.consoleui.actions.TemplatesActions1.fillTemplateForm(TemplatesActions1.java:367)
+	at UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest.testTemplatesPageElementsInteraction(MVtinderLikeBehaviorTemplateTest.java:52)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+... Removed 16 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;TemplateType&quot;:&quot;Standard Widget&quot;,&quot;widgetSize&quot;:&quot;200&quot;,&quot;Medium&quot;:&quot;Mobile&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;Products...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"200","Medium":"Mobile","Layout":"Vertical","Products...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"TemplateType":"Standard Widget","widgetSize":"200","Medium":"Mobile","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"200","MaximumProducts":"12","TemplateName":"autoTemplate1752642889862"})</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.template-dropdown-select.unbxd-new-dropdown button#dropdown-basic&quot;}
+  (Session info: chrome=138.0.7204.101)
+  (Driver info: chromedriver=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20.04 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:54929}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.vgc0de}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 91449f69df9592a126787ae1a703fb41
+*** Element info: {Using=css selector, value=.template-dropdown-select.unbxd-new-dropdown button#dropdown-basic}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy11.click(Unknown Source)
+	at core.consoleui.actions.TemplatesActions1.clickTemplateTypeDropdown(TemplatesActions1.java:123)
+	at core.consoleui.actions.TemplatesActions1.fillTemplateForm(TemplatesActions1.java:376)
+	at UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest.testTemplatesPageElementsInteraction(MVstandardWidgetTemplateTest.java:51)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+... Removed 16 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.CustomAlgorithmsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Viewed also viewed&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Recommended For You&quot;})">
+                  </a> <!-- testCustomAlgorithm({"customAlgo":"Viewed also viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"}) -->
+                  <span class="method-name">testCustomAlgorithm</span>
+                  <span class="parameters">({"customAlgo":"Viewed also viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Timed out after 20 seconds waiting for visibility of element located by By.cssSelector: input[placeholder=&apos;Search for Custom Algorithm&apos;]
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52187}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.8JtbKK}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 7380baa7017f14962294d192a3ef5706
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at UnbxdTests.testNG.consoleui.CustomAlgorithmsTest.testCustomAlgorithm(CustomAlgorithmsTest.java:65)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input[placeholder=&apos;Search for Custom Algorithm&apos;]&quot;}
+  (Session info: chrome=138.0.7204.101)
+  (Driver info: chromedriver=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20.01 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52187}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.8JtbKK}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 7380baa7017f14962294d192a3ef5706
+*** Element info: {Using=css selector, value=input[placeholder=&apos;Search for Custom Algorithm&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 16 more
+... Removed 16 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Most Viewed&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Recommended For You&quot;})">
+                  </a> <!-- testCustomAlgorithm({"customAlgo":"Most Viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"}) -->
+                  <span class="method-name">testCustomAlgorithm</span>
+                  <span class="parameters">({"customAlgo":"Most Viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</span>
+                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=138.0.7204.101)
+  (Driver info: chromedriver=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 236 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52187}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.8JtbKK}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 7380baa7017f14962294d192a3ef5706
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy11.click(Unknown Source)
+	at core.consoleui.actions.CustomAlgorithmsActions.clickDeleteButton(CustomAlgorithmsActions.java:133)
+	at UnbxdTests.testNG.consoleui.CustomAlgorithmsTest.testCustomAlgorithm(CustomAlgorithmsTest.java:88)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+... Removed 20 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Recommended For You&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Most Viewed&quot;})">
+                  </a> <!-- testCustomAlgorithm({"customAlgo":"Recommended For You","noOfSlots":"10","editCustomAlgo":"Most Viewed"}) -->
+                  <span class="method-name">testCustomAlgorithm</span>
+                  <span class="parameters">({"customAlgo":"Recommended For You","noOfSlots":"10","editCustomAlgo":"Most Viewed"})</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Timed out after 20 seconds waiting for visibility of element located by By.cssSelector: input[placeholder=&apos;Search for Custom Algorithm&apos;]
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52187}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.8JtbKK}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 7380baa7017f14962294d192a3ef5706
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at UnbxdTests.testNG.consoleui.CustomAlgorithmsTest.testCustomAlgorithm(CustomAlgorithmsTest.java:65)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input[placeholder=&apos;Search for Custom Algorithm&apos;]&quot;}
+  (Session info: chrome=138.0.7204.101)
+  (Driver info: chromedriver=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20.03 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52187}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.8JtbKK}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 7380baa7017f14962294d192a3ef5706
+*** Element info: {Using=css selector, value=input[placeholder=&apos;Search for Custom Algorithm&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 16 more
+... Removed 17 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.ExpTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createExperienceTest({&quot;pageName&quot;:&quot;Home Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 1&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop bro...)">
+                  </a> <!-- createExperienceTest({"pageName":"Home Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop bro...) -->
+                  <span class="method-name">createExperienceTest</span>
+                  <span class="parameters">({"pageName":"Home Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop browser)","mobileTemplate":"U769  (mobile browser)","customAlgo":"algoCursor","EditWidgetType":"WIDGET 2"})</span>
+                  <div class="stack-trace">java.lang.RuntimeException: Failed to set experience name after retries
+	at core.consoleui.actions.ExpActions.robustSetExperienceName(ExpActions.java:113)
+	at core.consoleui.actions.ExpActions.enterRandomExperienceName(ExpActions.java:68)
+	at UnbxdTests.testNG.consoleui.ExpTest.createExperienceTest(ExpTest.java:59)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+... Removed 12 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.CoreAlgorithmsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNavigateToCoreAlgorithmsPage({&quot;parentID&quot;:&quot;AAM15MB01&quot;,&quot;childID&quot;:&quot;AAM15MB04&quot;,&quot;childID1&quot;:&quot;AAM15MBBE&quot;})">
+                  </a> <!-- testNavigateToCoreAlgorithmsPage({"parentID":"AAM15MB01","childID":"AAM15MB04","childID1":"AAM15MBBE"}) -->
+                  <span class="method-name">testNavigateToCoreAlgorithmsPage</span>
+                  <span class="parameters">({"parentID":"AAM15MB01","childID":"AAM15MB04","childID1":"AAM15MBBE"})</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Timed out after 10 seconds waiting for element to be clickable: By.xpath: //table//td[contains(text(),&apos;AAM15MB01&apos;)]
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52179}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.PHSCnZ}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: de42aad335dd1d6804cbb1a1057f4d93
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at core.consoleui.actions.CoreAlgorithmsActions.clickParentIdInListing(CoreAlgorithmsActions.java:87)
+	at UnbxdTests.testNG.consoleui.CoreAlgorithmsTest.testNavigateToCoreAlgorithmsPage(CoreAlgorithmsTest.java:115)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//table//td[contains(text(),&apos;AAM15MB01&apos;)]&quot;}
+  (Session info: chrome=138.0.7204.101)
+  (Driver info: chromedriver=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20.07 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52179}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.PHSCnZ}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: de42aad335dd1d6804cbb1a1057f4d93
+*** Element info: {Using=xpath, value=//table//td[contains(text(),&apos;AAM15MB01&apos;)]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:653)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:646)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 17 more
+... Removed 17 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.BoutiqueExperienceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createBoutiqueExperience({&quot;pageName&quot;:&quot;Boutique Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 1&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop...)">
+                  </a> <!-- createBoutiqueExperience({"pageName":"Boutique Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop...) -->
+                  <span class="method-name">createBoutiqueExperience</span>
+                  <span class="parameters">({"pageName":"Boutique Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop browser)","mobileTemplate":"U769  (mobile browser)","customAlgo":"boutiqueExperience","EditWidgetType":"WIDGET 2"})</span>
+                  <div class="stack-trace">java.lang.RuntimeException: Failed to set experience name after retries
+	at core.consoleui.actions.ExpActions.robustSetExperienceName(ExpActions.java:113)
+	at core.consoleui.actions.ExpActions.enterRandomExperienceName(ExpActions.java:68)
+	at UnbxdTests.testNG.consoleui.BoutiqueExperienceTest.createBoutiqueExperience(BoutiqueExperienceTest.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+... Removed 12 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.MHboutiqueTemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumPro...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumPro...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"widgetSize":"700","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProducts":"12","TemplateType":"Boutique","ButtonPosition":"Left","Medium":"Mobile"})</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.unbxd-side-drawer-footer button[type=&apos;button&apos;]&quot;}
+  (Session info: chrome=138.0.7204.101)
+  (Driver info: chromedriver=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}),platform=Mac OS X 14.7.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20.07 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;akhilsurigi.local&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.7.6&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=MAC, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:53451}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=138.0.7204.92 (f079b9bc781e3c2adb1496ea1d72812deb0ddb3d-refs/branch-heads/7204_50@{#8}), userDataDir=/var/folders/jq/g7t0y59s7lnbqlgfqv3kgyph0000gn/T/.org.chromium.Chromium.ECUNRx}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=138.0.7204.101, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: c3dea2e8ebfffaf85369a76fd7ba45dc
+*** Element info: {Using=css selector, value=.unbxd-side-drawer-footer button[type=&apos;button&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy11.click(Unknown Source)
+	at core.consoleui.actions.TemplatesActions1.clickCreateButton(TemplatesActions1.java:80)
+	at core.consoleui.actions.TemplatesActions1.fillTemplateForm(TemplatesActions1.java:367)
+	at UnbxdTests.testNG.consoleui.MHboutiqueTemplateTest.testTemplatesPageElementsInteraction(MHboutiqueTemplateTest.java:52)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+... Removed 16 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.JourneyExperienceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createJourneyExperience({&quot;pageName&quot;:&quot;Journey Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 1&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop ...)">
+                  </a> <!-- createJourneyExperience({"pageName":"Journey Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop ...) -->
+                  <span class="method-name">createJourneyExperience</span>
+                  <span class="parameters">({"pageName":"Journey Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop browser)","mobileTemplate":"U769  (mobile browser)","customAlgo":"Top Sellers","EditWidgetType":"WIDGET 2"})</span>
+                  <div class="stack-trace">java.lang.RuntimeException: Failed to set experience name after retries
+	at core.consoleui.actions.ExpActions.robustSetExperienceName(ExpActions.java:113)
+	at core.consoleui.actions.ExpActions.enterRandomExperienceName(ExpActions.java:68)
+	at UnbxdTests.testNG.consoleui.JourneyExperienceTest.createJourneyExperience(JourneyExperienceTest.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+... Removed 12 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.broadCastPageTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createBroadCastExperience({&quot;pageName&quot;:&quot;Broadcast Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 1&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (deskto...)">
+                  </a> <!-- createBroadCastExperience({"pageName":"Broadcast Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (deskto...) -->
+                  <span class="method-name">createBroadCastExperience</span>
+                  <span class="parameters">({"pageName":"Broadcast Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop browser)","mobileTemplate":"U769  (mobile browser)","customAlgo":"Top Sellers","EditWidgetType":"WIDGET 2"})</span>
+                  <div class="stack-trace">java.lang.RuntimeException: Failed to set experience name after retries
+	at core.consoleui.actions.ExpActions.robustSetExperienceName(ExpActions.java:113)
+	at core.consoleui.actions.ExpActions.enterRandomExperienceName(ExpActions.java:68)
+	at UnbxdTests.testNG.consoleui.broadCastPageTest.createBroadCastExperience(broadCastPageTest.java:51)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+... Removed 12 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-failed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.DHexitIntentTemplatetest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProducts":"12","TemplateType":"Exit Intent Pop Up","TemplateTypes":["Standard Widget","Exit intent Popup","Boutique"],"TemplateName":"autoTemplate1752642610905"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumProdu...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProducts":"12","TemplateType":"Boutique","ButtonPosition":"Left","Medium":"Mobile","TemplateName":"autoTemplate1752642813388"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.MHstandardWidgettemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;TemplateType&quot;:&quot;Standard Widget&quot;,&quot;widgetSize&quot;:&quot;700&quot;,&quot;Medium&quot;:&quot;Mobile&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;Produc...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"700","Medium":"Mobile","Layout":"Horizontal","Produc...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"TemplateType":"Standard Widget","widgetSize":"700","Medium":"Mobile","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProducts":"12","TemplateName":"autoTemplate1752642784829"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.MHinstagramLikeBehaaviorTemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumPro...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumPro...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"widgetSize":"700","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProducts":"12","TemplateType":"Boutique","ButtonPosition":"Left","Medium":"Mobile","BehaviourType":"Instagram like behaviour","TemplateName":"autoTemplate1752642758262"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.CustomAlgorithmsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Cross sell&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Recommended For You&quot;})">
+                  </a> <!-- testCustomAlgorithm({"customAlgo":"Cross sell","noOfSlots":"10","editCustomAlgo":"Recommended For You"}) -->
+                  <span class="method-name">testCustomAlgorithm</span>
+                  <span class="parameters">({"customAlgo":"Cross sell","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;Recently Viewed&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Recommended For You&quot;})">
+                  </a> <!-- testCustomAlgorithm({"customAlgo":"Recently Viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"}) -->
+                  <span class="method-name">testCustomAlgorithm</span>
+                  <span class="parameters">({"customAlgo":"Recently Viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCustomAlgorithm({&quot;customAlgo&quot;:&quot;More Like These&quot;,&quot;noOfSlots&quot;:&quot;10&quot;,&quot;editCustomAlgo&quot;:&quot;Recommended For You&quot;})">
+                  </a> <!-- testCustomAlgorithm({"customAlgo":"More Like These","noOfSlots":"10","editCustomAlgo":"Recommended For You"}) -->
+                  <span class="method-name">testCustomAlgorithm</span>
+                  <span class="parameters">({"customAlgo":"More Like These","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.MVinstagramLikeBehaviorTemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumProdu...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProducts":"12","TemplateType":"Boutique","ButtonPosition":"Left","Medium":"Mobile","BehaviourType":"Instagram like behaviour","TemplateName":"autoTemplate1752642830979"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.DHstandardWidgettemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;TemplateType&quot;:&quot;Standard Widget&quot;,&quot;widgetSize&quot;:&quot;700&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Horizontal&quot;,&quot;Produ...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","Produ...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"TemplateType":"Standard Widget","widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProducts":"12","TemplateName":"autoTemplate1752642608119"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.ExpTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createExperienceTest({&quot;pageName&quot;:&quot;Product Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 3&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop ...)">
+                  </a> <!-- createExperienceTest({"pageName":"Product Page","widgetName":"WIDGET 3","desktopTemplate":"Untitled-layout-771  (desktop ...) -->
+                  <span class="method-name">createExperienceTest</span>
+                  <span class="parameters">({"pageName":"Product Page","widgetName":"WIDGET 3","desktopTemplate":"Untitled-layout-771  (desktop browser)","mobileTemplate":"U769  (mobile browser)","customAlgo":"algoCursor","EditWidgetType":"WIDGET 1"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createExperienceTest({&quot;pageName&quot;:&quot;Category Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 2&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop...)">
+                  </a> <!-- createExperienceTest({"pageName":"Category Page","widgetName":"WIDGET 2","desktopTemplate":"Untitled-layout-771  (desktop...) -->
+                  <span class="method-name">createExperienceTest</span>
+                  <span class="parameters">({"pageName":"Category Page","widgetName":"WIDGET 2","desktopTemplate":"Untitled-layout-771  (desktop browser)","mobileTemplate":"U769  (mobile browser)","customAlgo":"algoCursor","EditWidgetType":"WIDGET 3"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createExperienceTest({&quot;pageName&quot;:&quot;Brand Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 1&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop br...)">
+                  </a> <!-- createExperienceTest({"pageName":"Brand Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop br...) -->
+                  <span class="method-name">createExperienceTest</span>
+                  <span class="parameters">({"pageName":"Brand Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop browser)","mobileTemplate":"U769  (mobile browser)","customAlgo":"algoCursor","EditWidgetType":"WIDGET 2"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createExperienceTest({&quot;pageName&quot;:&quot;Cart Page&quot;,&quot;widgetName&quot;:&quot;WIDGET 3&quot;,&quot;desktopTemplate&quot;:&quot;Untitled-layout-771  (desktop bro...)">
+                  </a> <!-- createExperienceTest({"pageName":"Cart Page","widgetName":"WIDGET 3","desktopTemplate":"Untitled-layout-771  (desktop bro...) -->
+                  <span class="method-name">createExperienceTest</span>
+                  <span class="parameters">({"pageName":"Cart Page","widgetName":"WIDGET 3","desktopTemplate":"Untitled-layout-771  (desktop browser)","mobileTemplate":"U769  (mobile browser)","customAlgo":"algoCursor","EditWidgetType":"WIDGET 2"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.MHtinderLikeBehaviorTemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:&quot;700&quot;,&quot;MaximumProdu...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProducts":"12","TemplateType":"Boutique","ButtonPosition":"Left","Medium":"Mobile","BehaviourType":"Tinder like behaviour","TemplateName":"autoTemplate1752642815324"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.DVexitIntentTemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;700&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"widgetSize":"700","Medium":"Desktop","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"widgetSize":"700","Medium":"Desktop","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProducts":"12","TemplateType":"Exit Intent Pop Up","TemplateName":"autoTemplate1752642685224"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTemplatesPageElementsInteraction({&quot;widgetSize&quot;:&quot;200&quot;,&quot;Medium&quot;:&quot;Desktop&quot;,&quot;Layout&quot;:&quot;Vertical&quot;,&quot;ProductsInDisplay&quot;:&quot;6&quot;,&quot;EditWidgetSize&quot;:...)">
+                  </a> <!-- testTemplatesPageElementsInteraction({"widgetSize":"200","Medium":"Desktop","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":...) -->
+                  <span class="method-name">testTemplatesPageElementsInteraction</span>
+                  <span class="parameters">({"widgetSize":"200","Medium":"Desktop","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"200","MaximumProducts":"12","TemplateType":"Boutique","ButtonPosition":"Left","TemplateName":"autoTemplate1752642682997"})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+          <div class="suite-UI_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">UnbxdTests.testNG.login.LoginTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="loginAndSaveCookies">
+                  </a> <!-- loginAndSaveCookies -->
+                  <span class="method-name">loginAndSaveCookies</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UI_Regression_Suite-class-passed -->
+        </div> <!-- panel UI_Regression_Suite -->
+        <div panel-name="test-xml-UI_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">/Users/unbxd/Downloads/UNBXD-QA-RECSL/src/test/resources/testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;UI Regression Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;LoginTest&quot; verbose=&quot;0&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.login.LoginTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- LoginTest --&gt;
+  &lt;test thread-count=&quot;10&quot; parallel=&quot;classes&quot; name=&quot;ParallelTests&quot; verbose=&quot;0&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.CoreAlgorithmsTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.CustomAlgorithmsTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.ExpTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.BoutiqueExperienceTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.JourneyExperienceTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.broadCastPageTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.DHexitIntentTemplatetest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.DHstandardWidgettemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.DVexitIntentTemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.DVstandardWidgetTemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.MHboutiqueTemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.MHinstagramLikeBehaaviorTemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.MHstandardWidgettemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.MHtinderLikeBehaviorTemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.MVinstagramLikeBehaviorTemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest&quot;/&gt;
+      &lt;class name=&quot;UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- ParallelTests --&gt;
+&lt;/suite&gt; &lt;!-- UI Regression Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-UI_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for UI Regression Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">LoginTest (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">ParallelTests (21 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-UI_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for UI Regression Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-UI_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for UI Regression Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_UI_Regression_Suite');
+function tableData_UI_Regression_Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(32);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'createExperienceTest')
+data.setCell(0, 2, 'UnbxdTests.testNG.consoleui.ExpTest')
+data.setCell(0, 3, 227790);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'createExperienceTest')
+data.setCell(1, 2, 'UnbxdTests.testNG.consoleui.ExpTest')
+data.setCell(1, 3, 220520);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'createExperienceTest')
+data.setCell(2, 2, 'UnbxdTests.testNG.consoleui.ExpTest')
+data.setCell(2, 3, 215441);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'createExperienceTest')
+data.setCell(3, 2, 'UnbxdTests.testNG.consoleui.ExpTest')
+data.setCell(3, 3, 211703);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(4, 2, 'UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest')
+data.setCell(4, 3, 203713);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(5, 2, 'UnbxdTests.testNG.consoleui.MVinstagramLikeBehaviorTemplateTest')
+data.setCell(5, 3, 198224);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(6, 2, 'UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest')
+data.setCell(6, 3, 183925);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(7, 2, 'UnbxdTests.testNG.consoleui.DVexitIntentTemplateTest')
+data.setCell(7, 3, 183459);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(8, 2, 'UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest')
+data.setCell(8, 3, 180261);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(9, 2, 'UnbxdTests.testNG.consoleui.MHtinderLikeBehaviorTemplateTest')
+data.setCell(9, 3, 178962);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(10, 2, 'UnbxdTests.testNG.consoleui.DHexitIntentTemplatetest')
+data.setCell(10, 3, 164311);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(11, 2, 'UnbxdTests.testNG.consoleui.MHinstagramLikeBehaaviorTemplateTest')
+data.setCell(11, 3, 162535);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(12, 2, 'UnbxdTests.testNG.consoleui.DHstandardWidgettemplateTest')
+data.setCell(12, 3, 158416);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(13, 2, 'UnbxdTests.testNG.consoleui.MHstandardWidgettemplateTest')
+data.setCell(13, 3, 156826);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(14, 2, 'UnbxdTests.testNG.consoleui.MHboutiqueTemplateTest')
+data.setCell(14, 3, 134922);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(15, 2, 'UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest')
+data.setCell(15, 3, 130030);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(16, 2, 'UnbxdTests.testNG.consoleui.DVstandardWidgetTemplateTest')
+data.setCell(16, 3, 115847);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'testTemplatesPageElementsInteraction')
+data.setCell(17, 2, 'UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest')
+data.setCell(17, 3, 97305);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'testNavigateToCoreAlgorithmsPage')
+data.setCell(18, 2, 'UnbxdTests.testNG.consoleui.CoreAlgorithmsTest')
+data.setCell(18, 3, 94397);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'testCustomAlgorithm')
+data.setCell(19, 2, 'UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest')
+data.setCell(19, 3, 67862);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'testCustomAlgorithm')
+data.setCell(20, 2, 'UnbxdTests.testNG.consoleui.CustomAlgorithmsTest')
+data.setCell(20, 3, 67801);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'testCustomAlgorithm')
+data.setCell(21, 2, 'UnbxdTests.testNG.consoleui.CustomAlgorithmsTest')
+data.setCell(21, 3, 65435);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'testCustomAlgorithm')
+data.setCell(22, 2, 'UnbxdTests.testNG.consoleui.CustomAlgorithmsTest')
+data.setCell(22, 3, 62898);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'testCustomAlgorithm')
+data.setCell(23, 2, 'UnbxdTests.testNG.consoleui.CustomAlgorithmsTest')
+data.setCell(23, 3, 61830);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'testCustomAlgorithm')
+data.setCell(24, 2, 'UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest')
+data.setCell(24, 3, 59637);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'testCustomAlgorithm')
+data.setCell(25, 2, 'UnbxdTests.testNG.consoleui.CustomAlgorithmsTest')
+data.setCell(25, 3, 56886);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'testCustomAlgorithm')
+data.setCell(26, 2, 'UnbxdTests.testNG.consoleui.CustomAlgorithmsTest')
+data.setCell(26, 3, 43005);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'createBroadCastExperience')
+data.setCell(27, 2, 'UnbxdTests.testNG.consoleui.broadCastPageTest')
+data.setCell(27, 3, 26140);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'createExperienceTest')
+data.setCell(28, 2, 'UnbxdTests.testNG.consoleui.ExpTest')
+data.setCell(28, 3, 25616);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'createJourneyExperience')
+data.setCell(29, 2, 'UnbxdTests.testNG.consoleui.JourneyExperienceTest')
+data.setCell(29, 3, 24840);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'createBoutiqueExperience')
+data.setCell(30, 2, 'UnbxdTests.testNG.consoleui.BoutiqueExperienceTest')
+data.setCell(30, 3, 23852);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'loginAndSaveCookies')
+data.setCell(31, 2, 'UnbxdTests.testNG.login.LoginTest')
+data.setCell(31, 3, 16339);
+window.suiteTableData['UI_Regression_Suite']= { tableData: data, tableDiv: 'times-div-UI_Regression_Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 1 hours</span>
+              <div id="times-div-UI_Regression_Suite">
+              </div> <!-- times-div-UI_Regression_Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-UI_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for UI Regression Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-UI_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-UI_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.login.LoginTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">loginAndSaveCookies</span>
+                <span class="method-start">2722 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">19063 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">19229 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.CoreAlgorithmsTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">19499 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.CustomAlgorithmsTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">19499 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.ExpTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">19499 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">19499 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.BoutiqueExperienceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">19499 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.JourneyExperienceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">19500 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.broadCastPageTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">19501 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">19504 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DHexitIntentTemplatetest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">19508 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DHstandardWidgettemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">19567 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.CoreAlgorithmsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testNavigateToCoreAlgorithmsPage({"parentID":"AAM15MB01","childID":"AAM15MB04","childID1":"AAM15MBBE"})</span>
+                <span class="method-start">35819 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testCustomAlgorithm({"customAlgo":"Top Sellers","noOfSlots":"10","editCustomAlgo":"Most Viewed","lookbackPeriod":"10"})</span>
+                <span class="method-start">36256 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DHstandardWidgettemplateTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","Produ...)</span>
+                <span class="method-start">39321 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DHexitIntentTemplatetest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testTemplatesPageElementsInteraction({"widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize...)</span>
+                <span class="method-start">39632 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.CustomAlgorithmsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testCustomAlgorithm({"customAlgo":"Recommended For You","noOfSlots":"10","editCustomAlgo":"Most Viewed"})</span>
+                <span class="method-start">39951 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.JourneyExperienceTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">createJourneyExperience({"pageName":"Journey Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop ...)</span>
+                <span class="method-start">40075 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.BoutiqueExperienceTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">createBoutiqueExperience({"pageName":"Boutique Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop...)</span>
+                <span class="method-start">40751 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.broadCastPageTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">createBroadCastExperience({"pageName":"Broadcast Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (deskto...)</span>
+                <span class="method-start">41373 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.ExpTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">createExperienceTest({"pageName":"Home Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop bro...)</span>
+                <span class="method-start">43916 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testTemplatesPageElementsInteraction({"widgetSize":"700","Medium":"Desktop","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize...)</span>
+                <span class="method-start">44094 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.BoutiqueExperienceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">65406 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.JourneyExperienceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">66295 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.broadCastPageTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">68185 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.BoutiqueExperienceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">68300 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">68301 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.JourneyExperienceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">68761 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DVexitIntentTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">68762 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.ExpTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">createExperienceTest({"pageName":"Product Page","widgetName":"WIDGET 3","desktopTemplate":"Untitled-layout-771  (desktop ...)</span>
+                <span class="method-start">70770 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.broadCastPageTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">71275 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DVstandardWidgetTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">71276 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"200","Medium":"Desktop","Layout":"Vertical","Product...)</span>
+                <span class="method-start">92789 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DVexitIntentTemplateTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testTemplatesPageElementsInteraction({"widgetSize":"700","Medium":"Desktop","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":...)</span>
+                <span class="method-start">94097 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testTemplatesPageElementsInteraction({"widgetSize":"200","Medium":"Desktop","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":...)</span>
+                <span class="method-start">94662 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testCustomAlgorithm({"customAlgo":"Category Top Sellers","noOfSlots":"10","editCustomAlgo":"Most Viewed","lookbackPeriod...)</span>
+                <span class="method-start">96331 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.CustomAlgorithmsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testCustomAlgorithm({"customAlgo":"Most Viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</span>
+                <span class="method-start">97781 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.CoreAlgorithmsTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">130668 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">130668 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MHboutiqueTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">131064 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumPro...)</span>
+                <span class="method-start">144911 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.CustomAlgorithmsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testCustomAlgorithm({"customAlgo":"Recently Viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</span>
+                <span class="method-start">163709 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">164924 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">164924 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MHinstagramLikeBehaaviorTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">167416 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Horizontal","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumPro...)</span>
+                <span class="method-start">188454 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DHstandardWidgettemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">197738 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">197738 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MHstandardWidgettemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">198897 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DHexitIntentTemplatetest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">203944 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">203944 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MHtinderLikeBehaviorTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">206265 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.CustomAlgorithmsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testCustomAlgorithm({"customAlgo":"More Like These","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</span>
+                <span class="method-start">206715 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DVstandardWidgetTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">209081 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">209081 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">209709 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MHstandardWidgettemplateTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"700","Medium":"Mobile","Layout":"Horizontal","Produc...)</span>
+                <span class="method-start">218565 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">224775 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">224777 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVinstagramLikeBehaviorTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">225108 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...)</span>
+                <span class="method-start">225286 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MHtinderLikeBehaviorTemplateTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...)</span>
+                <span class="method-start">228392 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVinstagramLikeBehaviorTemplateTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...)</span>
+                <span class="method-start">242293 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.CustomAlgorithmsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testCustomAlgorithm({"customAlgo":"Viewed also viewed","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</span>
+                <span class="method-start">268546 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DVexitIntentTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">277557 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">277557 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">280188 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MHboutiqueTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">280502 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">280503 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">280883 ms</span>
+              </div> <!-- configuration-class before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.ExpTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">createExperienceTest({"pageName":"Category Page","widgetName":"WIDGET 2","desktopTemplate":"Untitled-layout-771  (desktop...)</span>
+                <span class="method-start">291291 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">298376 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">298376 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testTemplatesPageElementsInteraction({"widgetSize":"700","Layout":"Vertical","ProductsInDisplay":"6","EditWidgetSize":"700","MaximumProdu...)</span>
+                <span class="method-start">299512 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testTemplatesPageElementsInteraction({"TemplateType":"Standard Widget","widgetSize":"200","Medium":"Mobile","Layout":"Vertical","Products...)</span>
+                <span class="method-start">299513 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.CustomAlgorithmsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testCustomAlgorithm({"customAlgo":"Cross sell","noOfSlots":"10","editCustomAlgo":"Recommended For You"})</span>
+                <span class="method-start">336811 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MHinstagramLikeBehaaviorTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">350989 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">350990 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MHstandardWidgettemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">375392 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">375392 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">397259 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">397260 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.CustomAlgorithmsTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">399710 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">399710 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MHtinderLikeBehaviorTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">407354 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">407355 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">409212 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">409212 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">429790 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">429790 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.MVinstagramLikeBehaviorTemplateTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">440518 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">440518 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">UnbxdTests.testNG.consoleui.ExpTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">createExperienceTest({"pageName":"Brand Page","widgetName":"WIDGET 1","desktopTemplate":"Untitled-layout-771  (desktop br...)</span>
+                <span class="method-start">506732 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">createExperienceTest({"pageName":"Cart Page","widgetName":"WIDGET 3","desktopTemplate":"Untitled-layout-771  (desktop bro...)</span>
+                <span class="method-start">734522 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">946225 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">removeContextForTest</span>
+                <span class="method-start">946536 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

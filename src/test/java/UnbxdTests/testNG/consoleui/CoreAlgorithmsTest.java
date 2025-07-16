@@ -28,11 +28,16 @@ public class CoreAlgorithmsTest extends BaseTest {
     public void setUp() {
         try {
             super.setUp();
+            lib.EnvironmentConfig.setContext(1, 1);
             this.initFluent(driver);
             initTest();
-            loginActions.login(1, 1);
-            coreAlgorithmsActions = new CoreAlgorithmsActions(driver);
-            expActions = new ExpActions(driver);
+            coreAlgorithmsActions = new core.consoleui.actions.CoreAlgorithmsActions(driver);
+            expActions = new core.consoleui.actions.ExpActions(driver);
+            boolean cookiesRestored = lib.Helper.restoreCookiesFromFile(driver, "cookies.json", lib.EnvironmentConfig.getLoginUrl());
+            if (!cookiesRestored) {
+                throw new IllegalStateException("Cookies not found. Please run LoginTest first.");
+            }
+            driver.navigate().refresh();
         } catch (Exception e) {
             e.printStackTrace();
         }

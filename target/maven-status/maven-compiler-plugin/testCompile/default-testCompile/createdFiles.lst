@@ -19,6 +19,7 @@ UnbxdTests/testNG/consoleui/broadCastPageTest.class
 UnbxdTests/testNG/consoleui/GBFiltersTest.class
 UnbxdTests/testNG/consoleui/DVBoutiqueTemplateTest.class
 UnbxdTests/testNG/consoleui/DHBoutiqueTemplateTest.class
+UnbxdTests/testNG/login/LoginTest.class
 UnbxdTests/testNG/consoleui/MHstandardWidgettemplateTest.class
 UnbxdTests/testNG/consoleui/MHtinderLikeBehaviorTemplateTest.class
 UnbxdTests/testNG/consoleui/DHexitIntentTemplatetest.class
