@@ -26,10 +26,27 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo "Running tests on ENV: ${params.ENV}"
+                echo "Running tests on ENV: ProdAPAC"
                 echo "Using Selenium Grid URL: ${SELENIUM_GRID_URL}"
-                // Pass both env and grid URL to the test
-                sh "mvn test -Denv=${params.ENV} -DhubUrl=$SELENIUM_GRID_URL"
+                sh "mvn test -Denv=ProdAPAC -DhubUrl=$SELENIUM_GRID_URL"
+            }
+        }
+        stage('Login for Rerun') {
+            when {
+                expression { fileExists('target/surefire-reports/testng-failed.xml') }
+            }
+            steps {
+                echo "Running LoginTest to refresh cookies before rerun..."
+                sh 'mvn test -Dtest=UnbxdTests.testNG.login.LoginTest -Denv=ProdAPAC'
+            }
+        }
+        stage('Rerun Failed Tests') {
+            when {
+                expression { fileExists('target/surefire-reports/testng-failed.xml') }
+            }
+            steps {
+                echo "Rerunning only failed tests from previous run..."
+                sh 'mvn test -Dsurefire.suiteXmlFiles=target/surefire-reports/testng-failed.xml -Denv=ProdAPAC'
             }
         }
     }
@@ -58,6 +75,7 @@ pipeline {
         always {
             junit '**/target/surefire-reports/*.xml'
             archiveArtifacts artifacts: 'extent.html,test-output/ExtentReport.html', onlyIfSuccessful: false
+            archiveArtifacts artifacts: 'target/screenshots/*.png', allowEmptyArchive: true
         }
     }
 }
