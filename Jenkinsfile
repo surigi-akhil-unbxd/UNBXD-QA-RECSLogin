@@ -44,7 +44,7 @@ pipeline {
             }
             steps {
                 echo "Running LoginTest to refresh cookies before rerun..."
-                sh 'mvn test -Dtest=UnbxdTests.testNG.login.LoginTest -Denv=ProdAPAC'
+                sh "mvn test -Dtest=UnbxdTests.testNG.login.LoginTest -Denv=ProdAPAC -DhubUrl=$SELENIUM_GRID_URL"
             }
         }
         stage('Rerun Failed Tests') {
