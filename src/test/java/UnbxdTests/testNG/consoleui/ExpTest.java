@@ -72,27 +72,25 @@ public class ExpTest extends BaseTest {
         expActions.selectTemplateByName(mobileTemplate);
         expActions.selectCustomAlgo(customAlgo);
         expActions.clickSaveButton();
-
-        // Wait for the search input before searching for the experience
-        new org.openqa.selenium.support.ui.WebDriverWait(driver, 20)
-            .until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(
-                org.openqa.selenium.By.cssSelector("input[placeholder='Search for Experience']")));
+        Thread.sleep(1000);
         expActions.searchExperienceByName(experienceName);
 
-        // Wait for the experience to appear in the list (robust wait, no sleep)
-        expActions.waitForAndClickExperienceInList(experienceName);
+        
+        Thread.sleep(1000);
 
         // Edit experience
-        expActions.handleAllPopups();
+        expActions.waitForAndClickExperienceInList(experienceName);
+        Thread.sleep(1000);
         expActions.clickEditExpButton();
         if (editWidgetType != null && !editWidgetType.trim().isEmpty()) {
             expActions.selectWidgetByName(editWidgetType);
         }
         expActions.clickSaveButton();
-        expActions.waitForAndClickExperienceInList(experienceName);
+        Thread.sleep(1000);
 
         // Delete experience
-        expActions.handleAllPopups();
+        expActions.waitForAndClickExperienceInList(experienceName);
+        Thread.sleep(1000);
         expActions.clickDeleteExperienceButton();
         expActions.clickConfirmDeleteButton();
         expActions.searchExperienceByName(experienceName);
