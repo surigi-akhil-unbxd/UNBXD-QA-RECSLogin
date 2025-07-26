@@ -24,10 +24,19 @@ public class GlobalFiltersTest1 extends BaseTest {
 
     @BeforeClass
     public void setUp() {
-        super.setUp();
-        this.initFluent(driver);
-        initTest();
-        loginActions.login(1,1);
+        try {
+            super.setUp();
+            lib.EnvironmentConfig.setContext(1, 1);
+            this.initFluent(driver);
+            initTest();
+            boolean cookiesRestored = lib.Helper.restoreCookiesFromFile(driver, "cookies.json", lib.EnvironmentConfig.getLoginUrl());
+            if (!cookiesRestored) {
+                throw new IllegalStateException("Cookies not found. Please run LoginTest first.");
+            }
+            driver.navigate().refresh();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test(description = "Create a new global filter set")

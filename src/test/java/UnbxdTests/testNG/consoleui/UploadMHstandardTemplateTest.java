@@ -23,11 +23,16 @@ public class UploadMHstandardTemplateTest extends BaseTest {
     public void setUp() {
         try {
             super.setUp();
+            lib.EnvironmentConfig.setContext(1, 1);
             this.initFluent(driver);
             initTest();
-            loginActions.login(1, 1);
             templatesActions = new TemplatesActions1(driver);
             expActions = new ExpActions(driver);
+            boolean cookiesRestored = lib.Helper.restoreCookiesFromFile(driver, "cookies.json", lib.EnvironmentConfig.getLoginUrl());
+            if (!cookiesRestored) {
+                throw new IllegalStateException("Cookies not found. Please run LoginTest first.");
+            }
+            driver.navigate().refresh();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -44,6 +44,9 @@ public class CustomAlgorithmsActions {
     }
 
     public void clickMinimizeTitle() {
+        // Wait for the minimize title element to be present and clickable
+        org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, 20);
+        wait.until(org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable(page.minimizeTitle));
         page.minimizeTitle.click();
     }
 
