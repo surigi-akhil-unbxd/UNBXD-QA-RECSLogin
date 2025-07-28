@@ -12,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import com.google.gson.JsonObject;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 
 public class TemplatesActions1 {
     private WebDriver driver;
@@ -38,7 +39,24 @@ public class TemplatesActions1 {
     }
 
     public void clickCreateTemplateBtn() {
-        page.createTemplateBtn.click();
+        // AGGRESSIVE popup handling before attempting click
+        core.utils.PopupHandler.aggressivelyRemoveAllPopupsBeforeClick(driver);
+        core.utils.PopupHandler.specificallyRemovePushActionsDiv(driver);
+        
+        // Try normal click first, if it fails, use JavaScript
+        try {
+            page.createTemplateBtn.click();
+            System.out.println("[DEBUG] Create Template button clicked normally");
+        } catch (Exception e) {
+            System.out.println("[WARN] Normal click failed, trying JavaScript click: " + e.getMessage());
+            try {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.createTemplateBtn);
+                System.out.println("[DEBUG] Create Template button clicked using JavaScript");
+            } catch (Exception jsEx) {
+                System.out.println("[ERROR] JavaScript click also failed: " + jsEx.getMessage());
+                throw jsEx;
+            }
+        }
     }
 
     public void clickFiltersBtn() {
@@ -46,7 +64,24 @@ public class TemplatesActions1 {
     }
 
     public void clickCreateNewLink() {
-        page.createNewLink.click();
+        // AGGRESSIVE popup handling before attempting click
+        core.utils.PopupHandler.aggressivelyRemoveAllPopupsBeforeClick(driver);
+        core.utils.PopupHandler.specificallyRemovePushActionsDiv(driver);
+        
+        // Try normal click first, if it fails, use JavaScript
+        try {
+            page.createNewLink.click();
+            System.out.println("[DEBUG] Create New Link clicked normally");
+        } catch (Exception e) {
+            System.out.println("[WARN] Normal click failed, trying JavaScript click: " + e.getMessage());
+            try {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.createNewLink);
+                System.out.println("[DEBUG] Create New Link clicked using JavaScript");
+            } catch (Exception jsEx) {
+                System.out.println("[ERROR] JavaScript click also failed: " + jsEx.getMessage());
+                throw jsEx;
+            }
+        }
     }
 
     public void clickUploadTemplateBtn() {
@@ -70,29 +105,102 @@ public class TemplatesActions1 {
     }
 
     public void clickCreateButton() {
-        System.out.println("[DEBUG] About to click the Create button in TemplatesActions1.clickCreateButton()");
+        System.out.println("[DEBUG] Clicking Create button");
+        
+        // AGGRESSIVE popup handling before attempting click
+        core.utils.PopupHandler.aggressivelyRemoveAllPopupsBeforeClick(driver);
+        core.utils.PopupHandler.specificallyRemovePushActionsDiv(driver);
+        
+        // Try normal click first, if it fails, use JavaScript
         try {
-            org.openqa.selenium.WebElement beamer = driver.findElement(org.openqa.selenium.By.id("beamerSelector"));
-            if (beamer.isDisplayed()) {
-                ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].style.display='none';", beamer);
+            page.createButton.click();
+            System.out.println("[DEBUG] Create button clicked normally");
+        } catch (Exception e) {
+            System.out.println("[WARN] Normal click failed, trying JavaScript click: " + e.getMessage());
+            try {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.createButton);
+                System.out.println("[DEBUG] Create button clicked using JavaScript");
+            } catch (Exception jsEx) {
+                System.out.println("[ERROR] JavaScript click also failed: " + jsEx.getMessage());
+                throw jsEx;
             }
-        } catch (Exception ignored) {}
-        page.createButton.click();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 
     public void enterTemplateName(String name) {
+        System.out.println("[DEBUG] Entering template name: " + name);
+        
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(page.templateNameInput));
         wait.until(ExpectedConditions.elementToBeClickable(page.templateNameInput));
+        
+        // Click to focus the field
         page.templateNameInput.click();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", page.templateNameInput);
-        page.templateNameInput.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+        
+        // Clear using multiple strategies to ensure it's completely cleared
+        try {
+            // Strategy 1: JavaScript clear
+            ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", page.templateNameInput);
+            System.out.println("[DEBUG] Cleared template name using JavaScript");
+        } catch (Exception e) {
+            System.out.println("[WARN] JavaScript clear failed: " + e.getMessage());
+        }
+        
+        try {
+            // Strategy 2: Select all and delete
+            page.templateNameInput.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+            page.templateNameInput.sendKeys(Keys.DELETE);
+            System.out.println("[DEBUG] Cleared template name using Ctrl+A + Delete");
+        } catch (Exception e) {
+            System.out.println("[WARN] Ctrl+A clear failed: " + e.getMessage());
+        }
+        
+        try {
+            // Strategy 3: Move to end and backspace multiple times
+            page.templateNameInput.sendKeys(Keys.END);
+            for (int i = 0; i < 50; i++) {
+                page.templateNameInput.sendKeys(Keys.BACK_SPACE);
+            }
+            System.out.println("[DEBUG] Cleared template name using backspace");
+        } catch (Exception e) {
+            System.out.println("[WARN] Backspace clear failed: " + e.getMessage());
+        }
+        
+        // Strategy 4: Force clear any remaining text with JavaScript
+        try {
+            ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].value = ''; " +
+                "arguments[0].innerHTML = ''; " +
+                "arguments[0].textContent = '';", 
+                page.templateNameInput
+            );
+            System.out.println("[DEBUG] Force cleared template name using aggressive JavaScript");
+        } catch (Exception e) {
+            System.out.println("[WARN] Force clear failed: " + e.getMessage());
+        }
+        
+        // Verify the field is empty
+        String currentValue = page.templateNameInput.getAttribute("value");
+        if (currentValue != null && !currentValue.trim().isEmpty()) {
+            System.out.println("[WARN] Template name field still contains: '" + currentValue + "'");
+            // Try one more time with different approach
+            try {
+                page.templateNameInput.clear();
+                ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", page.templateNameInput);
+            } catch (Exception e) {
+                System.out.println("[WARN] Final clear attempt failed: " + e.getMessage());
+            }
+        } else {
+            System.out.println("[DEBUG] Template name field cleared successfully");
+        }
+        
+        // Enter the new name
         page.templateNameInput.sendKeys(name);
+        System.out.println("[DEBUG] Entered template name: " + name);
+        
+        // Verify the new name was entered
+        String finalValue = page.templateNameInput.getAttribute("value");
+        System.out.println("[DEBUG] Final template name value: '" + finalValue + "'");
     }
 
     public void clickBackBtn() {
@@ -108,15 +216,9 @@ public class TemplatesActions1 {
     }
 
     public void clickApplyTemplateBtn() {
-        // Wait for the overlay/header to disappear
-        org.openqa.selenium.By overlay = org.openqa.selenium.By.className("unbxd-boutique-preview-header");
-        new org.openqa.selenium.support.ui.WebDriverWait(driver, 30)
-            .until(org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfElementLocated(overlay));
-        // Scroll into view (if needed)
-        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript(
-            "arguments[0].scrollIntoView({block: 'center', inline: 'center'});", page.applyTemplateBtn);
-        // Now click
+        System.out.println("[DEBUG] Clicking Apply Template button");
         page.applyTemplateBtn.click();
+        System.out.println("[DEBUG] Apply Template button clicked");
     }
 
     public void clickTemplateTypeDropdown() {
@@ -165,23 +267,41 @@ public class TemplatesActions1 {
     }
 
     public void selectRadioBtn(String value) {
-        // Try to find a radio input or label by value or text
+        System.out.println("[DEBUG] Clicking radio button for: " + value);
+        
+        // Try normal click first, if it fails, use JavaScript
         try {
-            // Try input by value
-            org.openqa.selenium.WebElement radio = driver.findElement(org.openqa.selenium.By.cssSelector("input[type='radio'][value='" + value.toLowerCase() + "']"));
-            if (!radio.isSelected()) {
-                radio.click();
-                return;
+            if (value.equalsIgnoreCase("Desktop")) {
+                page.desktopRadioBtn.click();
+            } else if (value.equalsIgnoreCase("Mobile")) {
+                page.mobileRadioBtn.click();
+            } else if (value.equalsIgnoreCase("Horizontal")) {
+                page.horizontalRadioBtn.click();
+            } else if (value.equalsIgnoreCase("Vertical")) {
+                page.verticalRadioBtn.click();
             }
+            System.out.println("[DEBUG] Radio button clicked normally for: " + value);
         } catch (Exception e) {
-            // Fallback: try label by text
+            System.out.println("[WARN] Normal click failed, trying JavaScript click: " + e.getMessage());
             try {
-                org.openqa.selenium.WebElement label = driver.findElement(org.openqa.selenium.By.xpath("//label[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '" + value.toLowerCase() + "') or contains(@for, '" + value.toLowerCase() + "') ]"));
-                label.click();
-            } catch (Exception ex) {
-                System.out.println("[WARN] Could not find radio button or label for value: " + value);
+                // JavaScript click based on value
+                if (value.equalsIgnoreCase("Desktop")) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.desktopRadioBtn);
+                } else if (value.equalsIgnoreCase("Mobile")) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.mobileRadioBtn);
+                } else if (value.equalsIgnoreCase("Horizontal")) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.horizontalRadioBtn);
+                } else if (value.equalsIgnoreCase("Vertical")) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.verticalRadioBtn);
+                }
+                System.out.println("[DEBUG] Radio button clicked using JavaScript for: " + value);
+            } catch (Exception jsEx) {
+                System.out.println("[ERROR] JavaScript click also failed: " + jsEx.getMessage());
+                throw jsEx;
             }
         }
+        
+        System.out.println("[DEBUG] Clicked radio button for: " + value);
     }
 
     public void openTemplateCreation() {
@@ -191,6 +311,8 @@ public class TemplatesActions1 {
             .until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(
                 org.openqa.selenium.By.cssSelector("label.unbxd-card-select[for='desktop']")
             ));
+        // Handle popups after opening template creation
+        handleAllPopupsImmediately();
     }
 
     public void selectMedium(String medium) {
@@ -241,6 +363,14 @@ public class TemplatesActions1 {
         String siteId = EnvironmentConfig.getSiteId();
         String templatesUrl = EnvironmentConfig.getBaseUrl() + "/recs-v2/sites/" + siteId + "/manage/templates";
         driver.get(templatesUrl);
+        
+        // Immediately handle any popups that might appear after navigation
+        handleAllPopupsImmediately();
+    }
+    
+    public void handleAllPopupsImmediately() {
+        // Use the utility class for consistent popup handling - same as ExpActions
+        core.utils.PopupHandler.handleAllPopupsImmediately(driver);
     }
 
     public void selectMaximumProducts(String value) {
@@ -270,6 +400,7 @@ public class TemplatesActions1 {
     }
 
     public void searchTemplateByName(String name) {
+        // OPTIMIZATION: Simple search without unnecessary popup handling
         page.searchInput.clear();
         page.searchInput.sendKeys(name);
     }
@@ -288,23 +419,79 @@ public class TemplatesActions1 {
     }
 
     public void hoverOnTemplateName(String name) {
+        // AGGRESSIVE popup handling before attempting hover
+        core.utils.PopupHandler.aggressivelyRemoveAllPopupsBeforeClick(driver);
+        core.utils.PopupHandler.specificallyRemovePushActionsDiv(driver);
+        
         org.openqa.selenium.By templateNameLocator = org.openqa.selenium.By.xpath("//*[contains(text(), '" + name + "')]");
         org.openqa.selenium.WebElement element = new org.openqa.selenium.support.ui.WebDriverWait(driver, 10)
             .until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(templateNameLocator));
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
+        
+        // Additional popup handling after hover to prevent interference with subsequent clicks
+        core.utils.PopupHandler.handleAllPopupsImmediately(driver);
     }
 
     public void clickEditTemplateBtn() {
-        page.editTemplateBtn.click();
+        System.out.println("[DEBUG] Clicking Edit Template button");
+        
+        // Try normal click first, if it fails, use JavaScript
+        try {
+            page.editTemplateBtn.click();
+            System.out.println("[DEBUG] Edit Template button clicked normally");
+        } catch (Exception e) {
+            System.out.println("[WARN] Normal click failed, trying JavaScript click: " + e.getMessage());
+            try {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.editTemplateBtn);
+                System.out.println("[DEBUG] Edit Template button clicked using JavaScript");
+            } catch (Exception jsEx) {
+                System.out.println("[ERROR] JavaScript click also failed: " + jsEx.getMessage());
+                throw jsEx;
+            }
+        }
     }
 
     public void clickDeleteTemplateBtn() {
-        page.deleteTemplateBtn.click();
+        // AGGRESSIVE popup handling before attempting click
+        core.utils.PopupHandler.aggressivelyRemoveAllPopupsBeforeClick(driver);
+        core.utils.PopupHandler.specificallyRemovePushActionsDiv(driver);
+        
+        // Try normal click first, if it fails, use JavaScript
+        try {
+            page.deleteTemplateBtn.click();
+            System.out.println("[DEBUG] Delete Template button clicked normally");
+        } catch (Exception e) {
+            System.out.println("[WARN] Normal click failed, trying JavaScript click: " + e.getMessage());
+            try {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.deleteTemplateBtn);
+                System.out.println("[DEBUG] Delete Template button clicked using JavaScript");
+            } catch (Exception jsEx) {
+                System.out.println("[ERROR] JavaScript click also failed: " + jsEx.getMessage());
+                throw jsEx;
+            }
+        }
     }
 
     public void clickConfirmDeleteBtn() {
-        page.confirmDeleteBtn.click();
+        // AGGRESSIVE popup handling before attempting click
+        core.utils.PopupHandler.aggressivelyRemoveAllPopupsBeforeClick(driver);
+        core.utils.PopupHandler.specificallyRemovePushActionsDiv(driver);
+        
+        // Try normal click first, if it fails, use JavaScript
+        try {
+            page.confirmDeleteBtn.click();
+            System.out.println("[DEBUG] Confirm Delete button clicked normally");
+        } catch (Exception e) {
+            System.out.println("[WARN] Normal click failed, trying JavaScript click: " + e.getMessage());
+            try {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.confirmDeleteBtn);
+                System.out.println("[DEBUG] Confirm Delete button clicked using JavaScript");
+            } catch (Exception jsEx) {
+                System.out.println("[ERROR] JavaScript click also failed: " + jsEx.getMessage());
+                throw jsEx;
+            }
+        }
     }
 
     public void clickYesBtn() {
@@ -330,8 +517,51 @@ public class TemplatesActions1 {
     }
 
     public void selectMediumAndLayout(String medium, String layout) {
+        System.out.println("[DEBUG] Starting selectMediumAndLayout - Medium: " + medium + ", Layout: " + layout);
+        long startTime = System.currentTimeMillis();
+        
         selectRadioBtn(medium);
+        long mediumTime = System.currentTimeMillis();
+        System.out.println("[DEBUG] Medium selection completed in " + (mediumTime - startTime) + "ms");
+        
         selectRadioBtn(layout);
+        long layoutTime = System.currentTimeMillis();
+        System.out.println("[DEBUG] Layout selection completed in " + (layoutTime - mediumTime) + "ms");
+        
+        System.out.println("[DEBUG] Total selectMediumAndLayout time: " + (layoutTime - startTime) + "ms");
+        
+        // AGGRESSIVE popup handling before Create button click
+        System.out.println("[DEBUG] Aggressively handling popups before Create button click");
+        core.utils.PopupHandler.aggressivelyRemoveAllPopupsBeforeClick(driver);
+        core.utils.PopupHandler.specificallyRemovePushActionsDiv(driver);
+        
+        // Immediately click Create button after layout selection
+        System.out.println("[DEBUG] Immediately clicking Create button after layout selection");
+        clickCreateButton();
+    }
+    
+    public void clickCreateButtonImmediately() {
+        System.out.println("[DEBUG] Immediately clicking Create button");
+        
+        // Hide beamerSelector immediately
+        try {
+            ((JavascriptExecutor) driver).executeScript(
+                "var beamer = document.getElementById('beamerSelector'); " +
+                "if (beamer) beamer.style.display = 'none';"
+            );
+        } catch (Exception ignored) {}
+        
+        // Quick popup handling
+        handleAllPopupsImmediately();
+        
+        // Click immediately without waiting
+        try {
+            page.createButton.click();
+            System.out.println("[DEBUG] Create button clicked immediately");
+        } catch (Exception e) {
+            System.out.println("[WARN] Immediate click failed, trying JavaScript: " + e.getMessage());
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", page.createButton);
+        }
     }
 
     public void setWidgetSize(String size) {
@@ -364,8 +594,7 @@ public class TemplatesActions1 {
         String layout = dataMap.get("Layout").getAsString();
         selectMediumAndLayout(medium, layout);
 
-        clickCreateButton();
-        try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+        // Removed unnecessary 1-second delay - form is now ready from clickCreateButton
 
         String templateName = "autoTemplate" + System.currentTimeMillis();
         System.out.println("[DEBUG] Template name to be entered: " + templateName);
@@ -400,8 +629,13 @@ public class TemplatesActions1 {
     }
 
     public void searchTemplateName(String templateName) {
-        searchTemplateByName(templateName);
-        hoverOnTemplateName(templateName);
+        page.searchInput.clear();
+        page.searchInput.sendKeys(templateName);
+        // Wait for the search input value to match (ensures input is stable)
+        new org.openqa.selenium.support.ui.WebDriverWait(driver, 3)
+            .until((ExpectedCondition<Boolean>) d -> page.searchInput.getAttribute("value").equals(templateName));
+        // Optionally, wait for either the template to appear or for a 'no results' state
+        // (If you have a 'no results' element, add a wait here)
     }
 
     public boolean isHorizontalWidgetDisplayed() {
@@ -534,5 +768,61 @@ public class TemplatesActions1 {
 
     public void clickProceedBtn() {
         page.proceedBtn.click();
+    }
+
+    public void handleNoThanksPopupImmediately() {
+        // Use the centralized popup handler like ExpActions for consistency
+        core.utils.PopupHandler.handleAllPopupsImmediately(driver);
+        System.out.println("Handled No Thanks popup using centralized popup handler");
+    }
+    
+    public void clickNoThanksButton() {
+        // Use the centralized popup handler like ExpActions
+        core.utils.PopupHandler.handleAllPopupsImmediately(driver);
+        System.out.println("Clicked No Thanks button using centralized popup handler");
+    }
+    
+    /**
+     * Verify that a template is not present in the current search results.
+     * This method checks the current search results without re-searching.
+     * 
+     * @param templateName The name of the template to verify is not present
+     * @return true if template is not found, false if template is still present
+     */
+    public boolean isTemplateNotPresentInListing(String templateName) {
+        try {
+            System.out.println("[DEBUG] Verifying template '" + templateName + "' is not present in current search results");
+            org.openqa.selenium.By templateLocator = org.openqa.selenium.By.xpath(
+                "//div[contains(@class,'template-item') or contains(@class,'template-card')]//span[contains(text(),'" + templateName + "')]"
+            );
+            // Wait up to 3 seconds for the template to disappear
+            boolean notPresent = new org.openqa.selenium.support.ui.WebDriverWait(driver, 3, 100)
+                .until((ExpectedCondition<Boolean>) d -> d.findElements(templateLocator).isEmpty());
+            if (notPresent) {
+                System.out.println("[DEBUG] Template '" + templateName + "' is NOT present in listing - verification successful");
+                return true;
+            } else {
+                System.out.println("[WARN] Template '" + templateName + "' is still present in listing - verification failed");
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("[ERROR] Error verifying template absence: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Quick verification method to ensure template is completely deleted from listing.
+     * This method verifies deletion and throws exception if template still exists.
+     * 
+     * @param templateName The name of the template to verify deletion
+     * @throws RuntimeException if template is still present in listing
+     */
+    public void verifyTemplateDeletionComplete(String templateName) {
+        boolean templateNotPresent = isTemplateNotPresentInListing(templateName);
+        if (!templateNotPresent) {
+            throw new RuntimeException("Template '" + templateName + "' is still present in listing after deletion");
+        }
+        System.out.println("[DEBUG] Template deletion verification completed successfully");
     }
 } 

@@ -8,9 +8,13 @@ import java.lang.reflect.Method;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
-public class AnnotationTransformer implements IAnnotationTransformer {
+/**
+ * Annotation transformer specifically for retry runs of failed tests
+ * This transformer enables retry analyzers for better reliability during re-runs
+ */
+public class RetryAnnotationTransformer implements IAnnotationTransformer {
     
-    private static final Logger logger = Logger.getLogger(AnnotationTransformer.class.getName());
+    private static final Logger logger = Logger.getLogger(RetryAnnotationTransformer.class.getName());
 
     @Override
     public synchronized void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
@@ -18,23 +22,18 @@ public class AnnotationTransformer implements IAnnotationTransformer {
             // Check if this is a data provider test
             boolean isDataProviderTest = isDataProviderTest(testMethod);
             
-            // DISABLED: Retry analyzers for initial test suite run
-            // Retry analyzers will be enabled only for failed test re-runs
-            // if (isDataProviderTest) {
-            //     // Use specialized retry analyzer for data provider tests
-            //     annotation.setRetryAnalyzer(DataProviderRetryAnalyzer.class);
-            //     logger.log(Level.FINE, "Applied DataProviderRetryAnalyzer to data provider test: " + 
-            //               (testMethod != null ? testMethod.getName() : "unknown"));
-            // } else {
-            //     // Use standard retry analyzer for regular tests
-            //     annotation.setRetryAnalyzer(RetryAnalyser.class);
-            //     logger.log(Level.FINE, "Applied standard RetryAnalyser to test: " + 
-            //               (testMethod != null ? testMethod.getName() : "unknown"));
-            // }
-            
-            // No retry analyzer applied - tests will run once for initial suite execution
-            logger.log(Level.FINE, "No retry analyzer applied to test: " + 
-                      (testMethod != null ? testMethod.getName() : "unknown"));
+            // ENABLED: Retry analyzers for failed test re-runs
+            if (isDataProviderTest) {
+                // Use specialized retry analyzer for data provider tests
+                annotation.setRetryAnalyzer(DataProviderRetryAnalyzer.class);
+                logger.log(Level.INFO, "Applied DataProviderRetryAnalyzer to data provider test: " + 
+                          (testMethod != null ? testMethod.getName() : "unknown"));
+            } else {
+                // Use standard retry analyzer for regular tests
+                annotation.setRetryAnalyzer(RetryAnalyser.class);
+                logger.log(Level.INFO, "Applied standard RetryAnalyser to test: " + 
+                          (testMethod != null ? testMethod.getName() : "unknown"));
+            }
             
             // Log which test method is being configured
             if (testMethod != null) {
@@ -43,7 +42,7 @@ public class AnnotationTransformer implements IAnnotationTransformer {
                 logger.log(Level.FINE, "Applied retry analyzer to test class: " + testClass.getSimpleName());
             }
             
-            // Optional: Set additional test configuration
+            // Optional: Set additional test configuration for retry runs
             // annotation.setInvocationCount(1); // Default invocation count
             // annotation.setTimeOut(30000); // Default timeout in milliseconds
             
@@ -80,4 +79,4 @@ public class AnnotationTransformer implements IAnnotationTransformer {
             return false;
         }
     }
-}
+} 

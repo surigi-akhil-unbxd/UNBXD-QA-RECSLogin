@@ -14,6 +14,9 @@ import core.consoleui.actions.ExpActions;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
 
 public class MHinstagramLikeBehaaviorTemplateTest extends BaseTest {
 
@@ -45,7 +48,7 @@ public class MHinstagramLikeBehaaviorTemplateTest extends BaseTest {
     @Test(dataProvider = "getTestDataFromFile", dataProviderClass = ResourceLoader.class)
     @FileToTest("recsTestData/MHinstagramLikeBehaaviorTemplateTestData.json")
     public void testTemplatesPageElementsInteraction(JsonObject dataMap) {
-        expActions.handleAllPopups();
+        // Popups are now handled automatically during navigation
         templatesActions.navigateToTemplatesPage();
         templatesActions.openTemplateCreation();
 
@@ -59,41 +62,59 @@ public class MHinstagramLikeBehaaviorTemplateTest extends BaseTest {
         
         templatesActions.applyTemplateButton();
         templatesActions.isTemplateUpdatedSuccessfully();
-        templatesActions.searchTemplateName(dataMap.get("TemplateName").getAsString());
-        templatesActions.clickEditTemplateBtn();
-        templatesActions.clickYesBtn();
-        // Wait for 1 second to ensure the UI is ready after clicking Yes
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        templatesActions.clickApplyTemplateBtn();
-        templatesActions.clickProceedTemplateBtn();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        templatesActions.searchTemplateByName(dataMap.get("TemplateName").getAsString());
-        templatesActions.hoverOnTemplateName(dataMap.get("TemplateName").getAsString());
-        templatesActions.clickDeleteTemplateBtn();
-        templatesActions.clickConfirmDeleteBtn();
-        templatesActions.isTemplateDeletedSuccessfully();
-        templatesActions.clearSearchInput();
+        
+        // Wait for 1 second after template update
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        
+        // Get the template name for verification
+        String templateName = dataMap.get("TemplateName").getAsString();
+        templatesActions.searchTemplateName(templateName);
+        
+        templatesActions.clickEditTemplateBtn();
+        // Wait for 1 second after clicking Edit Template
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        templatesActions.clickYesBtn();
+        // OPTIMIZATION: Reduced wait time from 10000ms to 1000ms
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        templatesActions.clickApplyTemplateBtn();
+        templatesActions.clickProceedTemplateBtn();
+        // OPTIMIZATION: Reduced wait time from 5000ms to 1000ms
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        templatesActions.searchTemplateByName(templateName);
+        templatesActions.hoverOnTemplateName(templateName);
+        templatesActions.clickDeleteTemplateBtn();
+        templatesActions.clickConfirmDeleteBtn();
+        templatesActions.isTemplateDeletedSuccessfully();
+        
+        // Verify template deletion completely
+        templatesActions.verifyTemplateDeletionComplete(templateName);
     }
 
-    // @AfterClass
-    // public void tearDown() {
-    //     if (driver != null) {
-    //         driver.close();
-    //         driver.quit();
-    //     }
-    //     lib.Helper.tearDown();
-    // }
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.close();
+            driver.quit();
+        }
+        lib.Helper.tearDown();
+    }
 } 

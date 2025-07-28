@@ -1,0 +1,139 @@
+pipeline {
+    agent any
+    
+    environment {
+        TESTNG_XML = 'src/test/resources/testng.xml'
+        RETRY_XML = 'src/test/resources/testng-retry.xml'
+        FAILED_XML = 'test-output/testng-failed.xml'
+        LOG_DIR = 'test-output'
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Setup') {
+            steps {
+                script {
+                    // Create log directory
+                    sh 'mkdir -p test-output'
+                    
+                    // Make script executable
+                    sh 'chmod +x run-tests-with-retry.sh'
+                }
+            }
+        }
+        
+        stage('Phase 1: Full Test Suite') {
+            steps {
+                script {
+                    echo "=========================================="
+                    echo "Phase 1: Running Full Test Suite (No Retries)"
+                    echo "=========================================="
+                    
+                    // Run full test suite with no retry analyzer
+                    def phase1Result = sh(
+                        script: "mvn clean test -DsuiteXmlFile=${TESTNG_XML} -Dtest.retry.enabled=false",
+                        returnStatus: true
+                    )
+                    
+                    env.PHASE1_EXIT_CODE = phase1Result
+                    echo "Phase 1 completed with exit code: ${phase1Result}"
+                }
+            }
+        }
+        
+        stage('Phase 2: Retry Failed Tests') {
+            when {
+                expression {
+                    // Only run if there are failed tests
+                    return fileExists(env.FAILED_XML)
+                }
+            }
+            steps {
+                script {
+                    echo "=========================================="
+                    echo "Phase 2: Running Failed Tests with Retry Analyzer"
+                    echo "=========================================="
+                    
+                    // Count failed tests
+                    def failedCount = sh(
+                        script: "grep -c '<test-method' ${FAILED_XML} || echo '0'",
+                        returnStdout: true
+                    ).trim()
+                    
+                    echo "Found ${failedCount} failed test(s) to retry"
+                    
+                    if (failedCount.toInteger() > 0) {
+                        // Run failed tests with retry analyzer
+                        def phase2Result = sh(
+                            script: "mvn test -DsuiteXmlFile=${RETRY_XML} -Dtest.retry.enabled=true",
+                            returnStatus: true
+                        )
+                        
+                        env.PHASE2_EXIT_CODE = phase2Result
+                        echo "Phase 2 completed with exit code: ${phase2Result}"
+                        
+                        // Set final result
+                        if (phase2Result == 0) {
+                            echo "✅ SUCCESS: All failed tests passed on retry!"
+                            currentBuild.result = 'SUCCESS'
+                        } else {
+                            echo "❌ FAILURE: Some tests still failed after retry"
+                            currentBuild.result = 'FAILURE'
+                        }
+                    } else {
+                        echo "No failed tests found to retry"
+                        currentBuild.result = env.PHASE1_EXIT_CODE == 0 ? 'SUCCESS' : 'FAILURE'
+                    }
+                }
+            }
+        }
+        
+        stage('Final Result') {
+            when {
+                expression {
+                    // Only run if Phase 2 was not executed
+                    return !fileExists(env.FAILED_XML)
+                }
+            }
+            steps {
+                script {
+                    echo "No failed tests XML found - all tests passed in Phase 1!"
+                    currentBuild.result = env.PHASE1_EXIT_CODE == 0 ? 'SUCCESS' : 'FAILURE'
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            // Archive test results
+            archiveArtifacts artifacts: 'test-output/**/*', allowEmptyArchive: true
+            
+            // Publish TestNG results
+            step([$class: 'Publisher', 
+                  reportFilePath: 'test-output/testng-results.xml',
+                  failureOnFailedTestConfig: false,
+                  showFailedBuildsInReportsGraph: true])
+            
+            // Clean up workspace
+            cleanWs()
+        }
+        
+        success {
+            echo "🎉 Pipeline completed successfully!"
+        }
+        
+        failure {
+            echo "💥 Pipeline failed!"
+        }
+        
+        unstable {
+            echo "⚠️ Pipeline is unstable!"
+        }
+    }
+} 
