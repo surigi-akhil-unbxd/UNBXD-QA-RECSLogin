@@ -400,9 +400,222 @@ public class TemplatesActions1 {
     }
 
     public void searchTemplateByName(String name) {
-        // OPTIMIZATION: Simple search without unnecessary popup handling
-        page.searchInput.clear();
-        page.searchInput.sendKeys(name);
+        // ENHANCED: Try multiple locators with better wait strategies
+        WebElement searchInputElement = findSearchInputWithFallback();
+        if (searchInputElement != null) {
+            // Clear and enter text with proper waits
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.elementToBeClickable(searchInputElement));
+            
+            // Clear using multiple strategies
+            try {
+                searchInputElement.clear();
+            } catch (Exception e) {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", searchInputElement);
+            }
+            
+            // Enter text with wait for input to be stable
+            searchInputElement.sendKeys(name);
+            wait.until((ExpectedCondition<Boolean>) d -> 
+                searchInputElement.getAttribute("value").equals(name));
+        } else {
+            throw new RuntimeException("Could not find template search input with any available locator");
+        }
+    }
+    
+    /**
+     * Enhanced method to find search input with multiple fallback locators
+     */
+    private WebElement findSearchInputWithFallback() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        
+        // Try primary locator first
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.searchInput));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Primary search input locator failed, trying alternatives...");
+        }
+        
+        // Try alternative locators
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.searchInputAlternative1));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Alternative 1 search input locator failed");
+        }
+        
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.searchInputAlternative2));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Alternative 2 search input locator failed");
+        }
+        
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.searchInputAlternative3));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Alternative 3 search input locator failed");
+        }
+        
+        // Try dynamic search with common patterns
+        String[] dynamicSelectors = {
+            "input[placeholder*='template']",
+            "input[placeholder*='search']",
+            ".search input",
+            ".search-container input",
+            "input[type='text'][placeholder*='template']"
+        };
+        
+        for (String selector : dynamicSelectors) {
+            try {
+                WebElement element = driver.findElement(By.cssSelector(selector));
+                if (element.isDisplayed() && element.isEnabled()) {
+                    System.out.println("[DEBUG] Found search input with dynamic selector: " + selector);
+                    return element;
+                }
+            } catch (Exception ignored) {}
+        }
+        
+        return null;
+    }
+    
+    /**
+     * Enhanced method to find template name input with fallback locators
+     */
+    private WebElement findTemplateNameInputWithFallback() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        
+        // Try primary locator first
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.templateNameInput));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Primary template name input locator failed, trying alternatives...");
+        }
+        
+        // Try alternative locators
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.templateNameInputAlternative1));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Alternative 1 template name input locator failed");
+        }
+        
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.templateNameInputAlternative2));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Alternative 2 template name input locator failed");
+        }
+        
+        return null;
+    }
+    
+    /**
+     * Enhanced method to find edit icon with fallback locators
+     */
+    private WebElement findEditIconWithFallback() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        
+        // Try primary locator first
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.editIcon));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Primary edit icon locator failed, trying alternatives...");
+        }
+        
+        // Try alternative locators
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.editIconAlternative1));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Alternative 1 edit icon locator failed");
+        }
+        
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.editIconAlternative2));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Alternative 2 edit icon locator failed");
+        }
+        
+        return null;
+    }
+    
+    /**
+     * Enhanced method to find numeric input with fallback locators
+     */
+    private WebElement findNumericInputWithFallback() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        
+        // Try primary locator first
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.numericInput));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Primary numeric input locator failed, trying alternatives...");
+        }
+        
+        // Try alternative locators
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.numericInputAlternative1));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Alternative 1 numeric input locator failed");
+        }
+        
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(page.numericInputAlternative2));
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Alternative 2 numeric input locator failed");
+        }
+        
+        return null;
+    }
+    
+    /**
+     * Enhanced wait for template options to load
+     */
+    public void waitForTemplateOptionsToLoad() {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        
+        // Wait for any loading indicators to disappear first
+        try {
+            wait.until(ExpectedConditions.invisibilityOfAllElements(page.loadingIndicators));
+        } catch (Exception ignored) {}
+        
+        // Wait for template options to appear
+        try {
+            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                By.cssSelector("ul.optionContainer li.option, .dropdown-menu li, .option-list li")
+            ));
+        } catch (Exception e) {
+            System.out.println("[WARN] Template options did not load within timeout");
+        }
+    }
+    
+    /**
+     * Enhanced method to wait for element to be stable (not changing)
+     */
+    public void waitForElementStability(WebElement element, int timeoutSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, timeoutSeconds);
+        String initialValue = element.getAttribute("value");
+        
+        try {
+            wait.until((ExpectedCondition<Boolean>) d -> {
+                String currentValue = element.getAttribute("value");
+                return currentValue.equals(initialValue);
+            });
+        } catch (Exception e) {
+            System.out.println("[WARN] Element stability wait timed out");
+        }
+    }
+    
+    /**
+     * Enhanced method to handle stale element reference
+     */
+    public WebElement handleStaleElement(WebElement element, By locator) {
+        try {
+            // Try to interact with the element
+            element.isDisplayed();
+            return element;
+        } catch (Exception e) {
+            // Element is stale, re-find it
+            System.out.println("[DEBUG] Element is stale, re-finding...");
+            WebDriverWait wait = new WebDriverWait(driver, 5);
+            return wait.until(ExpectedConditions.elementToBeClickable(locator));
+        }
     }
 
     public boolean isTemplateUpdatedSuccessfully() {

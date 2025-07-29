@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: UnbxdTests.testNG.login.LoginTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.274 s - in UnbxdTests.testNG.login.LoginTest

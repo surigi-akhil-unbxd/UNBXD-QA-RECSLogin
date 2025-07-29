@@ -17,9 +17,19 @@ public class TemplatesPage {
     @FindBy(css = "div.unbxd-minize-button.open")
     public WebElement minimizeThisBtn;
 
-    // Search input (search by template name)
+    // Search input (search by template name) - PRIMARY LOCATOR
     @FindBy(css = ".search-input-container input[type='text'][placeholder='Search by template name']")
     public WebElement searchInput;
+    
+    // ALTERNATIVE LOCATORS for template search input (in case UI changes)
+    @FindBy(css = "input[placeholder*='template'][placeholder*='search'], input[placeholder*='Search'][placeholder*='template']")
+    public WebElement searchInputAlternative1;
+    
+    @FindBy(css = ".search-input input, .search-container input, input[type='text'][placeholder*='template']")
+    public WebElement searchInputAlternative2;
+    
+    @FindBy(xpath = "//input[@placeholder='Search by template name' or contains(@placeholder, 'template') or contains(@placeholder, 'search')]")
+    public WebElement searchInputAlternative3;
 
     // Create Template button
     @FindBy(css = "button.unbxd-template-create")
@@ -57,9 +67,16 @@ public class TemplatesPage {
     @FindBy(css = ".unbxd-side-drawer-footer button[type='button']")
     public WebElement createButton;
 
-    // Template Name Input (top bar)
+    // Template Name Input (top bar) - PRIMARY LOCATOR
     @FindBy(css = ".name-modifier-container .modifier input[type='text']")
     public WebElement templateNameInput;
+    
+    // ALTERNATIVE LOCATORS for template name input
+    @FindBy(css = "input[placeholder*='template'][placeholder*='name'], input[placeholder*='Enter template name']")
+    public WebElement templateNameInputAlternative1;
+    
+    @FindBy(xpath = "//input[@placeholder='Enter template name' or contains(@placeholder, 'template name')]")
+    public WebElement templateNameInputAlternative2;
 
     // Back Button (top bar)
     @FindBy(css = ".unbxd-back-btn img[alt='']")
@@ -116,6 +133,36 @@ public class TemplatesPage {
     // Unit Dropdown
     @FindBy(xpath = "//div[@class='in-row mb-4']//button[@id='dropdown-basic']")
     public WebElement unitDropdown;
+
+    // Edit Icon - PRIMARY LOCATOR
+    @FindBy(css = ".list-crud-items .icon-edit")
+    public WebElement editIcon;
+    
+    // ALTERNATIVE LOCATORS for edit icon
+    @FindBy(css = ".icon-edit, .edit-icon, [class*='edit'], button[title*='Edit'], button[aria-label*='Edit']")
+    public WebElement editIconAlternative1;
+    
+    @FindBy(xpath = "//i[contains(@class,'edit') or contains(@class,'icon-edit')] | //button[contains(@title,'Edit') or contains(@aria-label,'Edit')]")
+    public WebElement editIconAlternative2;
+
+    // Numeric Input - PRIMARY LOCATOR
+    @FindBy(css = "input[type='number'].form-control.form-control-small")
+    public WebElement numericInput;
+    
+    // ALTERNATIVE LOCATORS for numeric input
+    @FindBy(css = "input[type='number'], input[placeholder*='number'], input[placeholder*='count']")
+    public WebElement numericInputAlternative1;
+    
+    @FindBy(xpath = "//input[@type='number' or contains(@placeholder,'number') or contains(@placeholder,'count')]")
+    public WebElement numericInputAlternative2;
+
+    // Template Options Container - for waiting for dropdown options
+    @FindBy(css = "ul.optionContainer li.option, .dropdown-menu li, .option-list li")
+    public List<WebElement> templateOptions;
+
+    // Loading indicators
+    @FindBy(css = ".loading, .spinner, .loader, [class*='loading'], [class*='spinner']")
+    public List<WebElement> loadingIndicators;
 
   
 

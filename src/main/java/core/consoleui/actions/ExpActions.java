@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Keys;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class ExpActions {
     private WebDriver driver;
@@ -132,26 +133,209 @@ public class ExpActions {
 
     public void selectTemplateByName(String templateName) {
         WebDriverWait wait = new WebDriverWait(driver, 15);
+        
+        // Wait for template search input to be clickable
         wait.until(ExpectedConditions.elementToBeClickable(page.templateSearchInput));
         page.templateSearchInput.click();
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
-            By.cssSelector("ul.optionContainer li.option")
-        ));
-        List<WebElement> allOptions = driver.findElements(By.cssSelector("ul.optionContainer li.option"));
+        
+        // Enhanced wait for template options with multiple strategies
+        waitForTemplateOptionsToLoad();
+        
+        // Try multiple selectors for template options
+        List<WebElement> allOptions = findTemplateOptionsWithFallback();
+        
+        if (allOptions.isEmpty()) {
+            throw new RuntimeException("No template options found after waiting");
+        }
+        
+        // Find and click the matching template
+        boolean templateFound = false;
         for (WebElement opt : allOptions) {
-            if (opt.getText().replaceAll("\\s+", " ").trim().equalsIgnoreCase(templateName.replaceAll("\\s+", " ").trim())) {
-                opt.click();
-                return;
+            try {
+                String optionText = opt.getText().replaceAll("\\s+", " ").trim();
+                String targetText = templateName.replaceAll("\\s+", " ").trim();
+                
+                if (optionText.equalsIgnoreCase(targetText)) {
+                    // Handle stale element reference
+                    opt = handleStaleElement(opt, By.cssSelector("ul.optionContainer li.option, .dropdown-menu li, .option-list li"));
+                    opt.click();
+                    templateFound = true;
+                    System.out.println("[DEBUG] Selected template: " + templateName);
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("[WARN] Error processing template option: " + e.getMessage());
+                continue;
             }
+        }
+        
+        if (!templateFound) {
+            throw new RuntimeException("Template '" + templateName + "' not found in available options");
+        }
+    }
+    
+    /**
+     * Enhanced method to find template options with fallback selectors
+     */
+    private List<WebElement> findTemplateOptionsWithFallback() {
+        String[] selectors = {
+            "ul.optionContainer li.option",
+            ".dropdown-menu li",
+            ".option-list li",
+            "[class*='option'] li",
+            "[class*='dropdown'] li"
+        };
+        
+        for (String selector : selectors) {
+            try {
+                List<WebElement> options = driver.findElements(By.cssSelector(selector));
+                if (!options.isEmpty()) {
+                    System.out.println("[DEBUG] Found template options using selector: " + selector);
+                    return options;
+                }
+            } catch (Exception ignored) {}
+        }
+        
+        return new ArrayList<>();
+    }
+    
+    /**
+     * Enhanced wait for template options to load
+     */
+    private void waitForTemplateOptionsToLoad() {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        
+        // Wait for any loading indicators to disappear first
+        try {
+            List<WebElement> loadingElements = driver.findElements(By.cssSelector(".loading, .spinner, .loader, [class*='loading'], [class*='spinner']"));
+            if (!loadingElements.isEmpty()) {
+                wait.until(ExpectedConditions.invisibilityOfAllElements(loadingElements));
+            }
+        } catch (Exception ignored) {}
+        
+        // Wait for template options to appear with multiple selectors
+        boolean optionsLoaded = false;
+        String[] selectors = {
+            "ul.optionContainer li.option",
+            ".dropdown-menu li",
+            ".option-list li"
+        };
+        
+        for (String selector : selectors) {
+            try {
+                wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(selector)));
+                optionsLoaded = true;
+                System.out.println("[DEBUG] Template options loaded using selector: " + selector);
+                break;
+            } catch (Exception ignored) {}
+        }
+        
+        if (!optionsLoaded) {
+            System.out.println("[WARN] Template options did not load within timeout");
         }
     }
 
     public void selectCustomAlgo(String customAlgo) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        
+        // Wait for algorithm dropdown to be clickable
+        wait.until(ExpectedConditions.elementToBeClickable(page.algoDropdown));
         page.algoDropdown.click();
-        String xpath = "//span[normalize-space()='" + customAlgo.trim() + "']";
-        By optionLocator = By.xpath(xpath);
-        WebElement option = driver.findElement(optionLocator);
-        option.click();
+        
+        // Wait for dropdown options to appear
+        waitForAlgorithmOptionsToLoad();
+        
+        // Try multiple strategies to find and select the algorithm
+        boolean algorithmFound = false;
+        
+        // Strategy 1: Primary XPath locator
+        try {
+            String xpath = "//span[normalize-space()='" + customAlgo.trim() + "']";
+            By optionLocator = By.xpath(xpath);
+            WebElement option = wait.until(ExpectedConditions.elementToBeClickable(optionLocator));
+            option.click();
+            algorithmFound = true;
+            System.out.println("[DEBUG] Selected algorithm using primary XPath: " + customAlgo);
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Primary XPath strategy failed for algorithm: " + customAlgo);
+        }
+        
+        // Strategy 2: Alternative XPath with contains
+        if (!algorithmFound) {
+            try {
+                String xpath = "//span[contains(text(), '" + customAlgo.trim() + "')]";
+                By optionLocator = By.xpath(xpath);
+                WebElement option = wait.until(ExpectedConditions.elementToBeClickable(optionLocator));
+                option.click();
+                algorithmFound = true;
+                System.out.println("[DEBUG] Selected algorithm using contains XPath: " + customAlgo);
+            } catch (Exception e) {
+                System.out.println("[DEBUG] Contains XPath strategy failed for algorithm: " + customAlgo);
+            }
+        }
+        
+        // Strategy 3: Find all options and match text
+        if (!algorithmFound) {
+            try {
+                List<WebElement> allOptions = driver.findElements(By.cssSelector(".dropdown-menu li, .option-list li, [class*='dropdown'] li"));
+                for (WebElement opt : allOptions) {
+                    String optionText = opt.getText().trim();
+                    if (optionText.equalsIgnoreCase(customAlgo.trim())) {
+                        opt = handleStaleElement(opt, By.cssSelector(".dropdown-menu li, .option-list li, [class*='dropdown'] li"));
+                        opt.click();
+                        algorithmFound = true;
+                        System.out.println("[DEBUG] Selected algorithm using text matching: " + customAlgo);
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("[DEBUG] Text matching strategy failed for algorithm: " + customAlgo);
+            }
+        }
+        
+        if (!algorithmFound) {
+            throw new RuntimeException("Custom algorithm '" + customAlgo + "' not found in available options");
+        }
+    }
+    
+    /**
+     * Enhanced wait for algorithm options to load
+     */
+    private void waitForAlgorithmOptionsToLoad() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        
+        // Wait for any loading indicators to disappear first
+        try {
+            List<WebElement> loadingElements = driver.findElements(By.cssSelector(".loading, .spinner, .loader, [class*='loading'], [class*='spinner']"));
+            if (!loadingElements.isEmpty()) {
+                wait.until(ExpectedConditions.invisibilityOfAllElements(loadingElements));
+            }
+        } catch (Exception ignored) {}
+        
+        // Wait for dropdown options to appear
+        try {
+            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                By.cssSelector(".dropdown-menu li, .option-list li, [class*='dropdown'] li")
+            ));
+        } catch (Exception e) {
+            System.out.println("[WARN] Algorithm options did not load within timeout");
+        }
+    }
+    
+    /**
+     * Enhanced method to handle stale element reference
+     */
+    private WebElement handleStaleElement(WebElement element, By locator) {
+        try {
+            // Try to interact with the element
+            element.isDisplayed();
+            return element;
+        } catch (Exception e) {
+            // Element is stale, re-find it
+            System.out.println("[DEBUG] Element is stale, re-finding...");
+            WebDriverWait wait = new WebDriverWait(driver, 5);
+            return wait.until(ExpectedConditions.elementToBeClickable(locator));
+        }
     }
 
     public void clickSaveButton() {

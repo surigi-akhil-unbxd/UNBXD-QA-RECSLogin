@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Retry Failed Tests Suite" parallel="methods" thread-count="2">
+    
+    <!-- Retry Annotation Transformer for failed test re-runs -->
+    <listener class-name="core.RetryAnnotationTransformer"/>
+    <listener class-name="core.reporting.ExtentTestNGITestListener"/>
+    
+    <!-- Test suite for retry runs -->
+    <test name="Retry Failed Tests" preserve-order="false">
+        <classes>
+            <!-- Include all test classes - TestNG will automatically run only failed tests -->
+            <class name="UnbxdTests.testNG.consoleui.DVBoutiqueTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.DHBoutiqueTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.DHexitIntentTemplatetest"/>
+            <class name="UnbxdTests.testNG.consoleui.DHstandardWidgettemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.DVexitIntentTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MHboutiqueTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MHinstagramLikeBehaaviorTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MHstandardWidgettemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MHtinderLikeBehaviorTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MVboutiqueTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MVinstagramLikeBehaviorTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MVstandardWidgetTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.MVtinderLikeBehaviorTemplateTest"/>
+            <class name="UnbxdTests.testNG.consoleui.topsellersCustomAlgoTest"/>
+            <class name="UnbxdTests.testNG.consoleui.ExpTest"/>
+            <!-- Add other test classes as needed -->
+        </classes>
+    </test>
+    
+</suite> 
