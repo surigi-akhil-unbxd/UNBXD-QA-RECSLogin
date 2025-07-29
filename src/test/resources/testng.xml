@@ -13,7 +13,7 @@
     </test>
 
     <!-- All other tests: run in parallel by class -->
-    <test name="ParallelTests" parallel="classes" thread-count="15">
+    <test name="ParallelTests" parallel="classes" thread-count="8">
         <classes>
             <class name="UnbxdTests.testNG.consoleui.CoreAlgorithmsTest"/>
             <class name="UnbxdTests.testNG.consoleui.CustomAlgorithmsTest"/>
