@@ -53,23 +53,22 @@ public class BoutiqueExperienceTest extends BaseTest {
         expActions.selectTemplateByName(dataMap.get("mobileTemplate").getAsString());
         expActions.selectCustomAlgo(dataMap.get("customAlgo").getAsString());
         expActions.clickSaveButton();
-
-        // Wait for the experience to appear in the list (robust wait, no sleep)
-        expActions.waitForAndClickExperienceInList(experienceName);
+        Thread.sleep(1000);
 
         // Optionally, edit experience if EditWidgetType is present
         String editWidgetType = dataMap.get("EditWidgetType").getAsString();
         if (editWidgetType != null && !editWidgetType.trim().isEmpty()) {
-            expActions.handleAllPopups();
+            expActions.waitForAndClickExperienceInList(experienceName);
+            Thread.sleep(1000);
             expActions.clickEditExpButton();
             expActions.selectWidgetByName(editWidgetType);
             expActions.clickSaveButton();
-            // Wait for the experience to reappear in the list after edit
-            expActions.waitForAndClickExperienceInList(experienceName);
+            Thread.sleep(1000);
         }
 
-        // Delete experience (robust, no sleep)
-        expActions.handleAllPopups();
+        // Delete experience
+        expActions.waitForAndClickExperienceInList(experienceName);
+        Thread.sleep(1000);
         expActions.clickDeleteExperienceButton();
         expActions.clickConfirmDeleteButton();
         // Optionally, wait for the experience to disappear from the list

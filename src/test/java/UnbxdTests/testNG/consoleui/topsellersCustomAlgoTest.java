@@ -49,7 +49,7 @@ public class topsellersCustomAlgoTest extends BaseTest {
     @Test(dataProvider = "getTestDataFromFile", dataProviderClass = ResourceLoader.class)
     @FileToTest("recsTestData/topsellersCustomAlgoTestData.json")
     public void testCustomAlgorithm(JsonObject dataMap) {
-        expActions.handleAllPopups();
+        // Popups are now handled automatically during navigation
         customAlgorithmsActions.navigateToCustomAlgorithmsPage();
         customAlgorithmsActions.clickMinimizeTitle();
         customAlgorithmsActions.clickCreateNewButton();
@@ -94,14 +94,12 @@ public class topsellersCustomAlgoTest extends BaseTest {
         System.out.println("[DEBUG] testCustomAlgorithm completed for algoName: " + algoName);
     }
 
-    // Add more test methods as needed
-
-    // @AfterClass
-    // public void tearDown() {
-    //     if (driver != null) {
-    //         driver.close();
-    //         driver.quit();
-    //     }
-    //     lib.Helper.tearDown();
-    // }
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.close();
+            driver.quit();
+        }
+        lib.Helper.tearDown();
+    }
 } 
